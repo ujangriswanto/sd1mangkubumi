@@ -18,8 +18,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
-use Swis\Filament\Backgrounds\ImageProviders\MyImages;
+use Filament\PluginServiceProvider;
+use Illuminate\Support\ServiceProvider;
+
+
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -27,17 +29,10 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->default()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => Color::Amber,
             ])
-            ->plugins([
-    FilamentBackgroundsPlugin::make()
-        ->imageProvider(
-            MyImages::make()
-                ->directory('assets/img/bg')
-        ),
-])
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
@@ -46,9 +41,8 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
             ->widgets([
                 AccountWidget::class,
-                // FilamentInfoWidget::class,
+                FilamentInfoWidget::class,
             ])
-            
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
