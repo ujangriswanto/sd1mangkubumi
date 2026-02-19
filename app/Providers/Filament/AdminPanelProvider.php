@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->default()
             ->login()
+            ->brandName('SDN 1 Mangkubumi')
             ->colors([
                 'primary' => Color::Amber,
             ])
