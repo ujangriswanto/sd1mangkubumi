@@ -11,3 +11,6 @@ Route::get('/', function () {
 
     return view('index');
 });
+
+Route::get('/berita', [NewsController::class, 'index']);
+Route::get('/berita/{slug}', [NewsController::class, 'show']);
