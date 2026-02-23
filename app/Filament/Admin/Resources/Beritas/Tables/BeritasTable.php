@@ -10,6 +10,8 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 
 class BeritasTable
 {
@@ -45,6 +47,19 @@ class BeritasTable
                     ->label('Publish')
                     ->boolean()
                     ->sortable(),
+                 TextColumn::make('kategori')
+                ->badge()
+                ->label('Kategori')
+                ->color(fn ($state) => match ($state) {
+                    'berita' => 'info',
+                    'kegiatan' => 'success',
+                    'lomba' => 'warning',
+                    'olahraga' => 'danger',
+                    'ekstrakulikuler' => 'primary',
+                    default => 'gray'
+                })
+                ->sortable(),
+                
 
                 TextColumn::make('published_at')
                     ->label('Tanggal')

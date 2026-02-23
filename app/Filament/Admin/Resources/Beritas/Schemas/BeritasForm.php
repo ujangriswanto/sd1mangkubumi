@@ -10,6 +10,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Illuminate\Support\Str;
+use Filament\Forms\Components\Select;
 
 class BeritasForm
 {
@@ -54,6 +55,19 @@ class BeritasForm
                             ->label('Isi Berita')
                             ->required()
                             ->columnSpanFull(),
+                        Select::make('kategori')
+                            ->label('Kategori')
+                            ->options([
+                            'ekstrakulikuler' => 'Ekstrakulikuler',
+                            'kegiatan' => 'Kegiatan',
+                            'berita' => 'Berita',
+                            'olahraga' => 'Olahraga',
+                            'lomba' => 'Lomba',
+                            ])
+                            ->searchable()
+                             ->required()
+
+                        
                     ])
                     ->columns(2),
 
