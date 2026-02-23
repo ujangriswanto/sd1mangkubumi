@@ -47,7 +47,7 @@ class BeritasTable
                     ->label('Publish')
                     ->boolean()
                     ->sortable(),
-                 TextColumn::make('kategori')
+                 TextColumn::make('category')
                 ->badge()
                 ->label('Kategori')
                 ->color(fn ($state) => match ($state) {
