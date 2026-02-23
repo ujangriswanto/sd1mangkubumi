@@ -55,7 +55,7 @@ class BeritasForm
                             ->label('Isi Berita')
                             ->required()
                             ->columnSpanFull(),
-                        Select::make('kategori')
+                        Select::make('category')
                             ->label('Kategori')
                             ->options([
                             'ekstrakulikuler' => 'Ekstrakulikuler',
