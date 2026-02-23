@@ -67,9 +67,9 @@ class ProfilSekolah extends Page
                         FileUpload::make('headmaster_photo')
                             ->label('Foto Kepala Sekolah')
                             ->image()
-                            ->directory('school')
+                            ->directory('school/headmaster')
                             ->imageEditor()
-                            ->imageResizeMode('cover')
+                            ->imageResizeMode('crop')
                             ->imageCropAspectRatio('1:1')
                             ->maxSize(2048),
                     ])
