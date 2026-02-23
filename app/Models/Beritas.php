@@ -11,6 +11,7 @@ class Beritas extends Model
         'slug',
         'thumbnail',
         'content',
+        'category',
         'published_at',
         'is_published',
     ];
