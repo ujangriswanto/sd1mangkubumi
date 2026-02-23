@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateBeritas extends CreateRecord
 {
     protected static string $resource = BeritasResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

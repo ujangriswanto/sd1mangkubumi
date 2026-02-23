@@ -12,4 +12,11 @@ class VisiMisiController extends Controller
         $data = ProfilSekolah::first();
         return view('VisiMisi.VisiMisi', compact('data'));
     }
+
+    // METHOD HALAMAN SEJARAH
+    public function sejarah()
+    {
+        $data = ProfilSekolah::first();
+        return view('Sejarah.sejarah', compact('data'));
+    }
 }

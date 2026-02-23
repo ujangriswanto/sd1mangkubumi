@@ -109,7 +109,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link">Beranda</a>
+                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
                             <a href="/visi-misi" class="nav-link">Visi & Misi</a>
