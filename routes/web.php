@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Beritas;
+use App\Http\Controllers\BeritasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,5 +14,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/berita', [NewsController::class, 'index']);
-Route::get('/berita/{slug}', [NewsController::class, 'show']);
+Route::get('/berita', [BeritasController::class, 'index']);
+Route::get('/berita/{slug}', [BeritasController::class, 'show']);

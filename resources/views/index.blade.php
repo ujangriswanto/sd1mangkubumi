@@ -96,11 +96,14 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             <a href="index.html" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
+                            <a href="index.html" class="nav-link">Visi & Misi</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="about.html" class="nav-link">Tentang</a>
                         </li>
 						 <li class="nav-item">
-                            <a href="about.html" class="nav-link">Berita</a>
-                        </li>
+    <a href="/berita" class="nav-link">Berita</a>
+</li>
 						<li class="nav-item">
                             <a href="about.html" class="nav-link">PPDB</a>
                         </li>
@@ -126,12 +129,10 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             <a href="about.html" class="nav-link">E-Learning</a>
                         </li>
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Kontak</a>
+                            <a href="contact.html" class="nav-link">Daftar Hadir</a>
                         </li>
                     </ul>
-                    <div class="other-option">
-                        <a class="default-btn" href="http://127.0.0.1:8000/admin/login">Login<span></span></a>
-                    </div>
+                    
                 </div>
             </nav>
         </div>
@@ -158,21 +159,18 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                     Sistem Informasi Resmi &bull; Terakreditasi A
                 </div>
 
-                <h2 class="hero-title">
+                <h5 class="hero-title">
                     
                     <span class="hero-title">SD Negeri 1 Mangkubumi</span>
-                </h2>
+                </h5>
 
                 <p class="hero-desc">
                     Membentuk generasi cerdas, berkarakter, dan berprestasi.<br>
                     Kecamatan Sadananya, Kabupaten Ciamis.
                 </p>
-
-                <div class="hero-btns">
-                    <a href="about.html" class="hbtn hbtn-primary">Profil Sekolah <span>→</span></a>
-                    <a href="contact.html" class="hbtn hbtn-ghost">Hubungi Kami <span>↗</span></a>
-                </div>
-
+                <div class="other-option">
+                        <a class="default-btn" href="http://127.0.0.1:8000/admin/login">Login<span></span></a>
+                    </div>
                 <div class="hero-stats">
                     <div class="hstat">
                         <div class="hstat-val">480<em>+</em></div>
@@ -512,138 +510,737 @@ statEls.forEach(el => io.observe(el));
 	<!-- End Home Section -->
 	
 	<!-- Start Services Section -->
-	<section class="services-section section-padding">
-		<div class="container">
-			<div class="row">
-                <div class="col-md-12">
-					<div class="section-title">
-						<h6 class="sub-title">What We Provide</h6>
-						<h2>Our Services</h2>
-					</div>
+<section class="guru-section">
+    <div class="container">
+
+        <div class="guru-header">
+            <span class="guru-sub">Tenaga Pendidik</span>
+            <h2 class="guru-title">Kepala Sekolah & Guru Kami</h2>
+            <p class="guru-desc">Didukung oleh tenaga pendidik profesional dan berdedikasi tinggi untuk mencetak generasi terbaik.</p>
+        </div>
+
+        <!-- ===== KEPALA SEKOLAH - FEATURED ===== -->
+        <div class="kepsek-wrap">
+            <div class="kepsek-card">
+                <div class="kepsek-foto">
+                    <img src="{{ asset('assets/img/kep.png') }}" alt="Kepala Sekolah"
+     onerror="this.src='{{ asset('assets/img/kep.png') }}'">
+                    <div class="kepsek-badge">⭐ Kepala Sekolah</div>
                 </div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-development"></i>
-						</div>
-						<h3>Web Development</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-targeted-marketing"></i>
-						</div>
-						<h3>Digital Marketing</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-analytics"></i>
-						</div>
-						<h3>Startup Solutions</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-super-intelligence"></i>
-						</div>
-						<h3>Networking Services</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-coding"></i>
-						</div>
-						<h3>SEO Optimization</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-services-item">
-						<div class="services-icon">
-							<i class="flaticon-mobile-app"></i>
-						</div>
-						<h3>Apps Development</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua</p>
-						<div class="services-btn">
-							<a href="#" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                <div class="kepsek-info">
+                    <div class="kepsek-label">Kepala Sekolah SDN 1 Mangkubumi</div>
+                    <h3>Nuri Nuraeni, S.Pd., M.Pd</h3>
+                    <p class="kepsek-nip">NIP: —</p>
+                    <p class="kepsek-quote">"Bersama membangun generasi yang cerdas, berkarakter, dan berprestasi untuk masa depan bangsa."</p>
+                    {{-- <div class="kepsek-stats">
+                        <div><span>480+</span><small>Siswa</small></div>
+                        <div><span>35+</span><small>Guru</small></div>
+                        <div><span>A</span><small>Akreditasi</small></div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub judul dewan guru -->
+        <div class="guru-sub-title">
+            <h4>Guru</h4>
+            <div class="gst-line"></div>
+        </div>
+
+        <!-- ===== SLIDER GURU ===== -->
+        <div class="guru-slider-wrap">
+            <div class="guru-track" id="guruTrack">
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru2.jpg') }}" alt="Guru 2"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru2'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Ahmad Fauzi, S.Pd</h4>
+                        <span class="guru-jabatan jabatan-guru">Guru Kelas I</span>
+                        <p>NIP: 19850512 201001 1 003</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru3.jpg') }}" alt="Guru 3"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru3'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Dewi Kurniasih, S.Pd</h4>
+                        <span class="guru-jabatan jabatan-guru">Guru Kelas II</span>
+                        <p>NIP: 19880320 201101 2 005</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru4.jpg') }}" alt="Guru 4"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru4'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Rudi Hermawan, S.Pd</h4>
+                        <span class="guru-jabatan jabatan-guru">Guru Kelas III</span>
+                        <p>NIP: 19870714 201001 1 008</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru5.jpg') }}" alt="Guru 5"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru5'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Nurul Hidayah, S.Pd.I</h4>
+                        <span class="guru-jabatan jabatan-agama">Guru PAI</span>
+                        <p>NIP: 19910605 201501 2 010</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru6.jpg') }}" alt="Guru 6"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru6'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Eko Prasetyo, S.Pd</h4>
+                        <span class="guru-jabatan jabatan-orkes">Guru PJOK</span>
+                        <p>NIP: 19890918 201101 1 007</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru7.jpg') }}" alt="Guru 7"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru7'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Sari Wulandari, S.Pd</h4>
+                        <span class="guru-jabatan jabatan-guru">Guru Kelas IV</span>
+                        <p>NIP: 19920310 201601 2 004</p>
+                    </div>
+                </div>
+
+                <div class="guru-card">
+                    <div class="guru-foto">
+                        <img src="{{ asset('assets/img/guru/guru8.jpg') }}" alt="Guru 8"
+                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru8'">
+                    </div>
+                    <div class="guru-info">
+                        <h4>Taufik Rahman, A.Md</h4>
+                        <span class="guru-jabatan jabatan-tata">Tata Usaha</span>
+                        <p>NIP: 19930215 201701 1 002</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Navigasi -->
+        <div class="guru-nav">
+            <button class="gnav-btn" id="guruPrev">&#8592;</button>
+            <div class="guru-dots" id="guruDots"></div>
+            <button class="gnav-btn" id="guruNext">&#8594;</button>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.guru-section {
+    padding: 80px 0;
+    background: #f8faff;
+    overflow: hidden;
+}
+
+.guru-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.guru-sub {
+    display: inline-block;
+    background: #ede9fe;
+    color: #6d28d9;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.guru-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.guru-desc {
+    color: #64748b;
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===== KEPALA SEKOLAH FEATURED ===== */
+.kepsek-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.kepsek-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b5bdb 100%);
+    border-radius: 24px;
+    padding: 40px 50px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(59,91,219,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.kepsek-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+}
+
+.kepsek-foto {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.kepsek-foto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.kepsek-badge {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f5c518;
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+.kepsek-info { position: relative; z-index: 1; }
+
+.kepsek-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+}
+
+.kepsek-info h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.kepsek-nip {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 14px;
+}
+
+.kepsek-quote {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    line-height: 1.6;
+    border-left: 3px solid #f5c518;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+.kepsek-stats { display: flex; gap: 24px; }
+.kepsek-stats div { text-align: center; }
+.kepsek-stats span { display: block; font-size: 22px; font-weight: 800; color: #fff; }
+.kepsek-stats small { font-size: 10px; color: rgba(255,255,255,0.55); }
+
+/* Sub judul */
+.guru-sub-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.guru-sub-title h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.gst-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #e2e8f0, transparent);
+    border-radius: 2px;
+}
+
+/* Slider */
+.guru-slider-wrap { overflow: hidden; padding: 10px 4px 20px; }
+
+.guru-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+}
+
+.guru-card {
+    flex: 0 0 calc(25% - 18px);
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+}
+
+.guru-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.guru-foto { width: 100%; height: 200px; overflow: hidden; background: #e2e8f0; }
+
+.guru-foto img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top;
+    transition: transform .4s;
+}
+
+.guru-card:hover .guru-foto img { transform: scale(1.06); }
+
+.guru-info { padding: 18px 20px 22px; }
+
+.guru-info h4 {
+    font-size: 15px; font-weight: 700;
+    color: #0f172a; margin-bottom: 8px; line-height: 1.3;
+}
+
+.guru-jabatan {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.jabatan-guru   { background: #dbeafe; color: #1d4ed8; }
+.jabatan-agama  { background: #d1fae5; color: #065f46; }
+.jabatan-orkes  { background: #fee2e2; color: #991b1b; }
+.jabatan-tata   { background: #ede9fe; color: #5b21b6; }
+
+.guru-info p { font-size: 11px; color: #94a3b8; margin: 0; }
+
+/* Navigasi */
+.guru-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 30px; }
+
+.gnav-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid #6d28d9;
+    background: transparent; color: #6d28d9;
+    font-size: 18px; cursor: pointer;
+    transition: all .25s;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.gnav-btn:hover { background: #6d28d9; color: #fff; }
+
+.guru-dots { display: flex; gap: 8px; align-items: center; }
+
+.gdot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer; transition: all .25s;
+}
+
+.gdot.active { background: #6d28d9; width: 22px; border-radius: 4px; }
+
+@media (max-width: 1024px) { .guru-card { flex: 0 0 calc(33.33% - 16px); } }
+@media (max-width: 768px) {
+    .guru-card { flex: 0 0 calc(50% - 12px); }
+    .kepsek-card { flex-direction: column; text-align: center; padding: 30px 24px; }
+    .kepsek-quote { text-align: left; }
+    .kepsek-stats { justify-content: center; }
+}
+@media (max-width: 480px) { .guru-card { flex: 0 0 100%; } }
+</style>
+
+<script>
+(function() {
+    const track    = document.getElementById('guruTrack');
+    const prevBtn  = document.getElementById('guruPrev');
+    const nextBtn  = document.getElementById('guruNext');
+    const dotsWrap = document.getElementById('guruDots');
+    if (!track) return;
+
+    const cards      = track.querySelectorAll('.guru-card');
+    const totalCards = cards.length;
+
+    function getVisible() {
+        if (window.innerWidth <= 480)  return 1;
+        if (window.innerWidth <= 768)  return 2;
+        if (window.innerWidth <= 1024) return 3;
+        return 4;
+    }
+
+    let current = 0;
+    let visible  = getVisible();
+    let maxIndex = totalCards - visible;
+
+    function buildDots() {
+        dotsWrap.innerHTML = '';
+        visible  = getVisible();
+        maxIndex = totalCards - visible;
+        for (let i = 0; i <= maxIndex; i++) {
+            const d = document.createElement('span');
+            d.className = 'gdot' + (i === current ? ' active' : '');
+            d.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(d);
+        }
+    }
+
+    function goTo(idx) {
+        current = Math.max(0, Math.min(idx, maxIndex));
+        const cardWidth = cards[0].offsetWidth + 24;
+        track.style.transform = `translateX(-${current * cardWidth}px)`;
+        dotsWrap.querySelectorAll('.gdot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let auto = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 1400);
+    track.addEventListener('mouseenter', () => clearInterval(auto));
+    track.addEventListener('mouseleave', () => {
+        auto = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 1400);
+    });
+
+    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+    buildDots();
+})();
+</script>
 	<!-- End Services Section -->
 
+
 	<!-- Start About Section -->
-	<section class="about-area bg-grey section-padding">
-		<div class="container">
-			<div class="row d-flex align-items-center">
-				<div class="col-lg-6 col-md-12">
-					<div class="about-content">
-						<h6 class="sub-title">About Our Company</h6> 
-						<h2>Providing Your Business With A Quality IT Service is Our Passion</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim</p>
-						<div class="skills">
-							<div class="skill-item">
-								<h6>IT Consulting <em>90%</em></h6>
-								<div class="skill-progress">
-									<div class="progres" data-value="90%"></div>
-								</div>
-							</div>
-							<div class="skill-item">
-								<h6>Cloud Solutions <em>75%</em></h6>
-								<div class="skill-progress">
-									<div class="progres" data-value="75%"></div>
-								</div>
-							</div>
-							<div class="skill-item">
-								<h6>Managed IT Service <em>85%</em></h6>
-								<div class="skill-progress">
-									<div class="progres" data-value="85%"></div>
-								</div>
-							</div>
-						</div>
-						<div class="about-btn-box"> 
-							<a class="default-btn" href="about.html">Learn More <span></span></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-12">
-					<div class="about-image">
-						<img src="assets/img/about.jpg" alt="About image">
-						<div class="years-design">
-							<h2>24</h2>
-							<h5>Years Of Experience</h5>
-                        </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- ===== SECTION BERITA ===== -->
+<section class="berita2-section">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="berita2-header">
+            <h2>Berita terbaru <em>SDN 1 Mangkubumi</em></h2>
+            <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
+        </div>
+
+        <!-- Grid 3x2 -->
+        <div class="berita2-grid">
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 1">
+                    <span class="berita2-badge">📰 Berita</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">SDN 1 Mangkubumi Raih Juara 1 Lomba Cerdas Cermat Tingkat Kabupaten Ciamis</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 2">
+                    <span class="berita2-badge">🎒 Kegiatan</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">Kegiatan Pramuka Gabungan Antar Sekolah Se-Kecamatan Sadananya Berlangsung Meriah</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 3">
+                    <span class="berita2-badge">📋 PPDB</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">Pendaftaran Peserta Didik Baru Tahun Ajaran 2026/2027 Resmi Dibuka</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 4">
+                    <span class="berita2-badge">🎨 Seni</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">Pentas Seni Akhir Semester Pamerkan Bakat Siswa yang Luar Biasa</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 5">
+                    <span class="berita2-badge">🥇 Olahraga</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">Tim Sepak Bola SDN 1 Mangkubumi Lolos ke Babak Final O2SN Kabupaten</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="berita2-card">
+                <a href="#" class="berita2-img-wrap">
+                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 6">
+                    <span class="berita2-badge">📚 Akademik</span>
+                </a>
+                <div class="berita2-body">
+                    <h3><a href="#">Program Literasi Digital Resmi Diluncurkan untuk Siswa Kelas 4, 5 dan 6</a></h3>
+                    <div class="berita2-footer">
+                        <span>By <strong>Admin Sekolah</strong></span>
+                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tombol -->
+        <div class="berita2-btn-wrap">
+            <a href="#" class="berita2-btn">Tampilkan Semua Berita</a>
+        </div>
+
+    </div>
+</section>
+<style>
+.berita2-section {
+    padding: 90px 0 80px;
+    background: #f0f6ff;
+}
+/* Header */
+.berita2-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+.berita2-header h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+.berita2-header h2 em {
+    font-style: italic;
+    color: #1d4ed8;
+    position: relative;
+    font-weight: 900;
+}
+.berita2-header h2 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #1d4ed8, #60a5fa);
+    border-radius: 2px;
+}
+.berita2-header p {
+    color: #64748b;
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+/* Grid 3 kolom x 2 baris */
+.berita2-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin-bottom: 48px;
+}
+/* Card */
+.berita2-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(29,78,216,0.07);
+    transition: transform .3s ease, box-shadow .3s ease;
+    border: 1px solid rgba(29,78,216,0.07);
+}
+.berita2-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(29,78,216,0.15);
+}
+/* Gambar */
+.berita2-img-wrap {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    text-decoration: none;
+}
+.berita2-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+    display: block;
+}
+.berita2-card:hover .berita2-img-wrap img {
+    transform: scale(1.07);
+}
+/* Badge */
+.berita2-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 50px;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(29,78,216,0.4);
+}
+/* Body */
+.berita2-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    justify-content: space-between;
+}
+.berita2-body h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+}
+.berita2-body h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s;
+}
+.berita2-body h3 a:hover {
+    color: #1d4ed8;
+}
+/* Footer card */
+.berita2-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #e0eaff;
+}
+.berita2-footer span {
+    font-size: 12px;
+    color: #94a3b8;
+}
+.berita2-footer strong {
+    color: #475569;
+}
+.berita2-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d4ed8;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color .2s;
+}
+.berita2-link:hover {
+    color: #1e40af;
+}
+
+/* Tombol */
+.berita2-btn-wrap {
+    text-align: center;
+}
+
+.berita2-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 44px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgba(29,78,216,0.35);
+    transition: all .3s ease;
+}
+
+.berita2-btn:hover {
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(29,78,216,0.45);
+}
+/* Responsif */
+@media (max-width: 1024px) {
+    .berita2-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    .berita2-grid { grid-template-columns: 1fr; }
+}
+</style>
 	<!-- End About Section -->
 	
 	<!-- Start Overview Section -->
