@@ -77,6 +77,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 </a>
 <style>
+    /* Ukuran menu navbar */
+.navbar-nav .nav-link{
+    font-size:15px !important;
+    font-weight:600;
+    letter-spacing:.3px;
+}
+/* Dropdown menu */
+.dropdown-menu .nav-link{
+    font-size:12px !important;
+}
+/* Brand title */
+.brand-title{
+    font-size:13px !important;
+}
+/* Brand subtitle */
+.brand-sub{
+    font-size:9px !important;
+}
 /* Default (atas) = putih */
 .brand-title { color: #ffffff; }
 .brand-sub   { color: rgba(255,255,255,0.75); }
@@ -88,8 +106,6 @@
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
 </script>
-
-
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -126,7 +142,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             </ul>
                         </li>
 						<li class="nav-item">
-                            <a href="about.html" class="nav-link">E-Learning</a>
+                            <a href="about.html" class="nav-link">Program Sekolah</a>
                         </li>
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">Daftar Hadir</a>
@@ -146,9 +162,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     <!-- Slider Background -->
     <div class="hero-slider">
         <div class="hero-slide active" style="background-image: url('{{ asset('assets/img/depan.png') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpg') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/slider-2.jpg') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/slider-3.jpg') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpeg') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depan.jpeg') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpeg') }}')"></div>
     </div>
 
     <!-- Gradient overlay -->
