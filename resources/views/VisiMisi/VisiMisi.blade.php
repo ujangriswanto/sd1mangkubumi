@@ -48,9 +48,11 @@
      HERO HEADER
 ══════════════════════════════ -->
 <div class="visimisi-hero">
-    <div class="visimisi-hero-badge">🏫 Profil Sekolah</div>
-    <h2>Profil <em>SDN 1 Mangkubumi</em></h2>
-    <p class="visimisi-hero-sub">Mendidik generasi cerdas, berkarakter, dan berprestasi untuk masa depan bangsa</p>
+    <div class="visimisi-hero-badge">VISI,MISI & SEJARAH</div>
+    <h2><em>SDN 1 Mangkubumi</em></h2>
+    <a href="{{ url('/') }}" class="visimisi-hero-btn">
+        ← Kembali ke Beranda
+    </a>
     <div class="visimisi-hero-wave">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M0,40 C360,80 1080,0 1440,60 L1440,80 L0,80 Z" fill="#eef2ff"/>
@@ -63,7 +65,7 @@
 
         <div class="visimisi-header">
             <span class="visimisi-tag">Visi & Misi</span>
-            <h2>SDN 1 Mangkubumi</h2>
+            <h2><em>SDN 1 Mangkubumi</em></h2>
         </div>
 
         <!-- VISI MISI -->
@@ -227,6 +229,29 @@
     max-width: 480px;
     line-height: 1.8;
     animation: vm-fadeDown .7s .3s ease both;
+}
+.visimisi-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.35);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background .3s, border-color .3s, transform .3s;
+    animation: vm-fadeDown .7s .3s ease both;
+}
+.visimisi-hero-btn:hover {
+    background: rgba(245,166,35,.25);
+    border-color: #f5a623;
+    color: #f5a623;
+    transform: translateY(-2px);
+    text-decoration: none;
 }
 .visimisi-hero-wave {
     position: absolute;
