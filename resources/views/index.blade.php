@@ -96,14 +96,14 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             <a href="index.html" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link">Visi & Misi</a>
+                            <a href="/visi-misi" class="nav-link">Visi & Misi</a>
                         </li>
                         <li class="nav-item">
                             <a href="about.html" class="nav-link">Tentang</a>
                         </li>
 						 <li class="nav-item">
-    <a href="/berita" class="nav-link">Berita</a>
-</li>
+                        <a href="/berita" class="nav-link">Berita</a>
+                        </li>
 						<li class="nav-item">
                             <a href="about.html" class="nav-link">PPDB</a>
                         </li>
@@ -143,58 +143,34 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 <!-- ===== HERO SECTION ===== -->
 <section class="hero-full">
 
-    <!-- Background Photo -->
-    <div class="hero-bg"></div>
+    <!-- Slider Background -->
+    <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('{{ asset('assets/img/depan.png') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpg') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/slider-2.jpg') }}')"></div>
+        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/slider-3.jpg') }}')"></div>
+    </div>
 
-    <!-- Gradient overlay dari bawah -->
+    <!-- Gradient overlay -->
     <div class="hero-overlay"></div>
 
     <!-- Konten -->
     <div class="hero-content">
         <div class="container">
             <div class="hero-inner">
-
-                {{-- <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    Sistem Informasi Resmi &bull; Terakreditasi A
-                </div> --}}
-
-                {{-- <h5 class="hero-title">
-                    
-                    <span class="hero-title">SD Negeri 1 Mangkubumi</span>
-                </h5> --}}
-
-                {{-- <p class="hero-desc">
-                    Membentuk generasi cerdas, berkarakter, dan berprestasi.<br>
-                    Kecamatan Sadananya, Kabupaten Ciamis.
-                </p>
                 <div class="other-option">
-                        <a class="default-btn" href="http://127.0.0.1:8000/admin/login">Login<span></span></a>
-                    </div>
-                <div class="hero-stats">
-                    <div class="hstat">
-                        <div class="hstat-val">480<em>+</em></div>
-                        <div class="hstat-lbl">Siswa Aktif</div>
-                    </div>
-                    <div class="hstat-divider"></div>
-                    <div class="hstat">
-                        <div class="hstat-val">35<em>+</em></div>
-                        <div class="hstat-lbl">Tenaga Pendidik</div>
-                    </div>
-                    <div class="hstat-divider"></div>
-                    <div class="hstat">
-                        <div class="hstat-val">A</div>
-                        <div class="hstat-lbl">Akreditasi</div>
-                    </div>
-                    <div class="hstat-divider"></div>
-                    <div class="hstat">
-                        <div class="hstat-val">12k<em>+</em></div>
-                        <div class="hstat-lbl">Alumni</div>
-                    </div> --}}
+                    <a class="default-btn" href="{{ url('/admin/login') }}">Login <span></span></a>
                 </div>
-
             </div>
         </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="hero-slider-dots">
+        <span class="hsdot active"></span>
+        <span class="hsdot"></span>
+        <span class="hsdot"></span>
+        <span class="hsdot"></span>
     </div>
 
     <!-- Bottom wave -->
@@ -213,9 +189,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 </section>
 
-<!-- ===== CSS ===== -->
 <style>
-/* ---------- HERO ---------- */
 .hero-full {
     position: relative;
     width: 100%;
@@ -225,30 +199,41 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     overflow: hidden;
 }
 
-/* Foto full background */
-.hero-bg {
+/* Slider */
+.hero-slider {
     position: absolute;
     inset: 0;
-    background: url('{{ asset("assets/img/depann.jpeg") }}') center center / cover no-repeat;
     z-index: 0;
-    transform: scale(1.04);
-    animation: heroZoom 14s ease-in-out infinite alternate;
 }
 
-@keyframes heroZoom {
-    from { transform: scale(1.04); }
-    to   { transform: scale(1.10); }
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
 }
 
-/* Overlay gelap gradient */
+.hero-slide.active {
+    opacity: 1;
+    animation: sliderZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes sliderZoom {
+    from { transform: scale(1.03); }
+    to   { transform: scale(1.09); }
+}
+
+/* Overlay */
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(4, 10, 24, 0.82) 0%,
-        rgba(4, 10, 24, 0.55) 60%,
-        rgba(4, 10, 24, 0.75) 100%
+        rgba(4, 10, 24, 0.80) 0%,
+        rgba(4, 10, 24, 0.50) 60%,
+        rgba(4, 10, 24, 0.70) 100%
     );
     z-index: 1;
 }
@@ -261,163 +246,39 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     padding: 160px 0 120px;
 }
 
-.hero-inner {
-    max-width: 720px;
+/* Dots */
+.hero-slider-dots {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
 }
 
-/* Badge */
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    color: rgba(255,255,255,0.85);
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    padding: 8px 18px;
-    border-radius: 50px;
-    margin-bottom: 28px;
-    font-weight: 500;
-}
-
-.badge-dot {
+.hsdot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74,222,128,.25);
-    animation: blink 2s infinite;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: all .3s;
 }
 
-@keyframes blink {
-    0%,100% { opacity:1; }
-    50%      { opacity:0.3; }
+.hsdot.active {
+    background: #fff;
+    width: 24px;
+    border-radius: 4px;
 }
 
-/* Judul */
-.hero-title {
-    font-size: clamp(36px, 5.5vw, 68px);
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.15;
-    margin-bottom: 22px;
-    letter-spacing: -1px;
-}
-
-.hero-title-accent {
-    color: #60a5fa;
-    position: relative;
-}
-
-.hero-title-accent::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 4px;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #60a5fa, #a78bfa);
-    border-radius: 2px;
-    opacity: 0.6;
-}
-
-/* Deskripsi */
-.hero-desc {
-    font-size: 17px;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.75;
-    margin-bottom: 36px;
-    max-width: 560px;
-}
-
-/* Tombol */
-.hero-btns {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 52px;
-}
-
-.hbtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all .25s ease;
-}
-
-.hbtn-primary {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    color: #fff;
-    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
-}
-
-.hbtn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(99,102,241,0.55);
-    color: #fff;
-}
-
-.hbtn-ghost {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: #fff;
-    backdrop-filter: blur(6px);
-}
-
-.hbtn-ghost:hover {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-/* Stats */
-.hero-stats {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.hstat-val {
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1;
-}
-
-.hstat-val em {
-    font-style: normal;
-    font-size: 20px;
-    color: #60a5fa;
-}
-
-.hstat-lbl {
-    font-size: 12px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 4px;
-    letter-spacing: 0.4px;
-}
-
-.hstat-divider {
-    width: 1px;
-    height: 36px;
-    background: rgba(255,255,255,0.15);
-}
-
-/* Wave bawah */
+/* Wave */
 .hero-wave {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     line-height: 0;
 }
 
@@ -432,7 +293,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     position: absolute;
     bottom: 110px;
     right: 50px;
-    z-index: 3;
+    z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -465,45 +326,33 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 }
 
 @keyframes scrollAnim {
-    0%   { opacity:1; top:6px; }
-    100% { opacity:0; top:18px; }
+    0%   { opacity: 1; top: 6px; }
+    100% { opacity: 0; top: 18px; }
 }
 
-/* Responsif */
 @media (max-width: 768px) {
-    .hero-content { padding: 130px 0 100px; }
-    .hero-scroll   { display: none; }
-    .hstat-divider { display: none; }
-    .hero-stats    { gap: 20px; }
+    .hero-scroll { display: none; }
 }
 </style>
 
 <script>
-/* Navbar scroll effect */
-const nav = document.getElementById('mainNav');
-if (nav) {
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
-}
+(function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hsdot');
+    let current  = 0;
 
-/* Counter animation untuk stats */
-const statEls = document.querySelectorAll('.hstat-val');
-const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const num = parseInt(el.textContent.replace(/\D/g, ''));
-        if (!num) return;
-        const suf = el.innerHTML.match(/<em>(.*?)<\/em>/)?.[1] || '';
-        let c = 0, step = Math.ceil(num / 60);
-        const t = setInterval(() => {
-            c = Math.min(c + step, num);
-            el.innerHTML = c + (suf ? `<em>${suf}</em>` : '');
-            if (c >= num) clearInterval(t);
-        }, 22);
-        io.unobserve(el);
-    });
-}, { threshold: 0.5 });
-statEls.forEach(el => io.observe(el));
+    function goTo(idx) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = idx % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+    setInterval(() => goTo(current + 1), 5000);
+})();
 </script>
 
 
