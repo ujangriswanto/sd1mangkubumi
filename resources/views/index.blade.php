@@ -154,17 +154,17 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         <div class="container">
             <div class="hero-inner">
 
-                <div class="hero-badge">
+                {{-- <div class="hero-badge">
                     <span class="badge-dot"></span>
                     Sistem Informasi Resmi &bull; Terakreditasi A
-                </div>
+                </div> --}}
 
-                <h5 class="hero-title">
+                {{-- <h5 class="hero-title">
                     
                     <span class="hero-title">SD Negeri 1 Mangkubumi</span>
-                </h5>
+                </h5> --}}
 
-                <p class="hero-desc">
+                {{-- <p class="hero-desc">
                     Membentuk generasi cerdas, berkarakter, dan berprestasi.<br>
                     Kecamatan Sadananya, Kabupaten Ciamis.
                 </p>
@@ -190,7 +190,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                     <div class="hstat">
                         <div class="hstat-val">12k<em>+</em></div>
                         <div class="hstat-lbl">Alumni</div>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -229,7 +229,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: url('{{ asset("assets/img/depan.png") }}') center center / cover no-repeat;
+    background: url('{{ asset("assets/img/depann.jpeg") }}') center center / cover no-repeat;
     z-index: 0;
     transform: scale(1.04);
     animation: heroZoom 14s ease-in-out infinite alternate;
