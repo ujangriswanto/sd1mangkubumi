@@ -47,889 +47,468 @@
 	</div>
 	<!-- End Preloader Section -->
 	
-	<!-- Start Navbar Section -->
-	{{-- <div class="navbar-section">
-		<div class="techvio-responsive-nav">
-			<div class="container">
-				<div class="techvio-responsive-menu">
-					<div class="logo">
-						<a href="index.html">
-							<img src="assets/img/logo.png" class="white-logo" alt="logo">
-							<img src="assets/img/logo-black.png" class="black-logo" alt="logo">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="techvio-nav">
-			<div class="container">
-				<nav class="navbar navbar-expand-md navbar-light">
-					<a class="navbar-brand" href="index.html">
-						<img src="assets/img/logo.png" class="white-logo" alt="logo">
-						<img src="assets/img/logo-black.png" class="black-logo" alt="logo">
-					</a>
-					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-						<ul class="navbar-nav">
-							<li class="nav-item"> 
-								<a href="#" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"> 
-										<a href="index.html" class="nav-link">Home 1</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-2.html" class="nav-link">Home 2</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-3.html" class="nav-link">Home 3</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-4.html" class="nav-link">Home 4</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-5.html" class="nav-link">Home 5</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-6.html" class="nav-link">Home 6</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-7.html" class="nav-link">Home 7</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="index-8.html" class="nav-link">Home 8</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="about.html" class="nav-link">Tentang Sekolah</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"> 
-										<a href="services.html" class="nav-link">Services 1</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="services-2.html" class="nav-link">Services 2</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="services-3.html" class="nav-link">Services 3</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="services-4.html" class="nav-link">Services 4</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="services-5.html" class="nav-link">Services 5</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="services-6.html" class="nav-link">Services 6</a>
-									</li>
-									<li class="nav-item"> 
-										<a href="single-services.html" class="nav-link">Services Details</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">Portfolio <i class="fas fa-chevron-down"></i></a>
-								<ul class="dropdown-menu">
-									<li class="nav-item">
-										<a href="portfolio.html" class="nav-link">Portfolio</a>
-									</li>
-									<li class="nav-item">
-										<a href="single-portfolio.html" class="nav-link">Portfolio Details</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item"> 
-								<a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="dropdown-menu">
-									<li class="nav-item">
-										<a href="about.html" class="nav-link">About Us</a>
-									</li>
-									<li class="nav-item">
-										<a href="team.html" class="nav-link">Team</a>
-									</li>
-									<li class="nav-item">
-										<a href="pricing.html" class="nav-link">Pricing</a>
-									</li>
-									<li class="nav-item">
-										<a href="error-404.html" class="nav-link">404 Error</a>
-									</li>
-									<li class="nav-item">
-										<a href="faq.html" class="nav-link">FAQ</a>
-									</li>
-									<li class="nav-item">
-										<a href="coming-soon.html" class="nav-link">Coming Soon</a>
-									</li>
-									<li class="nav-item">
-										<a href="terms-condition.html" class="nav-link">Terms & Conditions</a>
-									</li>
-									<li class="nav-item">
-										<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
-								<ul class="dropdown-menu">
-									<li class="nav-item">
-										<a href="blog.html" class="nav-link">Blog Grid</a>
-									</li>
-									<li class="nav-item">
-										<a href="blog-2.html" class="nav-link">Blog Right Sidebar</a>
-									</li>
-									<li class="nav-item">
-										<a href="single-blog.html" class="nav-link">Blog Details</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="contact.html" class="nav-link">Contact</a>
-							</li>
-						</ul>
-						<div class="other-option">
-							<a class="default-btn" href="mailto:demo@example.com">Get It Support <span></span></a>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div> --}}
-	<!-- End Navbar Section -->
-	
-	<!-- Start Home Section -->
-	<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDN 1 Mangkubumi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --navy:   #08121f;
-            --deep:   #0c1d35;
-            --blue:   #1a4faa;
-            --accent: #f5a623;
-            --gold:   #e8c460;
-            --white:  #ffffff;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--navy);
-        }
-
-        /* ══ NAVBAR ══ */
-        .navbar-main {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 999;
-            padding: 20px 0;
-            transition: all .4s;
-        }
-        .navbar-main.scrolled {
-            background: rgba(8,18,31,.94);
-            backdrop-filter: blur(16px);
-            padding: 12px 0;
-            box-shadow: 0 4px 40px rgba(0,0,0,.5);
-        }
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-logo {
-            display: flex; align-items: center; gap: 12px;
-            text-decoration: none;
-        }
-        .nav-logo .emblem {
-            width: 44px; height: 44px;
-            background: linear-gradient(135deg, var(--accent), #d4801c);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 4px 18px rgba(245,166,35,.4);
-        }
-        .nav-logo .brand strong {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            font-size: 14px;
-            color: var(--white);
-        }
-        .nav-logo .brand span {
-            font-size: 10.5px;
-            color: rgba(255,255,255,.45);
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-        }
-        .nav-menu { display: flex; align-items: center; gap: 32px; list-style: none; }
-        .nav-menu a {
-            color: rgba(255,255,255,.65);
-            text-decoration: none;
-            font-size: 13.5px;
-            font-weight: 500;
-            letter-spacing: .3px;
-            transition: color .2s;
-            position: relative;
-        }
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px; left: 0;
-            width: 0; height: 2px;
-            background: var(--accent);
-            transition: width .25s;
-        }
-        .nav-menu a:hover { color: var(--white); }
-        .nav-menu a:hover::after { width: 100%; }
-        .btn-portal {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    border-radius: 10px;
-    font-size: 13.5px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    text-decoration: none;
-    color: #fff !important;
-    background: linear-gradient(135deg, #f5a623 0%, #e8892a 50%, #d4701a 100%);
-    box-shadow:
-        0 4px 15px rgba(245,166,35,.45),
-        0 1px 0 rgba(255,255,255,.2) inset;
-    transition: all .3s ease;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-/* Shimmer sweep */
-.btn-portal::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 60%; height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
-    );
-    transition: left .55s ease;
-}
-
-/* Glowing border ring */
-.btn-portal::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #f5a623, #ff6b35, #f5a623);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity .3s ease;
-    animation: rotateBorder 3s linear infinite;
-}
-
-@keyframes rotateBorder {
-    0%   { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-}
-
-/* Icon portal (opsional, pakai pseudo) */
-.btn-portal .icon-portal {
-    font-size: 14px;
-    transition: transform .3s ease;
-}
-
-/* ── HOVER ── */
-.btn-portal:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow:
-        0 10px 30px rgba(245,166,35,.6),
-        0 4px 12px rgba(245,166,35,.3),
-        0 1px 0 rgba(255,255,255,.2) inset;
-    color: #fff !important;
-}
-
-.btn-portal:hover::before {
-    left: 150%;
-}
-
-.btn-portal:hover::after {
-    opacity: 1;
-}
-
-.btn-portal:hover .icon-portal {
-    transform: rotate(15deg) scale(1.2);
-}
-
-/* ── ACTIVE / CLICK ── */
-.btn-portal:active {
-    transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 4px 12px rgba(245,166,35,.4);
-}
-
-/* ── PULSE animasi idle (menarik perhatian) ── */
-@keyframes portalPulse {
-    0%, 100% {
-        box-shadow:
-            0 4px 15px rgba(245,166,35,.45),
-            0 1px 0 rgba(255,255,255,.2) inset;
-    }
-    50% {
-        box-shadow:
-            0 4px 28px rgba(245,166,35,.75),
-            0 0 0 6px rgba(245,166,35,.12),
-            0 1px 0 rgba(255,255,255,.2) inset;
-    }
-}
-
-.btn-portal {
-    animation: portalPulse 2.5s ease-in-out infinite;
-}
-.btn-portal:hover {
-    animation: none; /* berhenti pulse saat hover */
-}
-
-        /* ══ HOME SECTION ══ */
-        .home-section {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(ellipse 75% 65% at 75% 50%, rgba(26,79,170,.22) 0%, transparent 60%),
-                radial-gradient(ellipse 45% 55% at 15% 85%, rgba(245,166,35,.07) 0%, transparent 55%),
-                linear-gradient(150deg, #08121f 0%, #0c1d35 55%, #08121f 100%);
-        }
-        .home-section::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-            background-size: 56px 56px;
-            mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 30%, transparent 75%);
-            pointer-events: none;
-        }
-        .home-section .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(70px);
-            pointer-events: none;
-            animation: orbFloat 9s ease-in-out infinite;
-        }
-        .orb-a { width:460px; height:460px; background:radial-gradient(circle,rgba(26,79,170,.3),transparent 70%); top:-120px; right:5%; animation-delay:0s; }
-        .orb-b { width:280px; height:280px; background:radial-gradient(circle,rgba(245,166,35,.12),transparent 70%); bottom:5%; left:2%; animation-delay:-4.5s; }
-        .orb-c { width:180px; height:180px; background:radial-gradient(circle,rgba(120,180,255,.18),transparent 70%); top:38%; right:28%; animation-delay:-2s; }
-        @keyframes orbFloat {
-            0%,100% { transform:translateY(0) scale(1); }
-            50%      { transform:translateY(-28px) scale(1.04); }
-        }
-        .ring { position:absolute; border-radius:50%; pointer-events:none; }
-        .ring-a { width:640px;height:640px; border:1px solid rgba(255,255,255,.05); top:-240px; right:-180px; }
-        .ring-b { width:960px;height:960px; border:1px solid rgba(245,166,35,.03); top:-380px; right:-320px; }
-
-        .d-table { display: table; width: 100%; min-height: 100vh; }
-        .d-table-cell { display: table-cell; vertical-align: middle; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        .row { display: flex; flex-wrap: wrap; align-items: center; margin: 0 -15px; }
-        .align-items-center { align-items: center; }
-        .col-lg-6 { width: 50%; padding: 0 15px; }
-
-        .main-banner-content { padding: 120px 0 80px; }
-
-        /* Social icons */
-        .social-icon-list {
-            list-style: none;
-            display: flex;
-            gap: 12px;
-            margin-bottom: 28px;
-            animation: fadeUp .7s .1s both;
-        }
-        .social-icon-list li a {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.1);
-            color: rgba(255,255,255,.55);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 13px;
-            text-decoration: none;
-            transition: all .25s;
-        }
-        .social-icon-list li a:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(245,166,35,.35);
-        }
-
-        /* Eyebrow */
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(245,166,35,.1);
-            border: 1px solid rgba(245,166,35,.28);
-            color: var(--accent);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 22px;
-            animation: fadeUp .7s .15s both;
-        }
-        .eyebrow .pulse-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: pulseDot 2s infinite;
-        }
-        @keyframes pulseDot {
-            0%,100% { opacity:1; transform:scale(1); }
-            50% { opacity:.4; transform:scale(1.5); }
-        }
-
-        .main-banner-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 4.2vw, 3.6rem);
-            font-weight: 900;
-            line-height: 1.12;
-            color: var(--white);
-            margin-bottom: 22px;
-            animation: fadeUp .7s .2s both;
-        }
-        .main-banner-content h1 em {
-            font-style: normal;
-            color: var(--accent);
-            position: relative;
-        }
-        .main-banner-content h1 em::after {
-            content: '';
-            position: absolute;
-            left: 0; bottom: -3px;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            border-radius: 2px;
-        }
-        .main-banner-content p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: rgba(255,255,255,.58);
-            max-width: 500px;
-            margin-bottom: 38px;
-            animation: fadeUp .7s .3s both;
-        }
-
-        /* Buttons */
-        .banner-btn {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            animation: fadeUp .7s .4s both;
-        }
-        .default-btn-one {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--accent), #d4801c);
-            color: var(--white);
-            text-decoration: none;
-            padding: 14px 30px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 14.5px;
-            box-shadow: 0 8px 28px rgba(245,166,35,.38);
-            transition: transform .25s, box-shadow .25s;
-            position: relative;
-            overflow: hidden;
-        }
-        .default-btn-one::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-            transition: left .5s;
-        }
-        .default-btn-one:hover::before { left: 150%; }
-        .default-btn-one:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(245,166,35,.55); }
-        .default-btn-two {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,.8);
-            text-decoration: none;
-            padding: 14px 26px;
-            border-radius: 10px;
-            font-weight: 500;
-            font-size: 14.5px;
-            border: 1px solid rgba(255,255,255,.15);
-            transition: all .25s;
-        }
-        .default-btn-two:hover {
-            background: rgba(255,255,255,.06);
-            border-color: rgba(255,255,255,.35);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        /* Stats strip */
-        .stats-strip {
-            display: flex; gap: 36px;
-            margin-top: 48px;
-            padding-top: 36px;
-            border-top: 1px solid rgba(255,255,255,.08);
-            flex-wrap: wrap;
-            animation: fadeUp .7s .55s both;
-        }
-        .stats-strip .s-val {
-            font-family: 'Playfair Display', serif;
-            font-size: 30px; font-weight: 700;
-            color: var(--white); line-height: 1;
-        }
-        .stats-strip .s-val em { font-style: normal; color: var(--accent); font-size: 20px; }
-        .stats-strip .s-lbl {
-            font-size: 11px; color: rgba(255,255,255,.4);
-            text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5px;
-        }
-
-        /* Banner image col */
-        .banner-image {
-            position: relative;
-            padding: 40px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .img-wrap { position: relative; width: 100%; max-width: 500px; }
-        .mockup-card {
-            width: 100%;
-            aspect-ratio: 4/3.2;
-            background: linear-gradient(135deg, rgba(26,79,170,.25), rgba(245,166,35,.08));
-            border: 1px solid rgba(255,255,255,.1);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 30px 80px rgba(0,0,0,.5), 0 0 80px rgba(26,79,170,.15) inset;
-        }
-        .mockup-card::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,.04) 0%, transparent 50%);
-        }
-        .mockup-inner { text-align: center; color: rgba(255,255,255,.2); font-size: 13px; }
-        .mockup-inner .school-icon { font-size: 72px; opacity: .15; display: block; margin-bottom: 12px; }
-
-        /* Floating badges */
-        .float-badge {
-            position: absolute;
-            background: rgba(255,255,255,.07);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,.12);
-            border-radius: 14px;
-            padding: 12px 16px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .float-badge .fi {
-            width: 36px; height: 36px; border-radius: 9px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 16px; flex-shrink: 0;
-        }
-        .float-badge .fval { font-size: 16px; font-weight: 700; color: var(--white); line-height: 1; }
-        .float-badge .flbl { font-size: 11px; color: rgba(255,255,255,.5); }
-        .fb-1 { top: 14%; left: -8%; animation: floatBadge 6s ease-in-out infinite; }
-        .fb-2 { bottom: 16%; right: -6%; animation: floatBadge 6s ease-in-out infinite; animation-delay: -3s; }
-        @keyframes floatBadge {
-            0%,100% { transform:translateY(0); }
-            50% { transform:translateY(-10px); }
-        }
-
-        /* Creative shape */
-        .creative-shape {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 120px;
-            overflow: hidden;
-        }
-        .creative-shape svg { position: absolute; bottom: 0; width: 100%; }
-
-        /* Scroll hint */
-        .scroll-hint {
-            position: absolute;
-            bottom: 44px; left: 50%;
-            transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            animation: fadeUp .8s .9s both;
-        }
-        .scroll-hint .sh-text { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.3); }
-        .scroll-mouse {
-            width: 22px; height: 34px;
-            border: 1.5px solid rgba(255,255,255,.2);
-            border-radius: 11px;
-            display: flex; justify-content: center; padding-top: 6px;
-        }
-        .scroll-mouse::before {
-            content: '';
-            width: 3px; height: 6px;
-            background: var(--accent);
-            border-radius: 2px;
-            animation: scrollDown 1.8s ease-in-out infinite;
-        }
-        @keyframes scrollDown {
-            0%   { opacity:1; transform:translateY(0); }
-            80%  { opacity:0; transform:translateY(10px); }
-            100% { opacity:0; transform:translateY(0); }
-        }
-
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(26px); }
-            to   { opacity:1; transform:translateY(0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 991px) {
-            .col-lg-6 { width: 100%; }
-            .main-banner-content { padding: 120px 0 40px; text-align: center; }
-            .main-banner-content p { max-width: 100%; }
-            .social-icon-list, .banner-btn, .stats-strip { justify-content: center; }
-            .banner-image { margin-top: 20px; padding-bottom: 100px; }
-            .fb-1 { left: 0; } .fb-2 { right: 0; }
-        }
-        @media (max-width: 576px) {
-            .container { padding: 0 20px; }
-            .nav-menu { display: none; }
-        }
-    </style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar-main" id="mainNav">
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">
-            <img src="{{ asset('assets/img/tutt.png') }}" alt="Preview" class="mockup-img" style="width:50px; height:auto;">
-            <div class="brand">
-                <strong>SDN 1 Mangkubumi <br>Kecamatan sadananya</strong>
-                {{-- <span>Sistem Informasi Sekolah</span> --}}
-            </div>
-        </a>
-        <ul class="nav-menu">
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Tentang</a></li>
-            <li><a href="#">Berita</a></li>
-            <li><a href="#">PPDB</a></li>
-            <li><a href="#">Akademik</a></li>
-            <li><a href="#">Learning</a></li>
-            <li><a href="#">Perputakaan</a></li>
-            <li><a href="#">Kontak</a></li>
-            
-            
-            <li>
-    <a href="http://127.0.0.1:8000/admin/login" class="btn-portal">
-        <span class="icon-portal">🎓</span>
-        Login
-    </a>
-</li>
-    </div>
-</nav>
-
-<!-- HOME SECTION -->
-<div class="home-section index-1">
-
-    <div class="ring ring-a"></div>
-    <div class="ring ring-b"></div>
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
-
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
-                <div class="row align-items-center">
-
-                    <div class="col-lg-6 col-md-12">
-                        <div class="main-banner-content">
-
-                            {{-- <ul class="social-icon-list">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            </ul> --}}
-
-                            <div class="eyebrow">
-                                <span class="pulse-dot"></span>
-                                Sistem Informasi Resmi
-                            </div>
-
-                            {{-- <h1>
-                                Sekolah Dasar<br>
-                                <em>Negeri 1 Mangkubumi</em><br>
-                                Kecamatan Sadananya
-                            </h1> --}}
-
-                            <p>Platform digital resmi SDN 1 Mangkubumi. Temukan informasi lengkap seputar akademik, kegiatan sekolah, jadwal, pengumuman, dan layanan administrasi dalam satu portal terintegrasi.</p>
-
-                            <div class="banner-btn">
-                                <a class="default-btn-one" href="services.html">Layanan Kami <span>→</span></a>
-                                <a class="default-btn-two" href="contact.html">Hubungi Kami <span>↗</span></a>
-                            </div>
-
-                            <div class="stats-strip">
-                                <div>
-                                    <div class="s-val">480<em>+</em></div>
-                                    <div class="s-lbl">Siswa Aktif</div>
-                                </div>
-                                <div>
-                                    <div class="s-val">35<em>+</em></div>
-                                    <div class="s-lbl">Tenaga Pendidik</div>
-                                </div>
-                                <div>
-                                    <div class="s-val">A</div>
-                                    <div class="s-lbl">Akreditasi</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12" data-tilt>
-                        <div class="banner-image">
-                            <div class="img-wrap">
-                                
-                               <div class="mockup-card">
-                                <div class="mockup-inner">
-                                <img src="{{ asset('assets/img/depan.png') }}" alt="Preview" class="mockup-img">
-                                 </div>
-
-                                <div class="mockup-border"></div>
-                                </div>
-
-                                <style>                                    .mockup-card{
-    position:relative;
-    width:100%;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.mockup-inner{
-    width:100%;
-    height:420px; /* ubah tinggi sesuai kebutuhan */
-    overflow:hidden;
-}
-
-.mockup-img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-.mockup-border{
-    position:absolute;
-    inset:20px;
-    border-radius:16px;
-    border:1px dashed rgba(255,255,255,.08);
-    pointer-events:none;
-}
-                                </style>
-
-
-                                <div class="float-badge fb-1">
-                                    <div class="fi" style="background:rgba(245,166,35,.15)">🏆</div>
-                                    <div>
-                                        <div class="fval">A</div>
-                                        <div class="flbl">Akreditasi BAN-S/M</div>
-                                    </div>
-                                </div>
-                                <div class="float-badge fb-2">
-                                    <div class="fi" style="background:rgba(100,180,255,.1)">📚</div>
-                                    <div>
-                                        <div class="fval">12k+</div>
-                                        <div class="flbl">Alumni Berprestasi</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+	<!-- ===== NAVBAR ===== -->
+<div class="navbar-section" id="mainNav">
+    <div class="techvio-responsive-nav">
+        <div class="container">
+            <div class="techvio-responsive-menu">
+                <div class="logo">
+                    <a href="index.html">
+                         <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
+    <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:50px;width:auto;display:none;">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+    <div class="techvio-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
 
-    <!-- Creative Shape -->
-    <div class="creative-shape">
-        <!-- Ganti dengan: <img src="assets/img/home-bottom-shape.png" alt="svg shape"> -->
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,60 C360,120 1080,0 1440,80 L1440,120 L0,120 Z" fill="#08121f" opacity=".6"/>
-            <path d="M0,80 C400,20 1000,100 1440,40 L1440,120 L0,120 Z" fill="#08121f"/>
+
+                <a class="navbar-brand" href="index.html" style="padding:0;line-height:1;display:flex;align-items:center;gap:10px;">
+    <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:55px;width:auto;display:block;">
+    <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:55px;width:auto;display:none;">
+	
+    <div style="display:flex;flex-direction:column;line-height:1.3;">
+    <span class="brand-title" style="font-size:15px;font-weight:800;letter-spacing:0.3px;transition:color .3s;font-family:'Poppins',sans-serif;">SDN 1 Mangkubumi</span>
+    <span class="brand-sub" style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;font-family:'Poppins',sans-serif;">Kecamatan Sadananya</span>
+</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+</a>
+<style>
+/* Default (atas) = putih */
+.brand-title { color: #ffffff; }
+.brand-sub   { color: rgba(255,255,255,0.75); }
+/* Setelah scroll = hitam/biru */
+.scrolled .brand-title { color: #000000; }
+.scrolled .brand-sub   { color: rgba(0, 0, 0, 0.845); }
+</style>
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+</script>
+
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">Tentang</a>
+                        </li>
+						 <li class="nav-item">
+                            <a href="about.html" class="nav-link">Berita</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="about.html" class="nav-link">PPDB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="#" class="nav-link">Kurikulum</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
+								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="#" class="nav-link">Data Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Prestasi Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li>
+                            </ul>
+                        </li>
+						<li class="nav-item">
+                            <a href="about.html" class="nav-link">E-Learning</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Kontak</a>
+                        </li>
+                    </ul>
+                    <div class="other-option">
+                        <a class="default-btn" href="http://127.0.0.1:8000/admin/login">Login<span></span></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar -->
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-full">
+
+    <!-- Background Photo -->
+    <div class="hero-bg"></div>
+
+    <!-- Gradient overlay dari bawah -->
+    <div class="hero-overlay"></div>
+
+    <!-- Konten -->
+    <div class="hero-content">
+        <div class="container">
+            <div class="hero-inner">
+
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Sistem Informasi Resmi &bull; Terakreditasi A
+                </div>
+
+                <h2 class="hero-title">
+                    
+                    <span class="hero-title">SD Negeri 1 Mangkubumi</span>
+                </h2>
+
+                <p class="hero-desc">
+                    Membentuk generasi cerdas, berkarakter, dan berprestasi.<br>
+                    Kecamatan Sadananya, Kabupaten Ciamis.
+                </p>
+
+                <div class="hero-btns">
+                    <a href="about.html" class="hbtn hbtn-primary">Profil Sekolah <span>→</span></a>
+                    <a href="contact.html" class="hbtn hbtn-ghost">Hubungi Kami <span>↗</span></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hstat">
+                        <div class="hstat-val">480<em>+</em></div>
+                        <div class="hstat-lbl">Siswa Aktif</div>
+                    </div>
+                    <div class="hstat-divider"></div>
+                    <div class="hstat">
+                        <div class="hstat-val">35<em>+</em></div>
+                        <div class="hstat-lbl">Tenaga Pendidik</div>
+                    </div>
+                    <div class="hstat-divider"></div>
+                    <div class="hstat">
+                        <div class="hstat-val">A</div>
+                        <div class="hstat-lbl">Akreditasi</div>
+                    </div>
+                    <div class="hstat-divider"></div>
+                    <div class="hstat">
+                        <div class="hstat-val">12k<em>+</em></div>
+                        <div class="hstat-lbl">Alumni</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom wave -->
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="#08121f" opacity=".5"/>
+            <path d="M0,60 C400,10 1000,90 1440,30 L1440,100 L0,100 Z" fill="#08121f"/>
         </svg>
     </div>
 
-    <div class="scroll-hint">
+    <!-- Scroll hint -->
+    <div class="hero-scroll">
         <div class="scroll-mouse"></div>
-        <span class="sh-text">Scroll</span>
+        <span>Scroll</span>
     </div>
 
-</div>
+</section>
+
+<!-- ===== CSS ===== -->
+<style>
+/* ---------- HERO ---------- */
+.hero-full {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Foto full background */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('{{ asset("assets/img/depan.png") }}') center center / cover no-repeat;
+    z-index: 0;
+    transform: scale(1.04);
+    animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.04); }
+    to   { transform: scale(1.10); }
+}
+
+/* Overlay gelap gradient */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(4, 10, 24, 0.82) 0%,
+        rgba(4, 10, 24, 0.55) 60%,
+        rgba(4, 10, 24, 0.75) 100%
+    );
+    z-index: 1;
+}
+
+/* Konten */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 160px 0 120px;
+}
+
+.hero-inner {
+    max-width: 720px;
+}
+
+/* Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74,222,128,.25);
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%,100% { opacity:1; }
+    50%      { opacity:0.3; }
+}
+
+/* Judul */
+.hero-title {
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 22px;
+    letter-spacing: -1px;
+}
+
+.hero-title-accent {
+    color: #60a5fa;
+    position: relative;
+}
+
+.hero-title-accent::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    border-radius: 2px;
+    opacity: 0.6;
+}
+
+/* Deskripsi */
+.hero-desc {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 560px;
+}
+
+/* Tombol */
+.hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+}
+
+.hbtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .25s ease;
+}
+
+.hbtn-primary {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+
+.hbtn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(99,102,241,0.55);
+    color: #fff;
+}
+
+.hbtn-ghost {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    backdrop-filter: blur(6px);
+}
+
+.hbtn-ghost:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Stats */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.hstat-val {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.hstat-val em {
+    font-style: normal;
+    font-size: 20px;
+    color: #60a5fa;
+}
+
+.hstat-lbl {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    letter-spacing: 0.4px;
+}
+
+.hstat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Wave bawah */
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    line-height: 0;
+}
+
+.hero-wave svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+}
+
+/* Scroll hint */
+.hero-scroll {
+    position: absolute;
+    bottom: 110px;
+    right: 50px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.45);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.scroll-mouse {
+    width: 22px;
+    height: 36px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-mouse::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 7px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 2px;
+    animation: scrollAnim 1.6s infinite;
+}
+
+@keyframes scrollAnim {
+    0%   { opacity:1; top:6px; }
+    100% { opacity:0; top:18px; }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .hero-content { padding: 130px 0 100px; }
+    .hero-scroll   { display: none; }
+    .hstat-divider { display: none; }
+    .hero-stats    { gap: 20px; }
+}
+</style>
 
 <script>
-    const nav = document.getElementById('mainNav');
+/* Navbar scroll effect */
+const nav = document.getElementById('mainNav');
+if (nav) {
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+}
 
-    const tiltEl = document.querySelector('[data-tilt]');
-    if (tiltEl) {
-        tiltEl.addEventListener('mousemove', (e) => {
-            const rect = tiltEl.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top)  / rect.height - 0.5;
-            tiltEl.style.transform = `perspective(800px) rotateY(${x*12}deg) rotateX(${-y*10}deg)`;
-        });
-        tiltEl.addEventListener('mouseleave', () => {
-            tiltEl.style.transform = 'perspective(800px) rotateY(0) rotateX(0)';
-            tiltEl.style.transition = 'transform .5s ease';
-        });
-        tiltEl.addEventListener('mouseenter', () => tiltEl.style.transition = 'none');
-    }
-
-    const statEls = document.querySelectorAll('.s-val');
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            const num = parseInt(el.textContent.replace(/\D/g, ''));
-            if (!num) return;
-            const suf = el.innerHTML.match(/<em>(.*?)<\/em>/)?.[1] || '';
-            let c = 0, step = Math.ceil(num / 60);
-            const t = setInterval(() => {
-                c = Math.min(c + step, num);
-                el.innerHTML = c + (suf ? `<em>${suf}</em>` : '');
-                if (c >= num) clearInterval(t);
-            }, 22);
-            io.unobserve(el);
-        });
-    }, { threshold: 0.5 });
-    statEls.forEach(el => io.observe(el));
+/* Counter animation untuk stats */
+const statEls = document.querySelectorAll('.hstat-val');
+const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const num = parseInt(el.textContent.replace(/\D/g, ''));
+        if (!num) return;
+        const suf = el.innerHTML.match(/<em>(.*?)<\/em>/)?.[1] || '';
+        let c = 0, step = Math.ceil(num / 60);
+        const t = setInterval(() => {
+            c = Math.min(c + step, num);
+            el.innerHTML = c + (suf ? `<em>${suf}</em>` : '');
+            if (c >= num) clearInterval(t);
+        }, 22);
+        io.unobserve(el);
+    });
+}, { threshold: 0.5 });
+statEls.forEach(el => io.observe(el));
 </script>
-</body>
-</html>
+
+
 	<!-- End Home Section -->
 	
 	<!-- Start Services Section -->
