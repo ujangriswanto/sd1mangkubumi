@@ -13,9 +13,13 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use BackedEnum;
 use UnitEnum;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Concerns\InteractsWithForms;
 
-class ProfilSekolah extends Page
+class ProfilSekolah extends Page implements HasForms
 {
+    use InteractsWithForms;
+
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-library';
 
     protected static UnitEnum|string|null $navigationGroup = 'Profil Sekolah';
@@ -32,15 +36,15 @@ class ProfilSekolah extends Page
     {
         $profile = SchoolProfileModel::firstOrCreate([]);
 
-        $this->data = [
-            'school_name' => $profile->school_name,
-            'logo' => $profile->logo,
-            'headmaster_name' => $profile->headmaster_name,
-            'headmaster_photo' => $profile->headmaster_photo,
-            'history' => $profile->history,
-            'vision' => $profile->vision,
-            'mission' => $profile->mission,
-        ];
+        $this->form->fill([
+        'school_name' => $profile->school_name,
+        'logo' => $profile->logo,
+        'headmaster_name' => $profile->headmaster_name,
+        'headmaster_photo' => $profile->headmaster_photo,
+        'history' => $profile->history,
+        'vision' => $profile->vision,
+        'mission' => $profile->mission,
+    ]);
     }
 
     public function form(Schema $schema): Schema
@@ -57,8 +61,11 @@ class ProfilSekolah extends Page
                             ->label('Logo Sekolah')
                             ->image()
                             ->directory('school')
+                            ->disk('public')
                             ->imageEditor()
-                            ->maxSize(2048),
+                            ->maxSize(2048)
+                            ->preserveFilenames()
+                            ->storeFileNamesIn('logo'),
 
                         TextInput::make('headmaster_name')
                             ->label('Nama Kepala Sekolah')
@@ -68,6 +75,7 @@ class ProfilSekolah extends Page
                             ->label('Foto Kepala Sekolah')
                             ->image()
                             ->directory('school/headmaster')
+                            ->disk('public')
                             ->imageEditor()
                             ->imageResizeMode('crop')
                             ->imageCropAspectRatio('1:1')
@@ -98,7 +106,9 @@ class ProfilSekolah extends Page
     {
         $profile = SchoolProfileModel::firstOrCreate([]);
 
-        $profile->update($this->data);
+        $data = $this->form->getState();
+
+        $profile->update($data);
 
         Notification::make()
             ->title('Profil sekolah berhasil disimpan')

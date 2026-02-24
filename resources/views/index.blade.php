@@ -377,31 +377,24 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 	<!-- Start Services Section -->
 <section class="guru-section">
     <div class="kepsek-wrap">
-    <div class="kepsek-card">
-
-       @php
-    $photoRaw = $data?->headmaster_photo;
+    @php
     $photoPath = null;
 
-    if ($photoRaw) {
-        $decoded = json_decode($photoRaw, true);
-        if (is_array($decoded)) {
-            $filename = array_key_first($decoded);
-            $photoPath = asset('storage/school/' . $filename);
-        } else {
-            $photoPath = asset('storage/' . $photoRaw);
-        }
+    if (!empty($data?->headmaster_photo)) {
+        $photoPath = asset('storage/' . $data->headmaster_photo);
     }
 @endphp
 
-<div class="kepsek-foto">
-    <img 
-        src="{{ $photoPath ?? asset('assets/img/kep.png') }}"
-        alt="Kepala Sekolah"
-        onerror="this.src='{{ asset('assets/img/kep.png') }}'">
+<div class="kepsek-card">
 
-    <div class="kepsek-badge">⭐ Kepala Sekolah</div>
-</div>
+    <div class="kepsek-foto">
+        <img 
+            src="{{ $photoPath ?? asset('assets/img/kep.png') }}"
+            alt="Kepala Sekolah"
+            onerror="this.src='{{ asset('assets/img/kep.png') }}'">
+
+        <div class="kepsek-badge">⭐ Kepala Sekolah</div>
+    </div>
 
         <div class="kepsek-info">
             <div class="kepsek-label">

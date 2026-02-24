@@ -45,6 +45,7 @@ class BeritasForm
                             ->label('Thumbnail')
                             ->image()
                             ->directory('news')
+                            ->disk('public')
                             ->imageEditor()
                             ->imageResizeMode('cover')
                             ->imageCropAspectRatio('16:9')
