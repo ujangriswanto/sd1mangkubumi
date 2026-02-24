@@ -37,6 +37,7 @@ Route::get('/berita', [BeritasController::class, 'index']);
 Route::get('/berita/{slug}', [BeritasController::class, 'show']);
 
 
+
 /*
 |--------------------------------------------------------------------------
 | PROFIL SEKOLAH

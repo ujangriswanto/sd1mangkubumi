@@ -834,284 +834,214 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 	<!-- Start About Section -->
 	<!-- ===== SECTION BERITA ===== -->
+@php
+    $berita = \App\Models\Beritas::latest()->take(6)->get();
+@endphp
+
 <section class="berita2-section">
     <div class="container">
 
-        <!-- Header -->
         <div class="berita2-header">
             <h2>Berita terbaru <em>SDN 1 Mangkubumi</em></h2>
             <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
         </div>
 
-        <!-- Grid 3x2 -->
         <div class="berita2-grid">
-
+            @forelse($berita as $item)
             <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 1">
-                    <span class="berita2-badge">📰 Berita</span>
+                <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
+                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
+                    <span class="berita2-badge">📰 {{ $item->category }}</span>
                 </a>
                 <div class="berita2-body">
-                    <h3><a href="#">SDN 1 Mangkubumi Raih Juara 1 Lomba Cerdas Cermat Tingkat Kabupaten Ciamis</a></h3>
+                    <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
                     <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
+                        <span>By <strong>{{ $item->author }}</strong></span>
+                        <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
                     </div>
                 </div>
             </div>
-
-            <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 2">
-                    <span class="berita2-badge">🎒 Kegiatan</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="#">Kegiatan Pramuka Gabungan Antar Sekolah Se-Kecamatan Sadananya Berlangsung Meriah</a></h3>
-                    <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 3">
-                    <span class="berita2-badge">📋 PPDB</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="#">Pendaftaran Peserta Didik Baru Tahun Ajaran 2026/2027 Resmi Dibuka</a></h3>
-                    <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 4">
-                    <span class="berita2-badge">🎨 Seni</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="#">Pentas Seni Akhir Semester Pamerkan Bakat Siswa yang Luar Biasa</a></h3>
-                    <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 5">
-                    <span class="berita2-badge">🥇 Olahraga</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="#">Tim Sepak Bola SDN 1 Mangkubumi Lolos ke Babak Final O2SN Kabupaten</a></h3>
-                    <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="berita2-card">
-                <a href="#" class="berita2-img-wrap">
-                    <img src="{{ asset('assets/img/depan.png') }}" alt="Berita 6">
-                    <span class="berita2-badge">📚 Akademik</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="#">Program Literasi Digital Resmi Diluncurkan untuk Siswa Kelas 4, 5 dan 6</a></h3>
-                    <div class="berita2-footer">
-                        <span>By <strong>Admin Sekolah</strong></span>
-                        <a href="#" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Tombol -->
-        <div class="berita2-btn-wrap">
-            <a href="#" class="berita2-btn">Tampilkan Semua Berita</a>
+            @empty
+            <p style="color:#64748b; grid-column: span 3; text-align:center;">Belum ada berita tersedia.</p>
+            @endforelse
         </div>
 
     </div>
 </section>
 <style>
-.berita2-section {
-    padding: 90px 0 80px;
-    background: #f0f6ff;
-}
-/* Header */
-.berita2-header {
-    text-align: center;
-    margin-bottom: 52px;
-}
-.berita2-header h2 {
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 900;
-    color: #0f172a;
-    margin-bottom: 14px;
-    line-height: 1.2;
-}
-.berita2-header h2 em {
-    font-style: italic;
-    color: #1d4ed8;
-    position: relative;
-    font-weight: 900;
-}
-.berita2-header h2 em::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #1d4ed8, #60a5fa);
-    border-radius: 2px;
-}
-.berita2-header p {
-    color: #64748b;
-    font-size: 15px;
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-/* Grid 3 kolom x 2 baris */
-.berita2-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-    margin-bottom: 48px;
-}
-/* Card */
-.berita2-card {
-    background: #ffffff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 2px 16px rgba(29,78,216,0.07);
-    transition: transform .3s ease, box-shadow .3s ease;
-    border: 1px solid rgba(29,78,216,0.07);
-}
-.berita2-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(29,78,216,0.15);
-}
-/* Gambar */
-.berita2-img-wrap {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    height: 200px;
-    text-decoration: none;
-}
-.berita2-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .5s ease;
-    display: block;
-}
-.berita2-card:hover .berita2-img-wrap img {
-    transform: scale(1.07);
-}
-/* Badge */
-.berita2-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    background: #1d4ed8;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 50px;
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(29,78,216,0.4);
-}
-/* Body */
-.berita2-body {
-    padding: 20px 22px 22px;
-    display: flex;
-    flex-direction: column;
-    min-height: 120px;
-    justify-content: space-between;
-}
-.berita2-body h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    flex: 1;
-}
-.berita2-body h3 a {
-    color: inherit;
-    text-decoration: none;
-    transition: color .2s;
-}
-.berita2-body h3 a:hover {
-    color: #1d4ed8;
-}
-/* Footer card */
-.berita2-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 12px;
-    border-top: 1px solid #e0eaff;
-}
-.berita2-footer span {
-    font-size: 12px;
-    color: #94a3b8;
-}
-.berita2-footer strong {
-    color: #475569;
-}
-.berita2-link {
-    font-size: 12px;
-    font-weight: 600;
-    color: #1d4ed8;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: color .2s;
-}
-.berita2-link:hover {
-    color: #1e40af;
+    ..berita2-section{
+    padding:90px 20px;
+    background:#f1f5f9;
+    font-family:'Inter',system-ui;
 }
 
-/* Tombol */
-.berita2-btn-wrap {
-    text-align: center;
+/* HEADER */
+.berita2-header{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-.berita2-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 16px 44px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 8px 28px rgba(29,78,216,0.35);
-    transition: all .3s ease;
+.berita2-header h2{
+    font-size:34px;
+    font-weight:800;
+    color:#0f172a;
+    letter-spacing:-.5px;
 }
 
-.berita2-btn:hover {
-    background: linear-gradient(135deg, #1e40af, #2563eb);
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(29,78,216,0.45);
+.berita2-header h2 em{
+    font-style:normal;
+    color:#6366f1;
 }
-/* Responsif */
-@media (max-width: 1024px) {
-    .berita2-grid { grid-template-columns: repeat(2, 1fr); }
+
+.berita2-header p{
+    margin-top:12px;
+    font-size:15px;
+    color:#64748b;
 }
-@media (max-width: 640px) {
-    .berita2-grid { grid-template-columns: 1fr; }
+
+/* GRID */
+.berita2-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+.berita2-card{
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(14px);
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.6);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.04),
+        0 12px 30px rgba(0,0,0,.06);
+    transition:all .45s cubic-bezier(.22,.61,.36,1);
+}
+
+.berita2-card:hover{
+    transform:translateY(-10px) scale(1.01);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08),
+        0 25px 60px rgba(0,0,0,.12);
+}
+
+/* IMAGE */
+.berita2-img-wrap{
+    display:block;
+    height:210px;
+    position:relative;
+    overflow:hidden;
+}
+
+.berita2-img-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .7s cubic-bezier(.19,1,.22,1);
+}
+
+.berita2-card:hover img{
+    transform:scale(1.12);
+}
+
+/* gradient overlay */
+.berita2-img-wrap::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.45), transparent);
+    opacity:.7;
+    transition:.4s;
+}
+
+.berita2-card:hover .berita2-img-wrap::after{
+    opacity:.4;
+}
+
+/* BADGE */
+.berita2-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    padding:6px 14px;
+    font-size:12px;
+    font-weight:700;
+    border-radius:50px;
+    background:linear-gradient(135deg,#6366f1,#4f46e5);
+    color:white;
+    letter-spacing:.3px;
+    box-shadow:0 6px 16px rgba(79,70,229,.35);
+}
+
+/* BODY */
+.berita2-body{
+    padding:24px;
+}
+
+.berita2-body h3{
+    font-size:18px;
+    line-height:1.45;
+    margin-bottom:18px;
+}
+
+.berita2-body h3 a{
+    text-decoration:none;
+    color:#020617;
+    transition:.3s;
+}
+
+.berita2-body h3 a:hover{
+    color:#6366f1;
+}
+
+/* FOOTER */
+.berita2-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    color:#64748b;
+}
+
+.berita2-footer strong{
+    color:#0f172a;
+    font-weight:600;
+}
+
+.berita2-link{
+    font-weight:700;
+    text-decoration:none;
+    color:#6366f1;
+    position:relative;
+}
+
+.berita2-link::after{
+    content:"";
+    position:absolute;
+    bottom:-3px;
+    left:0;
+    width:0;
+    height:2px;
+    background:#6366f1;
+    transition:.35s;
+}
+
+.berita2-link:hover::after{
+    width:100%;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+
+    .berita2-header h2{
+        font-size:26px;
+    }
+
+    .berita2-img-wrap{
+        height:180px;
+    }
+
 }
 </style>
 	<!-- End About Section -->
@@ -1736,135 +1666,372 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 	</div>
 	<!-- End Contact Section -->
 	
-	<!-- Start Footer & Subscribe Section -->
-	<section class="footer-subscribe-wrapper">
-		<!-- Start Subscribe Section -->
-		<div class="subscribe-area">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6 col-md-6">
-						<div class="subscribe-content">
-							<h2>Sign Up Our Newsletter</h2>
-							<p>We Offer An Informative Monthly Technology Newsletter - Check It Out.</p>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6">
-						<form class="newsletter-form">
-							<input type="email" class="input-newsletter" name="email" placeholder="Enter Your Email" required autocomplete="off">
-							<button type="submit">Subscribe Now</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Subscribe Section -->
-		<!-- Start Footer Section -->
-		<div class="footer-area ptb-100">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="single-footer-widget">
-							<a class="footer-logo" href="#">
-								<img src="assets/img/logo.png" class="white-logo" alt="logo">
-							</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco consectetur laboris.</p>
-							<ul class="footer-social">
-								<li>
-									<a href="#"> <i class="fab fa-facebook-f"></i></a>
-								</li>
-								<li>
-									<a href="#"> <i class="fa-brands fa-x-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"> <i class="fab fa-youtube"></i></a>
-								</li>
-								<li>
-									<a href="#"> <i class="fab fa-linkedin"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-6 col-sm-6">
-						<div class="single-footer-widget">
-							<div class="footer-heading">
-								<h3>Our Services</h3>
-							</div>
-							<ul class="footer-quick-links">
-								<li><a href="#">Startup Solutions</a></li>
-								<li><a href="#">Web Development</a></li>
-								<li><a href="#">Networking Services</a></li>
-								<li><a href="#">SEO Optimization</a></li>
-								<li><a href="#">Apps Development</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-6 col-sm-6">
-						<div class="single-footer-widget">
-							<div class="footer-heading">
-								<h3>Useful Links</h3>
-							</div>
-							<ul class="footer-quick-links">
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="portfolio.html">Case Study</a></li>
-								<li><a href="contact.html">Contact Us</a></li>
-								<li><a href="privacy-policy.html">Privacy Policy</a></li>
-								<li><a href="terms-condition.html">Terms & Conditions</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="single-footer-widget">
-							<div class="footer-heading">
-								<h3>Contact Info</h3>
-							</div>
-							<div class="footer-info-contact">
-								<i class="flaticon-phone-call"></i>
-								<h3>Phone</h3>
-								<span><a href="tel:12345678">080 707 555-321</a></span>
-							</div>
-							<div class="footer-info-contact">
-								<i class="flaticon-envelope"></i>
-								<h3>Email</h3>
-								<span><a href="mailto:demo@example.com">demo@example.com</a></span>
-							</div>
-							<div class="footer-info-contact">
-								<i class="flaticon-placeholder"></i>
-								<h3>Address</h3>
-								<span>526  Melrose Street, Water Mill, 11976  New York</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Footer Section -->
-	</section>
-	<!-- End Footer & Subscribe Section -->
-	
-	<!-- Start Copy Right Section -->
-	<div class="copyright-area">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 col-md-6">
-					<p><i class="far fa-copyright"></i> 2025 Techvio - All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<ul>
-						<li><a href="terms-condition.html">Terms & Conditions</a></li>
-						<li><a href="privacy-policy.html">Privacy Policy</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Copy Right Section -->
-	
-	<!-- Start Go Top Section -->
-	<div class="go-top">
-		<i class="fas fa-chevron-up"></i>
-		<i class="fas fa-chevron-up"></i>
-	</div>
-	<!-- End Go Top Section -->
+		
+
+        <!-- ══════════════════════════════
+     FOOTER KECE - SDN 1 MANGKUBUMI
+══════════════════════════════ -->
+<footer class="sdn-footer">
+    <!-- Gelombang atas -->
+    <div class="sdn-footer-wave">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,0 C480,80 960,0 1440,60 L1440,0 Z" fill="#f8faff"/>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="row g-4 pt-2 pb-5">
+
+            <!-- COL 1: LOGO + DESC + SOSMED -->
+            <div class="col-lg-3 col-md-6">
+                <div class="sdn-footer-brand">
+                    <div class="sdn-footer-logo">
+                        <img src="assets/img/tutt.png" alt="Logo SDN 1 Mangkubumi">
+                        <div>
+                            <span class="sdn-footer-logo-title">SDN 1 Mangkubumi</span>
+                            <span class="sdn-footer-logo-sub">Kecamatan Sadananya</span>
+                        </div>
+                    </div>
+                    <p class="sdn-footer-desc">
+                        Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.
+                    </p>
+                    <div class="sdn-footer-socials">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COL 2: LINK CEPAT -->
+            <div class="col-lg-2 col-md-6">
+                <div class="sdn-footer-widget">
+                    <h4 class="sdn-footer-heading">Menu Utama</h4>
+                    <ul class="sdn-footer-links">
+                        <li><a href="{{ url('/') }}"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="/visi-misi"><i class="fas fa-chevron-right"></i> Visi & Misi</a></li>
+                        <li><a href="/berita"><i class="fas fa-chevron-right"></i> Berita</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> PPDB</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Akademik</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kesiswaan</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Program Sekolah</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COL 3: KONTAK -->
+            <div class="col-lg-3 col-md-6">
+                <div class="sdn-footer-widget">
+                    <h4 class="sdn-footer-heading">Kontak Kami</h4>
+                    <ul class="sdn-footer-contact">
+                        <li>
+                            <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Alamat</strong>
+                                <span>Jl. Mangkubumi No.1, Kec. Sadananya, Ciamis, Jawa Barat</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <strong>Telepon</strong>
+                                <span><a href="tel:+62000000000">(0265) 000-0000</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>Email</strong>
+                                <span><a href="mailto:sdn1mangkubumi@gmail.com">sdn1mangkubumi@gmail.com</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <strong>Jam Operasional</strong>
+                                <span>Senin – Jumat: 07.00 – 15.00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COL 4: MAPS EMBED -->
+            <div class="col-lg-4 col-md-6">
+                <div class="sdn-footer-widget">
+                    <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
+                    <div class="sdn-footer-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4!2d108.35!3d-7.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSDN+1+Mangkubumi+Sadananya+Ciamis!5e0!3m2!1sid!2sid!4v1"
+                            width="100%"
+                            height="220"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <a href="https://maps.google.com/?q=SDN+1+Mangkubumi+Sadananya+Ciamis" target="_blank" class="sdn-maps-btn">
+                            <i class="fas fa-directions"></i> Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="sdn-copyright">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p><i class="far fa-copyright"></i> {{ date('Y') }} SDN 1 Mangkubumi — All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="sdn-copyright-links">
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<style>
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.sdn-footer {
+    background: linear-gradient(160deg, #0d2b55 0%, #0a1f3d 60%, #061529 100%);
+    color: rgba(255,255,255,0.75);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    padding-top: 0;
+}
+
+.sdn-footer-wave {
+    line-height: 0;
+    margin-bottom: -2px;
+}
+.sdn-footer-wave svg { display: block; width: 100%; }
+
+/* LOGO */
+.sdn-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.sdn-footer-logo img {
+    height: 52px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+.sdn-footer-logo-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+}
+.sdn-footer-logo-sub {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sdn-footer-desc {
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+}
+
+/* SOSMED */
+.sdn-footer-socials {
+    display: flex;
+    gap: 10px;
+}
+.sdn-footer-socials a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all .3s;
+}
+.sdn-footer-socials a:hover {
+    background: #f5a623;
+    border-color: #f5a623;
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+/* HEADING */
+.sdn-footer-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.sdn-footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 36px;
+    height: 3px;
+    background: #f5a623;
+    border-radius: 2px;
+}
+
+/* LINKS */
+.sdn-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sdn-footer-links li {
+    margin-bottom: 10px;
+}
+.sdn-footer-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sdn-footer-links a i {
+    font-size: 10px;
+    color: #f5a623;
+}
+.sdn-footer-links a:hover {
+    color: #f5a623;
+    padding-left: 4px;
+}
+
+/* KONTAK */
+.sdn-footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.sdn-footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.sdn-contact-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5a623;
+    font-size: 13px;
+}
+.sdn-footer-contact strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+}
+.sdn-footer-contact span,
+.sdn-footer-contact a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color .3s;
+}
+.sdn-footer-contact a:hover { color: #f5a623; }
+
+/* MAPS */
+.sdn-footer-map {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+}
+.sdn-footer-map iframe {
+    display: block;
+    border-radius: 12px 12px 0 0;
+    filter: grayscale(20%) contrast(1.05);
+}
+.sdn-maps-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f5a623;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+    text-decoration: none !important;
+    transition: background .3s;
+    border-radius: 0 0 12px 12px;
+}
+.sdn-maps-btn:hover {
+    background: #e09415;
+    color: #fff;
+}
+
+/* COPYRIGHT */
+.sdn-copyright {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 18px 0;
+    margin-top: 10px;
+}
+.sdn-copyright p {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+}
+.sdn-copyright-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+.sdn-copyright-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color .3s;
+}
+.sdn-copyright-links a:hover { color: #f5a623; }
+
+/* MOBILE */
+@media (max-width: 576px) {
+    .sdn-copyright-links { justify-content: center; margin-top: 8px; }
+    .sdn-copyright p { text-align: center; }
+}
+</style>
 	
 	<!-- jQuery Min JS -->
 	<script src="assets/js/jquery.min.js"></script>
