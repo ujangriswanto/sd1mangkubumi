@@ -155,14 +155,30 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 </div>
 
 
-<section class="berita2-section">
-  <div class="container">
 
-    <div class="berita2-header">
-      <h2>Berita terbaru <em>SDN 1 Mangkubumi</em></h2>
-      <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
+  <section class="hero-full hero-full--news" style="--bg:url('{{ asset('images/hero-berita.jpg') }}');">
+  <div class="hero-full__overlay"></div>
+
+  <div class="hero-full__bubbles" aria-hidden="true">
+    <span class="b1"></span>
+    <span class="b2"></span>
+  </div>
+
+  <div class="hero-full__content">
+    <div class="hero-full__titlebox">
+        <h1>BERITA TERBARU</h1>
     </div>
+    <div class="hero-full__actions">
+        <a class="hero-btn hero-btn--ghost" href="{{ url('/') }}">← Kembali ke Beranda</a>
+    </div>
+</div>
 
+  <svg class="hero-full__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,80 C240,120 480,120 720,90 C960,60 1200,40 1440,60 L1440,120 L0,120 Z"></path>
+  </svg>
+</section>
+
+<section class="berita2-section">
     <div class="berita2-grid">
       @forelse($berita as $item)
       <div class="berita2-card">
@@ -203,288 +219,10 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
   </div>
 </section>
+@include('Berita.Berita_css')
 
-<style>
-  :root{
-    --b2-bg:#f1f5f9;
-    --b2-text:#0f172a;
-    --b2-muted:#64748b;
-    --b2-primary:#6366f1;
-    --b2-primary2:#4f46e5;
-    --b2-card: rgba(255,255,255,.75);
-    --b2-border: rgba(255,255,255,.65);
-  }
 
-  .berita2-section{
-    padding:90px 20px;
-    background:var(--b2-bg);
-    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  }
 
-  /* HEADER */
-  .berita2-header{
-    text-align:center;
-    margin-bottom:60px;
-  }
-
-  .berita2-header h2{
-    font-size:34px;
-    font-weight:800;
-    color:var(--b2-text);
-    letter-spacing:-.5px;
-    margin:0;
-  }
-
-  .berita2-header h2 em{
-    font-style:normal;
-    color:var(--b2-primary);
-  }
-
-  .berita2-header p{
-    margin:12px auto 0;
-    font-size:15px;
-    color:var(--b2-muted);
-    max-width:720px;
-    line-height:1.7;
-  }
-
-  /* GRID */
-  .berita2-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-  }
-
-  /* CARD */
-  .berita2-card{
-    background:var(--b2-card);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-radius:22px;
-    overflow:hidden;
-    border:1px solid var(--b2-border);
-    box-shadow:
-      0 4px 12px rgba(0,0,0,.04),
-      0 12px 30px rgba(0,0,0,.06);
-    transition:all .45s cubic-bezier(.22,.61,.36,1);
-  }
-
-  .berita2-card:hover{
-    transform:translateY(-10px) scale(1.01);
-    box-shadow:
-      0 10px 25px rgba(0,0,0,.08),
-      0 25px 60px rgba(0,0,0,.12);
-  }
-
-  /* IMAGE */
-  .berita2-img-wrap{
-    display:block;
-    height:210px;
-    position:relative;
-    overflow:hidden;
-  }
-
-  .berita2-img-wrap img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .7s cubic-bezier(.19,1,.22,1);
-    display:block;
-  }
-
-  .berita2-card:hover .berita2-img-wrap img{
-    transform:scale(1.12);
-  }
-
-  /* gradient overlay */
-  .berita2-img-wrap::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,.45), transparent);
-    opacity:.7;
-    transition:opacity .4s ease;
-    pointer-events:none;
-  }
-
-  .berita2-card:hover .berita2-img-wrap::after{
-    opacity:.4;
-  }
-
-  /* BADGE */
-  .berita2-badge{
-    position:absolute;
-    top:16px;
-    left:16px;
-    padding:6px 14px;
-    font-size:12px;
-    font-weight:700;
-    border-radius:50px;
-    background:linear-gradient(135deg,var(--b2-primary),var(--b2-primary2));
-    color:#fff;
-    letter-spacing:.3px;
-    box-shadow:0 6px 16px rgba(79,70,229,.35);
-    z-index:2;
-  }
-
-  /* BODY */
-  .berita2-body{
-    padding:24px;
-  }
-
-  .berita2-body h3{
-    font-size:18px;
-    line-height:1.45;
-    margin:0 0 18px;
-  }
-
-  .berita2-body h3 a{
-    text-decoration:none;
-    color:#020617;
-    transition:color .3s ease;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
-
-  .berita2-body h3 a:hover{
-    color:var(--b2-primary);
-  }
-
-  /* FOOTER */
-  .berita2-footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    font-size:13px;
-    color:var(--b2-muted);
-  }
-
-  .berita2-footer strong{
-    color:var(--b2-text);
-    font-weight:600;
-  }
-
-  .berita2-link{
-    font-weight:700;
-    text-decoration:none;
-    color:var(--b2-primary);
-    position:relative;
-    white-space:nowrap;
-  }
-
-  .berita2-link::after{
-    content:"";
-    position:absolute;
-    bottom:-3px;
-    left:0;
-    width:0;
-    height:2px;
-    background:var(--b2-primary);
-    transition:width .35s ease;
-  }
-
-  .berita2-link:hover::after{
-    width:100%;
-  }
-
-  /* EMPTY */
-  .berita2-empty{
-    color:var(--b2-muted);
-    grid-column: 1 / -1;
-    text-align:center;
-    margin: 10px 0 0;
-  }
-
-  /* PAGINATION */
-  .berita2-pagination-wrap{
-    margin-top: 34px;
-    padding: 16px 18px;
-    border-radius: 22px;
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,.65);
-    box-shadow:
-      0 4px 12px rgba(0,0,0,.04),
-      0 12px 30px rgba(0,0,0,.06);
-  }
-
-  .berita2-pagination-header{
-    color: var(--b2-muted);
-    font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 12px;
-    text-align: center;
-  }
-
-  .berita2-pagination nav{
-    display:flex;
-    justify-content:center;
-  }
-
-  .berita2-pagination .pagination{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    list-style:none;
-    padding:0;
-    margin:0;
-  }
-
-  .berita2-pagination .page-item{ margin:0; }
-
-  .berita2-pagination .page-link,
-  .berita2-pagination a,
-  .berita2-pagination span{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:42px;
-    height:42px;
-    padding:0 14px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:800;
-    font-size:13px;
-    color: var(--b2-text);
-    background: rgba(255,255,255,.9);
-    border: 1px solid rgba(99,102,241,.18);
-    transition: all .25s cubic-bezier(.22,.61,.36,1);
-  }
-
-  .berita2-pagination a:hover,
-  .berita2-pagination .page-link:hover{
-    transform: translateY(-2px);
-    border-color: rgba(99,102,241,.35);
-    box-shadow: 0 10px 22px rgba(79,70,229,.12);
-  }
-
-  .berita2-pagination .active span,
-  .berita2-pagination .page-item.active .page-link{
-    background: linear-gradient(135deg,var(--b2-primary),var(--b2-primary2));
-    color:#fff;
-    border-color: transparent;
-    box-shadow: 0 10px 22px rgba(79,70,229,.22);
-  }
-
-  .berita2-pagination .disabled span,
-  .berita2-pagination .page-item.disabled .page-link{
-    opacity:.55;
-    cursor:not-allowed;
-    transform:none;
-    box-shadow:none;
-  }
-
-  /* RESPONSIVE */
-  @media(max-width:600px){
-    .berita2-header h2{ font-size:26px; }
-    .berita2-img-wrap{ height:180px; }
-  }
-</style>
 
 
 <!-- ══════════════════════════════
