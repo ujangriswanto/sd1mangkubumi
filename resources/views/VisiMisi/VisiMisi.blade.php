@@ -76,13 +76,7 @@
                 <div class="visimisi-icon">🎯</div>
                 <h3>Visi</h3>
                 <div class="visimisi-content">
-                    {{
-                        collect(json_decode($data->vision ?? '{}', true)['content'] ?? [])
-                        ->flatMap(fn($p) => collect($p['content'] ?? []))
-                        ->pluck('text')
-                        ->implode(' ')
-                        ?: 'Visi belum diisi.'
-                    }}
+                    {!! $data->vision ?? '<p>Visi belum diisi.</p>' !!}
                 </div>
             </div>
 
@@ -91,57 +85,7 @@
                 <div class="visimisi-icon">📋</div>
                 <h3>Misi</h3>
                 <div class="visimisi-content">
-                    @php
-                        $misiRaw = collect(json_decode($data->mission ?? '{}', true)['content'] ?? [])
-                            ->map(function($block) {
-                                // Ambil semua teks dalam block (paragraph/listItem)
-                                $text = collect($block['content'] ?? [])
-                                    ->pluck('text')
-                                    ->implode('');
-                                return trim($text);
-                            })
-                            ->filter() // buang yang kosong
-                            ->values();
-                    @endphp
-
-                    @if($misiRaw->count() > 1)
-                        {{-- Lebih dari 1 block = tampilkan sebagai list --}}
-                        <ul class="misi-list">
-                            @foreach($misiRaw as $item)
-                                <li class="misi-list-item">
-                                    <span class="misi-bullet">✓</span>
-                                    <span>{{ $item }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @elseif($misiRaw->count() === 1)
-                        {{-- Hanya 1 block panjang — pecah berdasarkan pola "1. 2. 3." --}}
-                        @php
-                            $single = $misiRaw->first();
-                            // Pecah berdasarkan pola angka diikuti titik: "1." "2." dst
-                            $parts = preg_split('/(?=\d+\.\s)/', $single, -1, PREG_SPLIT_NO_EMPTY);
-                            $parts = array_map('trim', array_filter($parts));
-                        @endphp
-
-                        @if(count($parts) > 1)
-                            <ul class="misi-list">
-                                @foreach($parts as $part)
-                                    @php
-                                        // Hapus angka di awal "1. " jadi bersih
-                                        $clean = preg_replace('/^\d+\.\s*/', '', $part);
-                                    @endphp
-                                    <li class="misi-list-item">
-                                        <span class="misi-bullet">✓</span>
-                                        <span>{{ trim($clean) }}</span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <p>{{ $single ?: 'Misi belum diisi.' }}</p>
-                        @endif
-                    @else
-                        <p>Misi belum diisi.</p>
-                    @endif
+                    {!! $data->mission ?? '<p>Misi belum diisi.</p>' !!}
                 </div>
             </div>
 
@@ -153,17 +97,10 @@
                 <div class="sejarah-icon">📜</div>
                 <h3>Sejarah Sekolah</h3>
                 <div class="sejarah-content">
-                    {{
-                        collect(json_decode($data->history ?? '{}', true)['content'] ?? [])
-                        ->flatMap(fn($p) => collect($p['content'] ?? []))
-                        ->pluck('text')
-                        ->implode(' ')
-                        ?: 'Sejarah sekolah belum diisi.'
-                    }}
+                    {!! $data->history ?? '<p>Sejarah sekolah belum diisi.</p>' !!}
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
