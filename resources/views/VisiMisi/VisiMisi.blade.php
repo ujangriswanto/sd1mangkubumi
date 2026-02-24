@@ -35,6 +35,114 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+    <!-- ===== NAVBAR ===== -->
+<div class="navbar-section" id="mainNav">
+    <div class="techvio-responsive-nav">
+        <div class="container">
+            <div class="techvio-responsive-menu">
+                <div class="logo">
+                    <a href="index.html">
+                         <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
+    <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:50px;width:auto;display:none;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="techvio-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+
+
+                <a class="navbar-brand" href="index.html" style="padding:0;line-height:1;display:flex;align-items:center;gap:10px;">
+    <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:55px;width:auto;display:block;">
+    <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:55px;width:auto;display:none;">
+	
+    <div style="display:flex;flex-direction:column;line-height:1.3;">
+    <span class="brand-title" style="font-size:15px;font-weight:800;letter-spacing:0.3px;transition:color .3s;font-family:'Poppins',sans-serif;">SDN 1 Mangkubumi</span>
+    <span class="brand-sub" style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;font-family:'Poppins',sans-serif;">Kecamatan Sadananya</span>
+</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+</a>
+<style>
+    /* Ukuran menu navbar */
+.navbar-nav .nav-link{
+    font-size:15px !important;
+    font-weight:600;
+    letter-spacing:.3px;
+}
+/* Dropdown menu */
+.dropdown-menu .nav-link{
+    font-size:12px !important;
+}
+/* Brand title */
+.brand-title{
+    font-size:13px !important;
+}
+/* Brand subtitle */
+.brand-sub{
+    font-size:9px !important;
+}
+/* Default (atas) = putih */
+.brand-title { color: #ffffff; }
+.brand-sub   { color: rgba(255,255,255,0.75); }
+/* Setelah scroll = hitam/biru */
+.scrolled .brand-title { color: #000000; }
+.scrolled .brand-sub   { color: rgba(0, 0, 0, 0.845); }
+</style>
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+</script>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/visi-misi" class="nav-link">Visi & Misi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">Tentang</a>
+                        </li>
+						 <li class="nav-item">
+                        <a href="/berita" class="nav-link">Berita</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="about.html" class="nav-link">PPDB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="#" class="nav-link">Kurikulum</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
+								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="#" class="nav-link">Data Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Prestasi Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li>
+                            </ul>
+                        </li>
+						<li class="nav-item">
+                            <a href="about.html" class="nav-link">Program Sekolah</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Daftar Hadir</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar -->
 
 <!-- Start Preloader Section -->
 <div class="preloader">
@@ -49,7 +157,6 @@
 ══════════════════════════════ -->
 <div class="visimisi-hero">
     <div class="visimisi-hero-badge">VISI,MISI & SEJARAH</div>
-    <h2><em>SDN 1 Mangkubumi</em></h2>
     <a href="{{ url('/') }}" class="visimisi-hero-btn">
         ← Kembali ke Beranda
     </a>
@@ -103,269 +210,8 @@
         </div>
     </div>
 </section>
+@include('VisiMisi.Visimisi_css')
 
-<style>
-/* ══════════════════════════════
-   HERO HEADER
-══════════════════════════════ */
-.visimisi-hero {
-    position: relative;
-    background: #0d2b55;
-    min-height: 340px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 20px 110px;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-}
-.visimisi-hero::before,
-.visimisi-hero::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: #f5a623;
-    opacity: .12;
-}
-.visimisi-hero::before { width: 500px; height: 500px; top: -200px; left: -150px; }
-.visimisi-hero::after  { width: 350px; height: 350px; bottom: -180px; right: -100px; }
-
-.visimisi-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(245,166,35,.18);
-    border: 1.5px solid #f5a623;
-    color: #f5a623;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 7px 20px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    animation: vm-fadeDown .7s ease both;
-}
-.visimisi-hero h2 {
-    font-size: clamp(26px, 5vw, 48px);
-    font-weight: 800;
-    color: #fff;
-    margin: 0 0 14px;
-    line-height: 1.2;
-    animation: vm-fadeDown .7s .15s ease both;
-}
-.visimisi-hero h2 em {
-    color: #f5a623;
-    font-style: normal;
-}
-.visimisi-hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,.6);
-    max-width: 480px;
-    line-height: 1.8;
-    animation: vm-fadeDown .7s .3s ease both;
-}
-.visimisi-hero-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,.12);
-    border: 1.5px solid rgba(255,255,255,.35);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    margin-top: 10px;
-    transition: background .3s, border-color .3s, transform .3s;
-    animation: vm-fadeDown .7s .3s ease both;
-}
-.visimisi-hero-btn:hover {
-    background: rgba(245,166,35,.25);
-    border-color: #f5a623;
-    color: #f5a623;
-    transform: translateY(-2px);
-    text-decoration: none;
-}
-.visimisi-hero-wave {
-    position: absolute;
-    bottom: -1px; left: 0; right: 0;
-    line-height: 0;
-}
-.visimisi-hero-wave svg { display: block; width: 100%; }
-
-@keyframes vm-fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ══════════════════════════════
-   SECTION ASLI
-══════════════════════════════ */
-.visimisi-section {
-    padding: 90px 20px;
-    background: linear-gradient(135deg, #eef2ff, #ffffff);
-    font-family: 'Poppins', sans-serif;
-}
-
-.visimisi-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.visimisi-tag {
-    display: inline-block;
-    background: #667eea;
-    color: #fff;
-    padding: 7px 16px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    box-shadow: 0 4px 14px rgba(102,126,234,.35);
-}
-
-.visimisi-header h2 {
-    font-size: 36px;
-    font-weight: 800;
-    margin: 0;
-    color: #1e293b;
-}
-
-.visimisi-header em {
-    color: #667eea;
-    font-style: normal;
-}
-
-.visimisi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.visimisi-card {
-    background: #fff;
-    padding: 38px 32px;
-    border-radius: 22px;
-    text-align: center;
-    box-shadow: 0 18px 45px rgba(0,0,0,.08);
-    transition: .35s ease;
-}
-
-.visimisi-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 30px 70px rgba(0,0,0,.15);
-}
-
-.visimisi-icon {
-    font-size: 44px;
-    margin-bottom: 15px;
-}
-
-.visimisi-card h3 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #334155;
-}
-
-.visimisi-content {
-    font-size: 15px;
-    line-height: 1.9;
-    color: #555;
-}
-
-.card-visi { border-top: 5px solid #667eea; }
-.card-misi { border-top: 5px solid #764ba2; }
-
-/* ══════════════════════════════
-   MISI LIST — RAPI & BERSIH
-══════════════════════════════ */
-.misi-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-}
-
-.misi-list-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f1f5f9;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #475569;
-}
-
-.misi-list-item:last-child {
-    border-bottom: none;
-}
-
-.misi-bullet {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-}
-
-/* SEJARAH */
-.sejarah-wrapper {
-    max-width: 900px;
-    margin: auto;
-}
-
-.sejarah-card {
-    background: #fff;
-    padding: 50px 45px;
-    border-radius: 24px;
-    text-align: center;
-    box-shadow: 0 20px 55px rgba(0,0,0,.1);
-    transition: .35s;
-}
-
-.sejarah-card:hover {
-    transform: translateY(-10px);
-}
-
-.sejarah-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
-}
-
-.sejarah-card h3 {
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-.sejarah-content {
-    text-align: justify;
-    font-size: 16px;
-    line-height: 1.9;
-    color: #444;
-}
-
-/* MOBILE */
-@media (max-width: 576px) {
-    .visimisi-hero { min-height: 260px; padding: 60px 16px 90px; }
-    .visimisi-hero h2 { font-size: 24px; }
-    .visimisi-header h2 { font-size: 26px; }
-    .sejarah-card { padding: 36px 24px; }
-}
-</style>
 
 <!-- jQuery Min JS -->
 	<script src="assets/js/jquery.min.js"></script>
