@@ -31,6 +31,12 @@ class TeacherStaffForm
                             ->placeholder('Contoh: Kepala Sekolah, Guru Kelas 1A, Tata Usaha')
                             ->columnSpan(2),
 
+                        TextInput::make('nip')
+                            ->label('NIP')
+                            ->maxLength(18)
+                            ->placeholder('Opsional, jika ada')
+                            ->columnSpan(2),
+
                         FileUpload::make('photo')
                             ->label('Foto')
                             ->image()

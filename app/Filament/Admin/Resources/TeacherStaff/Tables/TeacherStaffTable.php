@@ -39,14 +39,17 @@ class TeacherStaffTable
                     ->sortable()
                     ->wrap(),
 
+                TextColumn::make('nip')
+                    ->label('NIP')
+                    ->searchable()
+                    ->sortable()
+                    ->wrap(),
+
                 IconColumn::make('is_active')
                     ->label('Aktif')
                     ->boolean()
                     ->sortable(),
 
-                TextColumn::make('sort_order')
-                    ->label('Urutan')
-                    ->sortable(),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
