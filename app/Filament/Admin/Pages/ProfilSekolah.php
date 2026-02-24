@@ -41,6 +41,8 @@ class ProfilSekolah extends Page implements HasForms
         'logo' => $profile->logo,
         'headmaster_name' => $profile->headmaster_name,
         'headmaster_photo' => $profile->headmaster_photo,
+        'headmaster_nip' => $profile->headmaster_nip,
+        'headmaster_quote' => $profile->headmaster_quote,
         'history' => $profile->history,
         'vision' => $profile->vision,
         'mission' => $profile->mission,
@@ -80,6 +82,16 @@ class ProfilSekolah extends Page implements HasForms
                             ->imageResizeMode('crop')
                             ->imageCropAspectRatio('1:1')
                             ->maxSize(2048),
+                        
+                        TextInput::make('headmaster_nip')
+                            ->label('NIP Kepala Sekolah')
+                            ->maxLength(18)
+                            ->helperText('Masukkan NIP dengan benar, maksimal 18 karakter.'),
+
+                        TextInput::make('headmaster_quote')
+                            ->label('Kutipan Kepala Sekolah')
+                            ->maxLength(255)
+                            ->helperText('Masukkan kutipan inspiratif dari kepala sekolah.'),
                     ])
                     ->columns(2),
 
