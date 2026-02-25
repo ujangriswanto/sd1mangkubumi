@@ -398,7 +398,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
         <div class="kepsek-info">
             <div class="kepsek-label">
-                Kepala Sekolah SDN 1 Mangkubumi
+            Kepala Sekolah {{ $data->school_name ?? 'Nama Sekolah Belum Diisi' }}
             </div>
 
             <h3>
@@ -415,10 +415,71 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 </div>
 
         <!-- Sub judul dewan guru -->
-       <div class="guru-sub-title" style="text-align:center !important; display:block; width:100%;">
-    <h4 style="font-size:22px !important; font-weight:700; text-align:center !important; margin:0 0 10px;">Guru</h4>
-    <div class="gst-line" style="width:50px; height:3px; background:linear-gradient(135deg,#6366f1,#4f46e5); border-radius:999px; margin:0 auto;"></div>
+        <div class="guru-sub-title">
+    <button class="icon-button">
+        <span class="star-icon"></span> Guru Kami / Tenaga Pengajar 
+    </button>
 </div>
+        <style>
+           /* Styling untuk tombol */
+/* Styling untuk tombol */
+.icon-button {
+    background-color: #FFD700; /* Warna kuning untuk background tombol */
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 30px; /* Membuat tombol melengkung seperti di gambar */
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Menyimpan tombol di tengah */
+    width: fit-content; /* Menyesuaikan ukuran tombol dengan teks */
+    font-family: 'Arial', sans-serif;
+    position: relative; /* Menambahkan posisi relatif untuk efek shine */
+    overflow: hidden; /* Agar kilauan tidak keluar dari tombol */
+}
+/* Efek kilap */
+.icon-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: shine 2s infinite;
+    z-index: 1; /* Menempatkan kilauan di atas tombol */
+}
+/* Animasi kilau */
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+.icon-button:hover {
+    background-color: #FFCC00; /* Warna lebih terang saat hover */
+}
+.star-icon {
+    margin-right: 8px; /* Menambahkan sedikit jarak antara bintang dan teks */
+    font-size: 20px; /* Ukuran bintang */
+}
+.guru-sub-title {
+    text-align: center;
+    margin-bottom: 20px; /* Menambahkan jarak bawah agar terlihat lebih rapi */
+}
+        </style>
 
         <!-- ===== SLIDER GURU ===== -->
         @php
@@ -512,7 +573,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .kepsek-wrap {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .kepsek-card {
@@ -522,7 +583,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     background: linear-gradient(135deg, #1e3a8a 0%, #3b5bdb 100%);
     border-radius: 24px;
     padding: 40px 50px;
-    max-width: 800px;
+    max-width: 950px;
     width: 100%;
     box-shadow: 0 20px 60px rgba(59,91,219,0.3);
     position: relative;
@@ -544,8 +605,8 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 }
 
 .kepsek-foto img {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
@@ -560,7 +621,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     transform: translateX(-50%);
     background: #f5c518;
     color: #1a1a1a;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 800;
     padding: 4px 10px;
     border-radius: 50px;
@@ -570,31 +631,36 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .kepsek-info { position: relative; z-index: 1; }
 
 .kepsek-label {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 650;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
+    color: rgb(255, 255, 255);
     margin-bottom: 8px;
+    font-style: bold;
+    font-family: 'Roboto', sans-serif;
+    
 }
 
 .kepsek-info h3 {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 26px;
+    font-weight: bold;
     color: #fff;
     margin-bottom: 4px;
 }
 
 .kepsek-nip {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
+    font-size: 20px;
+    color: rgb(255, 255, 255);
     margin-bottom: 14px;
+    font-weight: bold;
+    
 }
 
 .kepsek-quote {
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    font-style: italic;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-style: bold;
     line-height: 1.6;
     border-left: 3px solid #f5c518;
     padding-left: 12px;
@@ -605,22 +671,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .kepsek-stats div { text-align: center; }
 .kepsek-stats span { display: block; font-size: 22px; font-weight: 800; color: #fff; }
 .kepsek-stats small { font-size: 10px; color: rgba(255,255,255,0.55); }
-
-/* Sub judul */
-.guru-sub-title {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.guru-sub-title h4 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #0f172a;
-    white-space: nowrap;
-    margin: 0;
-}
 
 .gst-line {
     flex: 1;
