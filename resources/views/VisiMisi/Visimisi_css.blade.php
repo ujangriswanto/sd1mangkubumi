@@ -7,7 +7,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #fff;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: linear-gradient(135deg, #3250C1 0%, #5d78dc 50%, #3250C1 100%);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);

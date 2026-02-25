@@ -840,9 +840,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     <div class="container">
 
         <div class="berita2-header">
-            <h2>Berita terbaru <em>SDN 1 Mangkubumi</em></h2>
-            <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
-        </div>
+    <h2><span class="button-box">Berita terbaru <em>SD Negeri 1 Mangkubumi</em></span></h2>
+    <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
+</div>
 
         <div class="berita2-grid">
             @forelse($berita as $item)
@@ -881,27 +881,56 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 }
 
 /* HEADER */
-.berita2-header{
-    text-align:center;
-    margin-bottom:60px;
+/* Styling untuk menempatkan button kotak di tengah dalam berita2-header */
+.berita2-header {
+    text-align: center; /* Menyusun teks dan tombol di tengah */
+    margin-bottom: 60px; /* Menjaga jarak antara header dan konten berikutnya */
 }
 
-.berita2-header h2{
-    font-size:34px;
-    font-weight:800;
-    color:#0f172a;
-    letter-spacing:-.5px;
+.button-box {
+    position: relative;
+    display: inline-block;
+    padding: 12px 40px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(0, 102, 255, 0.55) 0%, rgba(73, 113, 183, 0.92) 45%, rgba(75, 138, 238, 0.75) 100%);
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0 auto; /* Memastikan button tetap di tengah */
 }
 
-.berita2-header h2 em{
-    font-style:normal;
-    color:#6366f1;
+/* Efek mengkilap */
+.button-box::before {
+    content: '';
+    position: absolute;
+    top: -20%; left: -60%;
+    width: 38%; height: 140%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.40) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    animation: kilap 3s ease-in-out infinite;
 }
 
-.berita2-header p{
-    margin-top:12px;
-    font-size:15px;
-    color:#64748b;
+/* Efek saat hover */
+.button-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.5), 0 0 20px rgba(58,120,200,0.3), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+
+@keyframes kilap {
+    0%        { left: -60%; opacity: 0; }
+    8%        { opacity: 1; }
+    75%, 100% { left: 130%; opacity: 0; }
 }
 
 /* GRID */
@@ -1073,32 +1102,256 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 	<!-- End About Section -->
 	
 	<!-- Start Overview Section -->
-	<section class="overview-section section-padding">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="overview-image">
-						<img src="assets/img/choose-1.png" alt="image">
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="overview-content">
-						<h6 class="sub-title">adam?</h6>
-						<h2>Safeguard Your Brand with Cyber Security and IT Solutions</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<ul class="features-list">
-							<li> <span>Remote IT Assistance</span></li>
-							<li> <span>Cloud Services</span></li>
-							<li> <span>Managed IT Service</span></li>
-							<li> <span>IT Security Services</span></li>
-							<li> <span>Practice IT Management</span></li>
-							<li> <span>Solving IT Problems</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	@php
+    $prestasis = \App\Models\Prestasi::latest()->take(6)->get(); // Mengambil 6 prestasi terbaru
+@endphp
+<section class="prestasi-section">
+    <div class="container">
+        <div class="prestasi-header">
+            <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
+            <p>Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.</p>
+        </div>
+
+        <div class="prestasi-grid">
+            @forelse($prestasis as $item)
+            <div class="prestasi-card">
+                <a href="/prestasi/{{ $item->slug }}" class="prestasi-img-wrap">
+                    <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+                    <span class="prestasi-badge">
+    {{ $item->level }} <!-- Menampilkan kategori level -->
+</span>
+                </a>
+                <div class="prestasi-body">
+                    <h3><a href="/prestasi/{{ $item->slug }}">{{ $item->title }}</a></h3>
+                    <div class="prestasi-footer">
+    {{-- <span>By <strong>{{ $item->author }}</strong></span> --}}
+    <a href="/prestasi/{{ $item->slug }}" class="prestasi-link">
+        <span class="prestasi-button">Baca selengkapnya →</span>
+    </a>
+</div>
+                </div>
+            </div>
+            @empty
+            <p style="color:#64748b; grid-column: span 3; text-align:center;">Belum ada prestasi tersedia.</p>
+            @endforelse
+        </div>
+
+        <div style="text-align:center; margin-top:48px;">
+            <a href="/prestasi" class="prestasi-btn-all">
+                Tampilkan Semua Prestasi
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle; margin-left:6px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .prestasi-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.prestasi-link {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+}
+
+.prestasi-button {
+    background-color: #4b6cb7; /* Warna latar belakang tombol */
+    color: white;
+    font-weight: bold;
+    padding: 8px 20px; /* Ukuran padding tombol lebih kecil */
+    border-radius: 20px; /* Membuat tombol dengan sudut melengkung */
+    font-size: 0.85rem; /* Ukuran font lebih kecil */
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease; /* Animasi transisi */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+}
+
+.prestasi-button:hover {
+    background-color: #3b5b92; /* Warna latar belakang saat hover */
+    transform: translateY(-3px); /* Efek mengangkat tombol saat hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
+}
+
+.prestasi-button:active {
+    transform: translateY(1px); /* Efek tombol "tertekan" saat klik */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat tombol ditekan */
+}
+/* Badge kategori dengan ikon */
+.prestasi-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 350px; /* Menambah tinggi card untuk foto */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    position: relative; /* Menambahkan position relative pada card */
+}
+
+/* Menempatkan badge dalam card */
+.prestasi-badge {
+    background-color: #4b6cb7; /* Warna background badge */
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center; /* Menyusun ikon dan teks di tengah */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    position: absolute; /* Menempatkan badge secara absolute dalam card */
+    top: 15px; /* Menempatkan kategori di pojok kiri atas dalam card */
+    left: 15px;
+    z-index: 9999; /* Menjamin badge berada di atas elemen lain dalam card */
+    white-space: nowrap; /* Menjaga teks kategori tetap dalam satu baris */
+}
+
+/* Menambahkan ikon di badge */
+.prestasi-badge::before {
+    content: "\1F3C6"; /* Unicode untuk ikon piala 🏆 */
+    font-size: 1.1rem;
+}
+.prestasi-section {
+    background-color: white;
+    color: #071a33;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.prestasi-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.prestasi-header p {
+    font-size: 1.2rem;
+    color: rgba(7, 26, 51, 0.8);
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* Grid untuk 6 card */
+.prestasi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.prestasi-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 350px; /* Menambah tinggi card untuk foto */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Kategori dalam card */
+.prestasi-card .category {
+    background-color: #4b6cb7;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* Gambar dalam card */
+.prestasi-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Judul dalam card */
+.prestasi-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #071a33;
+    text-align: center;
+}
+
+/* Efek hover pada card */
+.prestasi-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek mengkilap pada judul */
+.prestasi-card .card-title {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(160deg, rgba(0, 102, 255, 0.55) 0%, rgba(73, 113, 183, 0.92) 45%, rgba(75, 138, 238, 0.75) 100%);
+    border-radius: 16px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efek mengkilap */
+.prestasi-card .card-title::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewY(-10deg);
+    animation: kilap 3s ease-in-out infinite;
+}
+
+/* Animasi kilap */
+@keyframes kilap {
+    0%        { left: -100%; opacity: 0; }
+    50%       { opacity: 1; }
+    100%      { left: 100%; opacity: 0; }
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 980px) {
+    .prestasi-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar lebih kecil */
+    }
+}
+
+@media (max-width: 600px) {
+    .prestasi-grid {
+        grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
+    }
+
+    .prestasi-header h2 {
+        font-size: 2rem;
+    }
+
+    .prestasi-header p {
+        font-size: 1rem;
+    }
+}
+</style>
 	<!-- End Overview Section -->
 	
 	<!-- Start Overview Section -->

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\ProfilSekolah;
 use App\Http\Controllers\BeritasController;
 use App\Http\Controllers\VisiMisiController;
+use App\Http\Controllers\PrestasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::get('/berita/{slug}', [BeritasController::class, 'show']);
 Route::get('/visi-misi', [VisiMisiController::class, 'index']);
 Route::get('/sejarah', [VisiMisiController::class, 'sejarah'])->name('sejarah');
 Route::get('/guru', [VisiMisiController::class, 'guru']);
+
+
+Route::get('/prestasi', [PrestasiController::class, 'index']);

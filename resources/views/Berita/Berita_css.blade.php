@@ -471,16 +471,16 @@
     font-weight: 800;
     letter-spacing: 0.12em;
     color: #ffffff;
-    text-shadow: 0 1px 8px rgba(255,255,255,0.15);
-    border: 1.5px solid rgba(120,160,210,0.3);
+    text-shadow: 0 1px 8px rgba(227, 18, 18, 0.15);
+    border: 1.5px solid rgba(140, 126, 232, 0.3);
     border-radius: 16px;
     overflow: hidden;
 
     /* Kotak gelap gradient mirip gambar */
     background: linear-gradient(160deg,
-        rgba(80,110,155,0.55) 0%,
-        rgba(18,35,65,0.92) 45%,
-        rgba(25,50,90,0.75) 100%);
+        #3250C1 0%,
+        #3250C1 45%,
+        #3250C1 0%);
 
     box-shadow:
         0 6px 32px rgba(0,0,0,0.45),
@@ -500,7 +500,7 @@
     height: 52%;
     background: linear-gradient(to bottom,
         rgba(255,255,255,0.14) 0%,
-        rgba(255,255,255,0.03) 100%);
+        rgba(255, 0, 0, 0.03) 100%);
     border-radius: 16px 16px 0 0;
     pointer-events: none;
 }
@@ -547,9 +547,9 @@
     overflow: hidden;
 
     background: linear-gradient(160deg,
-        rgba(80,110,155,0.55) 0%,
-        rgba(18,35,65,0.92) 45%,
-        rgba(25,50,90,0.75) 100%);
+        rgba(0, 102, 255, 0.55) 0%,
+        rgba(73, 113, 183, 0.92) 45%,
+        rgba(75, 138, 238, 0.75) 100%);
 
     box-shadow:
         0 6px 32px rgba(0,0,0,0.45),
