@@ -415,110 +415,58 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 </div>
 
         <!-- Sub judul dewan guru -->
-        <div class="guru-sub-title">
-            <h4>Guru</h4>
-            <div class="gst-line"></div>
-        </div>
+       <div class="guru-sub-title" style="text-align:center !important; display:block; width:100%;">
+    <h4 style="font-size:22px !important; font-weight:700; text-align:center !important; margin:0 0 10px;">Guru</h4>
+    <div class="gst-line" style="width:50px; height:3px; background:linear-gradient(135deg,#6366f1,#4f46e5); border-radius:999px; margin:0 auto;"></div>
+</div>
 
         <!-- ===== SLIDER GURU ===== -->
-        <div class="guru-slider-wrap">
-            <div class="guru-track" id="guruTrack">
+        @php
+    $guruList = \App\Models\TeacherStaff::where('is_active', true)
+                    ->orderBy('sort_order')
+                    ->get();
+@endphp
+<div class="guru-slider-wrap">
+    <div class="guru-track" id="guruTrack">
 
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru2.jpg') }}" alt="Guru 2"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru2'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Ahmad Fauzi, S.Pd</h4>
-                        <span class="guru-jabatan jabatan-guru">Guru Kelas I</span>
-                        <p>NIP: 19850512 201001 1 003</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru3.jpg') }}" alt="Guru 3"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru3'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Dewi Kurniasih, S.Pd</h4>
-                        <span class="guru-jabatan jabatan-guru">Guru Kelas II</span>
-                        <p>NIP: 19880320 201101 2 005</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru4.jpg') }}" alt="Guru 4"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru4'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Rudi Hermawan, S.Pd</h4>
-                        <span class="guru-jabatan jabatan-guru">Guru Kelas III</span>
-                        <p>NIP: 19870714 201001 1 008</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru5.jpg') }}" alt="Guru 5"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru5'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Nurul Hidayah, S.Pd.I</h4>
-                        <span class="guru-jabatan jabatan-agama">Guru PAI</span>
-                        <p>NIP: 19910605 201501 2 010</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru6.jpg') }}" alt="Guru 6"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru6'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Eko Prasetyo, S.Pd</h4>
-                        <span class="guru-jabatan jabatan-orkes">Guru PJOK</span>
-                        <p>NIP: 19890918 201101 1 007</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru7.jpg') }}" alt="Guru 7"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru7'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Sari Wulandari, S.Pd</h4>
-                        <span class="guru-jabatan jabatan-guru">Guru Kelas IV</span>
-                        <p>NIP: 19920310 201601 2 004</p>
-                    </div>
-                </div>
-
-                <div class="guru-card">
-                    <div class="guru-foto">
-                        <img src="{{ asset('assets/img/guru/guru8.jpg') }}" alt="Guru 8"
-                             onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=guru8'">
-                    </div>
-                    <div class="guru-info">
-                        <h4>Taufik Rahman, A.Md</h4>
-                        <span class="guru-jabatan jabatan-tata">Tata Usaha</span>
-                        <p>NIP: 19930215 201701 1 002</p>
-                    </div>
-                </div>
-
+        @forelse($guruList as $guru)
+        <div class="guru-card">
+            <div class="guru-foto">
+                <img src="{{ $guru->photo ? asset('storage/' . $guru->photo) : 'https://api.dicebear.com/7.x/bottts/svg?seed=' . $guru->id }}"
+                     alt="{{ $guru->name }}"
+                     onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed={{ $guru->id }}'">
+            </div>
+            <div class="guru-info">
+                <h4>{{ $guru->name }}</h4>
+                @php
+                    $pos = strtolower($guru->position);
+                    if (str_contains($pos, 'kepala'))        $cls = 'jabatan-kepala';
+                    elseif (str_contains($pos, 'kelas'))     $cls = 'jabatan-guru';
+                    elseif (str_contains($pos, 'pai') || str_contains($pos, 'agama')) $cls = 'jabatan-agama';
+                    elseif (str_contains($pos, 'pjok') || str_contains($pos, 'olahraga')) $cls = 'jabatan-orkes';
+                    elseif (str_contains($pos, 'tata usaha') || str_contains($pos, 'tu')) $cls = 'jabatan-tata';
+                    else $cls = 'jabatan-guru';
+                @endphp
+                <span class="guru-jabatan {{ $cls }}">{{ $guru->position }}</span>
+                @if($guru->nip)
+                    <p>NIP: {{ $guru->nip }}</p>
+                @endif
             </div>
         </div>
-
-        <!-- Navigasi -->
-        <div class="guru-nav">
-            <button class="gnav-btn" id="guruPrev">&#8592;</button>
-            <div class="guru-dots" id="guruDots"></div>
-            <button class="gnav-btn" id="guruNext">&#8594;</button>
-        </div>
+        @empty
+        <p style="color:#64748b; text-align:center; padding:20px;">Belum ada data guru tersedia.</p>
+        @endforelse
 
     </div>
+</div>
+
+<!-- Navigasi -->
+<div class="guru-nav">
+    <button class="gnav-btn" id="guruPrev">&#8592;</button>
+    <div class="guru-dots" id="guruDots"></div>
+    <button class="gnav-btn" id="guruNext">&#8594;</button>
+</div>
+
 </section>
 
 <style>
@@ -706,7 +654,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     box-shadow: 0 12px 32px rgba(0,0,0,0.12);
 }
 
-.guru-foto { width: 100%; height: 200px; overflow: hidden; background: #e2e8f0; }
+.guru-foto { width: 100%; height: 270px; overflow: hidden; background: #e2e8f0; }
 
 .guru-foto img {
     width: 100%; height: 100%;
@@ -719,13 +667,13 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .guru-info { padding: 18px 20px 22px; }
 
 .guru-info h4 {
-    font-size: 15px; font-weight: 700;
+    font-size: 15px; font-weight: 800;
     color: #0f172a; margin-bottom: 8px; line-height: 1.3;
 }
 
 .guru-jabatan {
     display: inline-block;
-    font-size: 11px; font-weight: 700;
+    font-size: 11px; font-weight: 800;
     letter-spacing: 0.5px;
     padding: 4px 12px;
     border-radius: 50px;
@@ -737,7 +685,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .jabatan-orkes  { background: #fee2e2; color: #991b1b; }
 .jabatan-tata   { background: #ede9fe; color: #5b21b6; }
 
-.guru-info p { font-size: 11px; color: #94a3b8; margin: 0; }
+.guru-info p { font-size: 13px; color: #000000; margin: 0; }
 
 /* Navigasi */
 .guru-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 30px; }
@@ -866,6 +814,13 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
             @endforelse
         </div>
 
+        <div style="text-align:center; margin-top:48px;">
+            <a href="/berita" class="berita2-btn-all">
+                Tampilkan Semua Berita
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle; margin-left:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+
     </div>
 </section>
 <style>
@@ -929,7 +884,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 /* IMAGE */
 .berita2-img-wrap{
     display:block;
-    height:210px;
+    height:260px;
     position:relative;
     overflow:hidden;
 }
@@ -1042,6 +997,27 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         height:180px;
     }
 
+}
+
+.berita2-btn-all{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:14px 32px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#6366f1,#4f46e5);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    letter-spacing:.2px;
+    box-shadow:0 8px 24px rgba(79,70,229,.30);
+    transition:all .35s cubic-bezier(.22,.61,.36,1);
+}
+.berita2-btn-all:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 32px rgba(79,70,229,.40);
+    color:#fff;
 }
 </style>
 	<!-- End About Section -->
