@@ -42,7 +42,7 @@
         <div class="container">
             <div class="techvio-responsive-menu">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ url('/') }}">
                          <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
     <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:50px;width:auto;display:none;">
                     </a>
@@ -55,7 +55,7 @@
             <nav class="navbar navbar-expand-md navbar-light">
 
 
-                <a class="navbar-brand" href="index.html" style="padding:0;line-height:1;display:flex;align-items:center;gap:10px;">
+                <a class="navbar-brand" href="{{ url('/') }}" style="padding:0;line-height:1;display:flex;align-items:center;gap:10px;">
     <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:55px;width:auto;display:block;">
     <img src="assets/img/tutt.png" class="black-logo" alt="logo" style="height:55px;width:auto;display:none;">
 	
@@ -180,25 +180,21 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 <section class="berita2-section">
     <div class="berita2-grid">
-      @forelse($berita as $item)
-      <div class="berita2-card">
-        <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
-          <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
-          <span class="berita2-badge">📰 {{ $item->category }}</span>
-        </a>
-
-        <div class="berita2-body">
-          <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
-
-          <div class="berita2-footer">
-            <span>By <strong>{{ $item->author }}</strong></span>
-            <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
-          </div>
+        @forelse($berita as $item)
+        <div class="berita2-card">
+            <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
+                <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+                <span class="berita2-badge">📰 {{ $item->category }}</span>
+            </a>
+            <div class="berita2-body">
+                <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
+                <div class="berita2-footer"> <span>By <strong>{{ $item->author }}</strong></span> <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
+                </div>
+            </div>
         </div>
-      </div>
-      @empty
-      <p class="berita2-empty">Belum ada berita tersedia.</p>
-      @endforelse
+         @empty
+        <p class="berita2-empty">Belum ada berita tersedia.</p>
+        @endforelse
     </div>
 
     {{-- PAGINATION --}}
