@@ -583,7 +583,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     background: linear-gradient(135deg, #1e3a8a 0%, #3b5bdb 100%);
     border-radius: 24px;
     padding: 40px 50px;
-    max-width: 950px;
+    max-width: 940px;
     width: 100%;
     box-shadow: 0 20px 60px rgba(59,91,219,0.3);
     position: relative;
