@@ -840,7 +840,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     <div class="container">
 
         <div class="berita2-header">
-    <h2><span class="button-box">Berita terbaru <em>SD Negeri 1 Mangkubumi</em></span></h2>
+    <h2><span class="button-box">BERITA TERBARU  SD NEGERI 1 MANGKUBUMI</span></h2>
     <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
 </div>
 
@@ -897,7 +897,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     color: white;
     text-decoration: none;
     text-align: center;
-    background: linear-gradient(160deg, rgba(0, 102, 255, 0.55) 0%, rgba(73, 113, 183, 0.92) 45%, rgba(75, 138, 238, 0.75) 100%);
+    background: linear-gradient(160deg, rgba(0, 90, 225, 0.977) 0%, rgba(16, 88, 212, 0.92) 45%, rgb(11, 105, 255) 100%);
     border-radius: 16px;
     box-shadow: 0 6px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
     backdrop-filter: blur(8px);
