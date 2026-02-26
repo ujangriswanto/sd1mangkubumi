@@ -1104,251 +1104,189 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 	<!-- Start Overview Section -->
 	@php
     $prestasis = \App\Models\Prestasi::latest()->take(6)->get(); // Mengambil 6 prestasi terbaru
-@endphp
+    @endphp
 <section class="prestasi-section">
-    <div class="container">
-        <div class="prestasi-header">
-            <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
-            <p>Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.</p>
-        </div>
-
-        <div class="prestasi-grid">
-            @forelse($prestasis as $item)
-            <div class="prestasi-card">
-                <a href="/prestasi/{{ $item->slug }}" class="prestasi-img-wrap">
-                    <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
-                    <span class="prestasi-badge">
-    {{ $item->level }} <!-- Menampilkan kategori level -->
-</span>
-                </a>
-                <div class="prestasi-body">
-                    <h3><a href="/prestasi/{{ $item->slug }}">{{ $item->title }}</a></h3>
-                    <div class="prestasi-footer">
-    {{-- <span>By <strong>{{ $item->author }}</strong></span> --}}
-    <a href="/prestasi/{{ $item->slug }}" class="prestasi-link">
-        <span class="prestasi-button">Baca selengkapnya →</span>
-    </a>
-</div>
-                </div>
+        <div class="container">
+            <div class="prestasi-header">
+                <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
+                <p>Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.</p>
             </div>
-            @empty
-            <p style="color:#64748b; grid-column: span 3; text-align:center;">Belum ada prestasi tersedia.</p>
-            @endforelse
-        </div>
 
-        <div style="text-align:center; margin-top:48px;">
-            <a href="/prestasi" class="prestasi-btn-all">
-                Tampilkan Semua Prestasi
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle; margin-left:6px;">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
+            <div class="prestasi-grid">
+                @forelse($prestasis as $item)
+                <div class="prestasi-card">
+                    <div class="prestasi-img-wrap">
+                        <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
+                        <span class="prestasi-badge">
+                            🏆 {{ $item->level }}
+                        </span>
+                    </div>
+
+                    <div class="prestasi-body">
+                        <h3>{{ $item->title }}</h3>
+                        <p class="prestasi-winner">
+                            {{ $item->winner_name }}
+                        </p>
+                        <p class="prestasi-date">
+                            {{ $item->date->format('d M Y') }}
+                        </p>
+                        <div class="prestasi-description">
+                            {{ \Illuminate\Support\Str::limit(strip_tags($item->description), 80) }}
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <p style="color:#64748b; grid-column: span 3; text-align:center;">
+                    Belum ada prestasi tersedia.
+                </p>
+                @endforelse
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <style>
-    .prestasi-footer {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.prestasi-link {
-    text-decoration: none; /* Menghilangkan garis bawah pada link */
-}
-
-.prestasi-button {
-    background-color: #4b6cb7; /* Warna latar belakang tombol */
-    color: white;
-    font-weight: bold;
-    padding: 8px 20px; /* Ukuran padding tombol lebih kecil */
-    border-radius: 20px; /* Membuat tombol dengan sudut melengkung */
-    font-size: 0.85rem; /* Ukuran font lebih kecil */
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    transition: all 0.3s ease; /* Animasi transisi */
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
-}
-
-.prestasi-button:hover {
-    background-color: #3b5b92; /* Warna latar belakang saat hover */
-    transform: translateY(-3px); /* Efek mengangkat tombol saat hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
-}
-
-.prestasi-button:active {
-    transform: translateY(1px); /* Efek tombol "tertekan" saat klik */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat tombol ditekan */
-}
-/* Badge kategori dengan ikon */
-.prestasi-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 350px; /* Menambah tinggi card untuk foto */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
-    position: relative; /* Menambahkan position relative pada card */
-}
-
-/* Menempatkan badge dalam card */
-.prestasi-badge {
-    background-color: #4b6cb7; /* Warna background badge */
-    color: white;
-    font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center; /* Menyusun ikon dan teks di tengah */
-    gap: 8px; /* Jarak antara ikon dan teks */
-    position: absolute; /* Menempatkan badge secara absolute dalam card */
-    top: 15px; /* Menempatkan kategori di pojok kiri atas dalam card */
-    left: 15px;
-    z-index: 9999; /* Menjamin badge berada di atas elemen lain dalam card */
-    white-space: nowrap; /* Menjaga teks kategori tetap dalam satu baris */
-}
-
-/* Menambahkan ikon di badge */
-.prestasi-badge::before {
-    content: "\1F3C6"; /* Unicode untuk ikon piala 🏆 */
-    font-size: 1.1rem;
-}
+/* ===============================
+   SECTION
+=================================*/
 .prestasi-section {
-    background-color: white;
+    background-color: #ffffff;
     color: #071a33;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 .prestasi-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: bold;
     margin-bottom: 20px;
-    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .prestasi-header p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: rgba(7, 26, 51, 0.8);
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
 }
 
-/* Grid untuk 6 card */
+/* ===============================
+   GRID
+=================================*/
 .prestasi-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Card Styling */
+/* ===============================
+   CARD
+=================================*/
 .prestasi-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 350px; /* Menambah tinggi card untuk foto */
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
 }
 
-/* Kategori dalam card */
-.prestasi-card .category {
+.prestasi-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   IMAGE
+=================================*/
+.prestasi-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.prestasi-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===============================
+   BADGE
+=================================*/
+.prestasi-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
     background-color: #4b6cb7;
     color: white;
     font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* Gambar dalam card */
-.prestasi-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.prestasi-badge::before {
+    content: "🏆";
 }
 
-/* Judul dalam card */
-.prestasi-card h3 {
-    font-size: 1.2rem;
+/* ===============================
+   BODY
+=================================*/
+.prestasi-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+}
+
+.prestasi-body h3 {
+    font-size: 1.1rem;
     font-weight: bold;
+    margin-bottom: 6px;
     color: #071a33;
-    text-align: center;
 }
 
-/* Efek hover pada card */
-.prestasi-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.prestasi-winner {
+    font-size: 0.9rem;
+    color: #64748b;
 }
 
-/* Efek mengkilap pada judul */
-.prestasi-card .card-title {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    background: linear-gradient(160deg, rgba(0, 102, 255, 0.55) 0%, rgba(73, 113, 183, 0.92) 45%, rgba(75, 138, 238, 0.75) 100%);
-    border-radius: 16px;
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+.prestasi-date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 5px 0 10px;
 }
 
-/* Efek mengkilap */
-.prestasi-card .card-title::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.3);
-    transform: skewY(-10deg);
-    animation: kilap 3s ease-in-out infinite;
+.prestasi-description {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-top: auto;
 }
 
-/* Animasi kilap */
-@keyframes kilap {
-    0%        { left: -100%; opacity: 0; }
-    50%       { opacity: 1; }
-    100%      { left: 100%; opacity: 0; }
-}
-
-/* Responsif untuk tampilan mobile */
+/* ===============================
+   RESPONSIVE
+=================================*/
 @media (max-width: 980px) {
     .prestasi-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar lebih kecil */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
     .prestasi-grid {
-        grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
+        grid-template-columns: 1fr;
     }
 
     .prestasi-header h2 {
-        font-size: 2rem;
-    }
-
-    .prestasi-header p {
-        font-size: 1rem;
+        font-size: 1.8rem;
     }
 }
 </style>

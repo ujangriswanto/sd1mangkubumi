@@ -41,6 +41,7 @@ class TeacherStaffForm
                             ->label('Foto')
                             ->image()
                             ->directory('teacher-staff')
+                            ->disk('public')
                             ->imageEditor()
                             ->imageResizeMode('cover')
                             ->imageCropAspectRatio('1:1')

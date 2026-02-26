@@ -49,5 +49,10 @@ Route::get('/visi-misi', [VisiMisiController::class, 'index']);
 Route::get('/sejarah', [VisiMisiController::class, 'sejarah'])->name('sejarah');
 Route::get('/guru', [VisiMisiController::class, 'guru']);
 
+/*
+|--------------------------------------------------------------------------
+| PRESTASI
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/prestasi', [PrestasiController::class, 'index']);
