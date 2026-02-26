@@ -127,7 +127,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             </ul>
                         </li>
 						<li class="nav-item">
-                            <a href="about.html" class="nav-link">Program Sekolah</a>
+                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
                         </li>
                         <li class="nav-item">
                             <a href="contact.html" class="nav-link">Daftar Hadir</a>
@@ -259,7 +259,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li><a href="#"><i class="fas fa-chevron-right"></i> PPDB</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Akademik</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Kesiswaan</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Program Sekolah</a></li>
+                        <li class="nav-item">
+                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
+                        </li>
                     </ul>
                 </div>
             </div>

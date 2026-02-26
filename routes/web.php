@@ -5,6 +5,7 @@ use App\Models\ProfilSekolah;
 use App\Http\Controllers\BeritasController;
 use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\ProgramSekolahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,7 @@ Route::get('/guru', [VisiMisiController::class, 'guru']);
 */
 
 Route::get('/prestasi', [PrestasiController::class, 'index']);
+
+
+
+Route::get('/program-sekolah', [ProgramSekolahController::class, 'index'])->name('program-sekolah');
