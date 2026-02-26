@@ -112,10 +112,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/visi-misi" class="nav-link">Visi & Misi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.html" class="nav-link">Tentang</a>
+                            <a href="/visi-misi" class="nav-link">Tentang</a>
                         </li>
 						 <li class="nav-item">
                         <a href="/berita" class="nav-link">Berita</a>
@@ -854,7 +851,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                 <div class="berita2-body">
                     <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
                     <div class="berita2-footer">
-                        <span>By <strong>{{ $item->author }}</strong></span>
                         <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
                     </div>
                 </div>
@@ -879,7 +875,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     background:#f1f5f9;
     font-family:'Inter',system-ui;
 }
-
 /* HEADER */
 /* Styling untuk menempatkan button kotak di tengah dalam berita2-header */
 .berita2-header {
@@ -974,7 +969,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     object-fit:cover;
     transition:transform .7s cubic-bezier(.19,1,.22,1);
 }
-
 .berita2-card:hover img{
     transform:scale(1.12);
 }
@@ -1118,7 +1112,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                     <div class="prestasi-img-wrap">
                         <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
                         <span class="prestasi-badge">
-                            🏆 {{ $item->level }}
+                             {{ $item->level }}
                         </span>
                     </div>
 
@@ -1292,596 +1286,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 </style>
 	<!-- End Overview Section -->
 	
-	<!-- Start Overview Section -->
-	<section class="overview-section pt-50 pb-100">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="overview-content">
-						<h6 class="sub-title">WHY TRUST US?</h6>
-						<h2>Achieve Digital Transformation For Your Retail Business Services</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<ul class="features-list">
-							<li> <span>Protect your Business</span></li>
-							<li> <span>Network Security</span></li>
-							<li> <span>Data Security</span></li>
-							<li> <span>Small Business Owners</span></li>
-							<li> <span>Running your Business</span></li>
-							<li> <span>Network Monitoring</span></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="overview-image-2">
-						<img src="assets/img/choose-2.png" alt="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Overview Section -->
 	
-	<!-- Start Portfolio Section -->
-    <section class="portfolio-area bg-grey section-padding">
-        <div class="container">
-            <div class="row">
-				<div class="col-md-12">
-					<div class="section-title">
-						<h6 class="sub-title">Recent Works</h6>
-						<h2>Our Portfolio</h2>
-					</div>
-				</div>
-                <div class="col-md-12">
-                    <div class="portfolio-list">
-                        <ul class="nav" id="portfolio-flters">
-                            <li class="filter filter-active" data-filter=".all">all</li>
-                            <li class="filter" data-filter=".branding">branding</li>
-                            <li class="filter" data-filter=".application">application</li>
-                            <li class="filter" data-filter=".webdesign">web design</li>
-                            <li class="filter" data-filter=".photography">photography</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-container">
-				<div class="row">
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all branding">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-1.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all photography">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-2.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all branding webdesign">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-3.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all webdesign">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-4.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all application">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-5.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio-item -->
-                    <div class="col-lg-4 col-md-6 portfolio-grid-item all application photography">
-                        <div class="portfolio-item">
-							<img src="assets/img/portfolio/portfolio-6.jpg" alt="image">
-                            <div class="portfolio-content-overlay">
-								<p>App Store | Social Media</p>
-								<h3><a href="single-portfolio.html">Creative Web Design</a></h3>
-								<a class="portfolio-link-icon" href="single-portfolio.html"><i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Portfolio Section -->
-	
-	<!-- Start Counter Section -->
-	<section class="counter-area counter-bg-3 section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 counter-item">
-					<div class="single-counter">
-						<div class="counter-contents">
-							<h2>
-								<span class="counter-number">24</span>
-								<span>+</span>
-							</h2>
-							<h3 class="counter-heading">Years Helping Business</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 counter-item">
-					<div class="single-counter">
-						<div class="counter-contents">
-							<h2>
-								<span class="counter-number">250</span>
-								<span>+</span>
-							</h2>
-							<h3 class="counter-heading">Working Employees</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 counter-item">
-					<div class="single-counter">
-						<div class="counter-contents">
-							<h2>
-								<span class="counter-number">4500</span>
-								<span>+</span>
-							</h2>
-							<h3 class="counter-heading">Complete Projects</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 counter-item">
-					<div class="single-counter">
-						<div class="counter-contents">
-							<h2>
-								<span class="counter-number">3000</span>
-								<span>+</span>
-							</h2>
-							<h3 class="counter-heading">Happy Customers</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Counter Section -->
-	
-	<!-- Start Testimonial Section -->
-	<section class="testimonial-section pt-100 pb-50">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="section-title">
-						<h6 class="sub-title">Our Testimonial</h6>
-						<h2>Client Feedback</h2>
-					</div>
-				</div>
-				<div class="col-lg-12 col-md-12">
-					<div class="testimonial-slider owl-carousel owl-theme">
-						<!-- testimonials item -->
-						<div class="single-testimonial">
-							<div class="rating-box">
-								<ul>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-								</ul>
-							</div>
-							<div class="testimonial-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-							<div class="avatar">
-								<img src="assets/img/client/testimonial-1.jpg" alt="testimonial images">
-							</div>
-							<div class="testimonial-bio">
-								<div class="bio-info">
-									<h3>Saabir al-Obeid</h3>
-									<span>Turkey</span>
-								</div>
-							</div>
-						</div>
-						<!-- testimonials item -->
-						<div class="single-testimonial">
-							<div class="rating-box">
-								<ul>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-								</ul>
-							</div>
-							<div class="testimonial-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-							<div class="avatar">
-								<img src="assets/img/client/testimonial-2.jpg" alt="testimonial images">
-							</div>
-							<div class="testimonial-bio">
-								<div class="bio-info">
-									<h3>Zahra Burnett</h3>
-									<span>United States</span>
-								</div>
-							</div>
-						</div>
-						<!-- testimonials item -->
-						<div class="single-testimonial">
-							<div class="rating-box">
-								<ul>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-									<li><i class="fa fa-star"></i></li>
-								</ul>
-							</div>
-							<div class="testimonial-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-							<div class="avatar">
-								<img src="assets/img/client/testimonial-3.jpg" alt="testimonial images">
-							</div>
-							<div class="testimonial-bio">
-								<div class="bio-info">
-									<h3>Stevie Wills</h3>
-									<span>Germany</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Testimonial Section -->
-	
-	<!-- Start Team Section -->
-	<section class="team-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="section-title">
-						<h6 class="sub-title">Team Member</h6>
-						<h2>Expert Team</h2>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-team-box">
-						<div class="team-image">
-							<img src="assets/img/team/team-1.jpg" alt="team">
-							<div class="team-social-icon">
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-								<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-								<a href="#"><i class="fab fa-linkedin"></i></a>
-							</div>
-						</div>
-						<div class="team-info">
-							<h3>Ava Farrington</h3>
-							<span>Founder, CEO</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-team-box">
-						<div class="team-image">
-							<img src="assets/img/team/team-2.jpg" alt="team">
-							<div class="team-social-icon">
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-								<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-								<a href="#"><i class="fab fa-linkedin"></i></a>
-							</div>
-						</div>
-						<div class="team-info">
-							<h3>Kevin Haley</h3>
-							<span>Co-Founder, CTO</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-team-box">
-						<div class="team-image">
-							<img src="assets/img/team/team-3.jpg" alt="team">
-							<div class="team-social-icon">
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-								<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-								<a href="#"><i class="fab fa-linkedin"></i></a>
-							</div>
-						</div>
-						<div class="team-info">
-							<h3>Alishia Fulton</h3>
-							<span>Chief Creative Officer</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-team-box">
-						<div class="team-image">
-							<img src="assets/img/team/team-4.jpg" alt="team">
-							<div class="team-social-icon">
-								<a href="#"><i class="fab fa-facebook-f"></i></a>
-								<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-								<a href="#"><i class="fab fa-linkedin"></i></a>
-							</div>
-						</div>
-						<div class="team-info">
-							<h3>Lucas Martinez</h3>
-							<span>Creative Director</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Team Section -->
-	
-	<!-- Start Blog Section -->
-	<section class="blog-section bg-grey pt-100 pb-70">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="section-title">
-						<h6 class="sub-title">Blog & Article</h6>
-						<h2>Recent Blog</h2>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="blog-single-item">
-						<div class="blog-image">
-							<a href="single-blog.html">
-								<img src="assets/img/blog/blog-1.jpg" alt="image">
-							</a>
-						</div>
-						<div class="blog-description">
-							<ul class="blog-info">
-								<li>
-									<a href="#"><i class="bi bi-person-circle"></i> Author</a>
-								</li>
-								<li>
-									<a href="#"><i class="bi bi-calendar-check"></i> 17 June 2025</a>
-								</li>
-							</ul>
-							<div class="blog-text">
-								<h3>
-                                    <a href="single-blog.html">
-										Planning for a Safe Return to the Workplace IT Solutions
-                                    </a>
-                                </h3>
-								<p>Lorem ipsum dolor sit amet, consectetu adipiscing elit, sed eiusmod tempor incididunt ut labore dolore magna aliqua</p>
-								<div class="blog-btn"> <a href="single-blog.html" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="blog-single-item">
-						<div class="blog-image">
-							<a href="single-blog.html">
-								<img src="assets/img/blog/blog-2.jpg" alt="image">
-							</a>
-						</div>
-						<div class="blog-description">
-							<ul class="blog-info">
-								<li>
-									<a href="#"><i class="bi bi-person-circle"></i> Author</a>
-								</li>
-								<li>
-									<a href="#"><i class="bi bi-calendar-check"></i> 20 June 2025</a>
-								</li>
-							</ul>
-							<div class="blog-text">
-								<h3>
-									<a href="single-blog.html">
-                                       Announcing Our New Smiles for Success Charity
-                                    </a>
-								</h3>
-								<p>Lorem ipsum dolor sit amet, consectetu adipiscing elit, sed eiusmod tempor incididunt ut labore dolore magna aliqua</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="blog-single-item">
-						<div class="blog-image">
-							<a href="single-blog.html">
-								<img src="assets/img/blog/blog-3.jpg" alt="image">
-							</a>
-						</div>
-						<div class="blog-description">
-							<ul class="blog-info">
-								<li>
-									<a href="#"><i class="bi bi-person-circle"></i> Author</a>
-								</li>
-								<li>
-									<a href="#"><i class="bi bi-calendar-check"></i> 25 June 2025</a>
-								</li>
-							</ul>
-							<div class="blog-text">
-								<h3>
-                                    <a href="single-blog.html">
-                                        Machine Learning Applications for Every Industry
-                                    </a>
-                                </h3>
-								<p>Lorem ipsum dolor sit amet, consectetu adipiscing elit, sed eiusmod tempor incididunt ut labore dolore magna aliqua</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="read-more"><i class="bi bi-arrow-right-short"></i> Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Blog Section -->
-	
-	<!-- Start Partner section -->
-	<section class="partner-section pt-100 pb-70">
-		<div class="container">
-			<div class="partner-title">
-				<h6 class="sub-title">Trusted By Over 1500</h6>
-				<h2>Our Customers</h2>
-			</div>
-			<div class="partner-list">
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-1.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-2.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-3.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-4.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-5.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-6.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-7.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-8.png" alt="image">
-					</a>
-				</div>
-				<div class="partner-item">
-					<a href="#0">
-						<img src="assets/img/partner/client-9.png" alt="image">
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Partner section -->
-	
-	<!-- Start Hire Section -->
-	<section class="hire-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 col-md-12">
-					<div class="hire-content">
-						<h6 class="sub-title">Want to work with us?</h6>
-						<h2>Digitally Transform & Grow Your Business</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud consectetur voluptatem accusantium doloremque adipiscing elit.</p>
-						<div class="hire-btn">
-							<a class="default-btn" href="tel:12345678">Call Now<span></span></a>
-							<a class="default-btn-one" href="contact.html">Contact Us<span></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Hire Section -->
-	
-	<!-- Start Contact Section -->
-	<div class="contact-section home-1-contact-section section-padding">
-		<div class="container">
-			<div class="section-title">
-				<h6 class="sub-title">Let's Talk</h6>
-				<h2>Contact Us</h2>
-			</div>
-			<div class="row">
-				<div class="col-lg-5 col-md-12">
-					<!-- Start Contact Box Area -->
-					<div class="home-contact-box-info">
-						<div class="home-contact-img">
-							<img src="assets/img/contact.jpg" alt="" />
-						</div>
-						<p>We provide estimates by phone, email, or at your home. The estimate is completely free! Fill out the form, call us <span class="color-text">080 707 555-321</span> or <span class="color-text">random@example.com</span>, and leave your telephone number and home address.</p>
-						<p>We look forward to hearing from you!</p>
-					</div>
-					<!-- End Contact Box Area -->
-				</div>
-				<div class="col-lg-7 col-md-12">
-					<div class="contact-form">
-						<p class="form-message"></p>
-						<form id="contact-form" class="contact-form form" action="phpmails.php" method="POST">
-							<div class="row">
-								<div class="col-lg-6 col-md-12">
-									<div class="form-group">
-										<input type="text" name="name" id="name" class="form-control" required placeholder="Your Name">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-12">
-									<div class="form-group">
-										<input type="email" name="email" id="email" class="form-control" required placeholder="Your Email">
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12">
-									<div class="form-group">
-										<input type="text" name="phone" id="phone" required class="form-control" placeholder="Your Phone">
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12">
-									<div class="form-group">
-										<input type="text" name="subject" id="subject" class="form-control" required placeholder="Your Subject">
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12">
-									<div class="form-group">
-										<textarea name="message" class="form-control" id="message" cols="30" rows="6" required placeholder="Your Message"></textarea>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12">
-									<button type="submit" class="default-btn submit-btn">Send Message <span></span></button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Contact Section -->
 	
 		
 
@@ -2280,6 +1685,90 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 	<!-- Main JS -->
 	<script src="assets/js/main.js"></script>
 	
+<style>
+  /* === FLOATING WA BUTTON === */
+  .wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+  }
+
+  .wa-float a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: wa-float-anim 3s ease-in-out infinite;
+  }
+
+  .wa-float a:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 32px rgba(37, 211, 102, 0.7);
+  }
+
+  .wa-float svg {
+    width: 34px;
+    height: 34px;
+    fill: #fff;
+  }
+
+  .wa-float a::before {
+    content: '';
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.35);
+    animation: wa-pulse 2s ease-out infinite;
+  }
+
+  .wa-float .wa-tooltip {
+    position: absolute;
+    right: 74px;
+    background: #fff;
+    color: #111;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .wa-float:hover .wa-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @keyframes wa-float-anim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes wa-pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+</style>
+    <div class="wa-float">
+  <a href="https://wa.me/628123456789" target="_blank" rel="noopener">
+    <span class="wa-tooltip">Chat Admin via WhatsApp Ya</span>
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16c0 2.347.64 4.64 1.853 6.64L2.667 29.333l6.88-1.813A13.28 13.28 0 0 0 16.004 29.333c7.36 0 13.33-5.973 13.33-13.333 0-7.36-5.97-13.333-13.33-13.333zm0 24c-2.16 0-4.267-.587-6.107-1.693l-.44-.267-4.08 1.08 1.093-3.973-.28-.453A10.63 10.63 0 0 1 5.333 16c0-5.88 4.787-10.667 10.667-10.667 5.88 0 10.666 4.787 10.666 10.667S21.88 26.667 16 26.667zm5.84-7.987c-.32-.16-1.893-.933-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-.987 1.24-.16.2-.32.213-.587.08-.293-.16-1.2-.44-2.28-1.4-.84-.747-1.413-1.667-1.573-1.947-.16-.293-.013-.453.12-.6.12-.12.293-.32.44-.48.146-.16.186-.267.28-.467.093-.2.053-.373-.027-.52-.08-.147-.72-1.733-.987-2.373-.267-.64-.52-.52-.72-.533-.186-.013-.4-.013-.613-.013-.213 0-.56.08-.853.373-.293.293-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.453 4.827.76.32 1.36.52 1.813.667.76.24 1.467.2 2.013.12.613-.093 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.267-.213-.587-.373z"/>
+    </svg>
+  </a>
+</div>
 </body>
 
 </html>

@@ -101,10 +101,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/visi-misi" class="nav-link">Visi & Misi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.html" class="nav-link">Tentang</a>
+                            <a href="/visi-misi" class="nav-link">Tentang</a>
                         </li>
 						 <li class="nav-item">
                         <a href="/berita" class="nav-link">Berita</a>

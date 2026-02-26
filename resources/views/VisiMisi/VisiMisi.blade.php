@@ -100,10 +100,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/visi-misi" class="nav-link">Visi & Misi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.html" class="nav-link">Tentang</a>
+                            <a href="/visi-misi" class="nav-link">Tentang</a>
                         </li>
 						 <li class="nav-item">
                         <a href="/berita" class="nav-link">Berita</a>
@@ -156,7 +153,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
      HERO HEADER
 ══════════════════════════════ -->
 <div class="visimisi-hero">
-    <div class="visimisi-hero-badge">VISI,MISI & SEJARAH</div>
+    <div class="visimisi-hero-badge">TENTANG SEKOLAH</div>
     <a href="{{ url('/') }}" class="visimisi-hero-btn">
         ← Kembali ke Beranda
     </a>
