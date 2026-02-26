@@ -7,6 +7,7 @@ use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProgramSekolahController;
 
+
 /*
 |--------------------------------------------------------------------------
 | HALAMAN HOME
@@ -37,6 +38,8 @@ Route::get('/', function () {
 
 Route::get('/berita', [BeritasController::class, 'index']);
 Route::get('/berita/{slug}', [BeritasController::class, 'show']);
+Route::get('/berita', [BeritasController::class, 'index'])->name('berita.index');
+Route::get('/berita/{slug}', [BeritasController::class, 'show'])->name('berita.show');
 
 
 

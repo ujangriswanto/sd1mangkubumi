@@ -836,10 +836,51 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 <section class="berita2-section">
     <div class="container">
 
-        <div class="berita2-header">
-    <h2><span class="button-box">BERITA TERBARU  SD NEGERI 1 MANGKUBUMI</span></h2>
-    <p>Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.</p>
+    <div class="berita2-header">
+    <h2 style="margin-bottom: 16px;"><span class="button-box">BERITA TERBARU SD NEGERI 1 MANGKUBUMI</span></h2>
+    <p class="berita2-sub">
+        <span class="berita2-dot"></span>
+        Update kegiatan, pengumuman, dan informasi terkini seputar akademik dan prestasi SDN 1 Mangkubumi.
+        <span class="berita2-dot"></span>
+    </p>
 </div>
+
+
+<style>
+.berita2-header h2 {
+    margin-bottom: 16px;
+}
+.berita2-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0f4ff;
+    border: 1px solid #c7d7fc;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b5bdb;
+}
+
+.berita2-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3b5bdb;
+    display: inline-block;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.berita2-dot:last-child {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.6); }
+}
+</style>
 
         <div class="berita2-grid">
             @forelse($berita as $item)
@@ -851,7 +892,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                 <div class="berita2-body">
                     <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
                     <div class="berita2-footer">
-                        <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
+                        <a href="{{ route('berita.show', $item->slug) }}" class="berita2-link">Baca selengkapnya →</a>
                     </div>
                 </div>
             </div>
@@ -1101,10 +1142,14 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     @endphp
 <section class="prestasi-section">
         <div class="container">
-            <div class="prestasi-header">
-                <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
-                <p>Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.</p>
-            </div>
+    <div class="prestasi-header">
+        <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
+        <p class="prestasi-sub">
+            <span class="prestasi-dot"></span>
+            Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.
+            <span class="prestasi-dot"></span>
+        </p>
+    </div>
 
             <div class="prestasi-grid">
                 @forelse($prestasis as $item)
@@ -1139,7 +1184,31 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     </section>
 
 <style>
+.prestasi-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0f4ff;
+    border: 1px solid #c7d7fc;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+}
 
+.prestasi-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3b5bdb;
+    display: inline-block;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.prestasi-dot:last-child {
+    animation-delay: 0.4s;
+}
 /* ===============================
    SECTION
 =================================*/
@@ -1149,7 +1218,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     padding: 80px 20px;
     text-align: center;
 }
-
 .prestasi-header h2 {
     font-size: 2.3rem;
     font-weight: bold;
@@ -1308,7 +1376,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
             <div class="col-lg-3 col-md-6">
                 <div class="sdn-footer-brand">
                     <div class="sdn-footer-logo">
-                        <img src="assets/img/tutt.png" alt="Logo SDN 1 Mangkubumi">
+                        <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
                         <div>
                             <span class="sdn-footer-logo-title">SDN 1 Mangkubumi</span>
                             <span class="sdn-footer-logo-sub">Kecamatan Sadananya</span>
@@ -1450,7 +1518,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .sdn-footer-logo img {
     height: 52px;
     width: auto;
-    filter: brightness(0) invert(1);
+    
 }
 .sdn-footer-logo-title {
     display: block;

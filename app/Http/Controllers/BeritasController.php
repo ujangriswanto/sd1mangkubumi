@@ -27,6 +27,6 @@ class BeritasController extends Controller
         $prev = Beritas::where('id', '<', $berita->id)->latest('id')->first();
         $next = Beritas::where('id', '>', $berita->id)->oldest('id')->first();
 
-        return view('detail-berita', compact('berita', 'terkait', 'prev', 'next'));
+        return view('Berita.detail-berita', compact('berita', 'terkait', 'prev', 'next'));
     }
 }

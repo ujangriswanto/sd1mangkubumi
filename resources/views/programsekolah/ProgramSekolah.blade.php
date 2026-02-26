@@ -674,7 +674,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 .sdn-footer-logo img {
     height: 52px;
     width: auto;
-    filter: brightness(0) invert(1);
+    
 }
 .sdn-footer-logo-title {
     display: block;
