@@ -14,16 +14,17 @@ body { font-family: 'Nunito', sans-serif; background: #f8faff; color: #1e293b; }
 /* ===== HERO ===== */
 .db-hero {
     position: relative;
-    height: 520px;
+    height: 420px;
     overflow: hidden;
     background: #020c18;
 }
 .db-hero-img {
     width: 100%; height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     opacity: 0.55;
     transform: scale(1.05);
-    animation: heroZoom 8s ease-in-out infinite alternate;
+    
 }
 @keyframes heroZoom {
     from { transform: scale(1.05); }
@@ -31,7 +32,7 @@ body { font-family: 'Nunito', sans-serif; background: #f8faff; color: #1e293b; }
 }
 .db-hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(2,12,24,0.95) 0%, rgba(2,12,24,0.4) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(2,12,24,0.85) 0%, rgba(2,12,24,0.2) 25%, transparent 65%);
 }
 .db-hero-content {
     position: absolute;
