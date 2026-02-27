@@ -54,7 +54,7 @@ class BeritasResource extends Resource
     {
         return [
             'index' => ListBeritas::route('/'),
-            // 'create' => CreateBeritas::route('/create'),
+            'create' => CreateBeritas::route('/create'),
             // 'edit' => EditBeritas::route('/{record}/edit'),
         ];
     }

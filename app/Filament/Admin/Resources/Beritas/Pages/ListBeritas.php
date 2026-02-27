@@ -15,8 +15,8 @@ class ListBeritas extends ListRecords
         return [
             CreateAction::make()
                 ->label('Tambah Berita')
-                ->icon('heroicon-o-plus-circle')
-                ->slideover(),
+                ->icon('heroicon-o-plus-circle'),
+                
         ];
     }
 }

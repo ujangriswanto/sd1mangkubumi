@@ -54,7 +54,7 @@ class TeacherStaffResource extends Resource
     {
         return [
             'index' => ListTeacherStaff::route('/'),
-            'create' => CreateTeacherStaff::route('/create'),
+            // 'create' => CreateTeacherStaff::route('/create'),
             'edit' => EditTeacherStaff::route('/{record}/edit'),
         ];
     }

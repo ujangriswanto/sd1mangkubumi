@@ -14,7 +14,8 @@ class ListTeacherStaff extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Guru/Staff'),
+                ->label('Tambah Guru/Staff')
+                ->slideOver(),
         ];
     }
 }
