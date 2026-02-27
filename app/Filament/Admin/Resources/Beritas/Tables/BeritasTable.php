@@ -12,6 +12,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\DeleteAction;
 
 class BeritasTable
 {
@@ -72,10 +73,11 @@ class BeritasTable
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
                 ]),
             ])
 

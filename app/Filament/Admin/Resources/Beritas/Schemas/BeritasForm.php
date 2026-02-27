@@ -21,7 +21,7 @@ class BeritasForm
                 Section::make('Konten Berita')
                     ->schema([
                         TextInput::make('title')
-                            ->label('Judul')
+                            ->label('Judul Berita')
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -53,8 +53,10 @@ class BeritasForm
                             ->helperText('Upload gambar thumbnail (disarankan 16:9). Maks 2MB.'),
 
                         RichEditor::make('content')
-                            ->label('Isi Berita')
+                            ->label('Ayo Isi Berita nya!')
+                             ->helperText('Isi berita dengan lengkap dan menarik. Gunakan heading, gambar, dan format teks untuk membuatnya lebih menarik.')
                             ->required()
+                            ->extraAttributes(['style' => 'min-height: 300px'])
                             ->columnSpanFull(),
                         Select::make('category')
                             ->label('Kategori')
