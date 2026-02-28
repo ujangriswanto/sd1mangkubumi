@@ -21,6 +21,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Swis\Filament\Backgrounds\Images\Providers\LocalProvider;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 use Swis\Filament\Backgrounds\ImageProviders\MyImages;
+use Filament\Support\Enums\Width;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,6 +33,8 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->login()
             ->brandName('SDN 1 Mangkubumi')
+            ->maxContentWidth(Width::Full)
+            //->viteTheme('resources/css/filament/admin-overrides.css')
             ->colors([
                 'primary' => Color::Amber,
             ])

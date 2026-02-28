@@ -51,6 +51,7 @@ class PrestasiForm
                             ->label('Foto (Opsional)')
                             ->image()
                             ->directory('achievements')
+                            ->disk('public')
                             ->imageEditor()
                             ->imageResizeMode('cover')
                             ->imageCropAspectRatio('16:9')

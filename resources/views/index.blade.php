@@ -118,7 +118,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <a href="/berita" class="nav-link">Berita</a>
                         </li>
 						<li class="nav-item">
-                            <a href="about.html" class="nav-link">PPDB</a>
+                            <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>

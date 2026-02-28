@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Filament\Admin\Resources\SchoolClasses\Pages;
+
+use App\Filament\Admin\Resources\SchoolClasses\SchoolClassResource;
+use Filament\Actions\CreateAction;
+use Filament\Resources\Pages\ListRecords;
+
+class ListSchoolClasses extends ListRecords
+{
+    protected static string $resource = SchoolClassResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            CreateAction::make()
+                ->label('Tambah Kelas'),
+        ];
+    }
+}
