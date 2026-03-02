@@ -7,6 +7,7 @@ use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProgramSekolahController;
 use App\Http\Controllers\PpdbController;
+use App\Http\Controllers\HeaderController;
 
 
 /*
@@ -82,3 +83,6 @@ Route::prefix('ppdb')->group(function () {
         ->name('ppdb.store');
 
 });
+
+
+
