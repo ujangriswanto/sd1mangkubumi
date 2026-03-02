@@ -158,10 +158,14 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
     <!-- Slider Background -->
     <div class="hero-slider">
-        <div class="hero-slide active" style="background-image: url('{{ asset('assets/img/depan.png') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpeg') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depan.jpeg') }}')"></div>
-        <div class="hero-slide" style="background-image: url('{{ asset('assets/img/depann.jpeg') }}')"></div>
+        @forelse ($headers as $index => $header)
+            <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" 
+                 style="background-image: url('{{ asset('storage/' . $header->header_foto) }}')">
+            </div>
+        @empty
+            {{-- Fallback jika tidak ada data --}}
+            <div class="hero-slide active" style="background-image: url('{{ asset('assets/img/depan.png') }}')"></div>
+        @endforelse
     </div>
 
     <!-- Gradient overlay -->
@@ -178,12 +182,11 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         </div>
     </div>
 
-    <!-- Dots -->
+    <!-- Dots (dinamis sesuai jumlah foto) -->
     <div class="hero-slider-dots">
-        <span class="hsdot active"></span>
-        <span class="hsdot"></span>
-        <span class="hsdot"></span>
-        <span class="hsdot"></span>
+        @foreach ($headers as $index => $header)
+            <span class="hsdot {{ $index === 0 ? 'active' : '' }}"></span>
+        @endforeach
     </div>
 
     <!-- Bottom wave -->

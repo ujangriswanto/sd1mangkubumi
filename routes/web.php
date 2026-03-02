@@ -8,6 +8,7 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProgramSekolahController;
 use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\HeaderController;
+use App\Models\Header; // ← tambah ini di atas
 
 
 /*
@@ -18,17 +19,18 @@ use App\Http\Controllers\HeaderController;
 
 Route::get('/', function () {
 
-    // cek kalau ada file statis index.html
     $static = public_path('index.html');
-
     if (file_exists($static)) {
         return response()->file($static);
     }
 
-    // ambil data profil sekolah
-    $data = ProfilSekolah::first();
+    $data    = ProfilSekolah::first();
+    $headers = Header::where('show_header', true)  // ← tambah ini
+                     ->select('header_foto')
+                     ->get();
 
-    return view('index', compact('data'));
+    return view('index', compact('data', 'headers')); // ← tambah headers
+
 });
 
 
