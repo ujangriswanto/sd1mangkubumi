@@ -102,6 +102,10 @@ class KontakSekolah extends Page
                             ->label('YouTube')
                             ->maxLength(255)
                             ->placeholder('https://youtube.com/...'),
+                        TextInput::make('tiktok')
+                            ->label('TikTok')
+                            ->maxLength(255)
+                            ->placeholder('https://tiktok.com/...'),
                     ])
                     ->columns(2),
             ])

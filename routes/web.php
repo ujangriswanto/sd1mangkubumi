@@ -8,7 +8,8 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProgramSekolahController;
 use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\HeaderController;
-use App\Models\Header; // ← tambah ini di atas
+use App\Models\Header; 
+use App\Models\Contact;
 
 
 /*
@@ -25,11 +26,12 @@ Route::get('/', function () {
     }
 
     $data    = ProfilSekolah::first();
+     $contact = Contact::first(); // ← tambah ini
     $headers = Header::where('show_header', true)  // ← tambah ini
                      ->select('header_foto')
                      ->get();
 
-    return view('index', compact('data', 'headers')); // ← tambah headers
+    return view('index', compact('data', 'headers', 'contact')); // ← tambah 'contact' di sini
 
 });
 

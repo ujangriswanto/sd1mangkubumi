@@ -3,19 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beritas;
+use App\Models\Contact;
+use App\Models\ProfilSekolah;
 use Illuminate\Http\Request;
 
 class BeritasController extends Controller
 {
     public function index()
     {
-        $berita = Beritas::latest()->paginate(6);
-        return view('Berita.Berita', compact('berita'));
+        $berita  = Beritas::latest()->paginate(6);
+        $contact = Contact::first();
+        $data    = ProfilSekolah::first();
+        return view('Berita.Berita', compact('berita', 'contact', 'data'));
     }
 
     public function show($slug)
     {
-        $berita = Beritas::where('slug', $slug)->firstOrFail();
+        $berita  = Beritas::where('slug', $slug)->firstOrFail();
+        $contact = Contact::first();
+        $data    = ProfilSekolah::first();
         $berita->increment('views');
 
         $terkait = Beritas::where('category', $berita->category)
@@ -27,6 +33,6 @@ class BeritasController extends Controller
         $prev = Beritas::where('id', '<', $berita->id)->latest('id')->first();
         $next = Beritas::where('id', '>', $berita->id)->oldest('id')->first();
 
-        return view('Berita.detail-berita', compact('berita', 'terkait', 'prev', 'next'));
+        return view('Berita.detail-berita', compact('berita', 'terkait', 'prev', 'next', 'contact', 'data'));
     }
 }

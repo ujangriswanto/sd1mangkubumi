@@ -6,12 +6,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title -->
-	<title>Techvio - IT Solutions & Business Services Multipurpose HTML5 Website Template</title>
+	<title>SDN 1 MANGKUBUMI</title>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="icon" type="image/png" href="assets/img/tutt.png">
 	<!-- Bootstrap Min CSS -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<!-- Animate Min CSS -->
@@ -156,40 +156,25 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 <!-- ===== HERO SECTION ===== -->
 <section class="hero-full">
 
-    <!-- Slider Background -->
     <div class="hero-slider">
         @forelse ($headers as $index => $header)
             <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" 
                  style="background-image: url('{{ asset('storage/' . $header->header_foto) }}')">
             </div>
         @empty
-            {{-- Fallback jika tidak ada data --}}
             <div class="hero-slide active" style="background-image: url('{{ asset('assets/img/depan.png') }}')"></div>
         @endforelse
     </div>
 
-    <!-- Gradient overlay -->
     <div class="hero-overlay"></div>
 
-    <!-- Konten -->
-    <div class="hero-content">
-        <div class="container">
-            <div class="hero-inner">
-                <div class="other-option">
-                    <a class="default-btn" href="{{ url('/admin/login') }}">Login <span></span></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Dots (dinamis sesuai jumlah foto) -->
     <div class="hero-slider-dots">
         @foreach ($headers as $index => $header)
             <span class="hsdot {{ $index === 0 ? 'active' : '' }}"></span>
         @endforeach
     </div>
 
-    <!-- Bottom wave -->
     <div class="hero-wave">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="#08121f" opacity=".5"/>
@@ -197,7 +182,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         </svg>
     </div>
 
-    <!-- Scroll hint -->
     <div class="hero-scroll">
         <div class="scroll-mouse"></div>
         <span>Scroll</span>
@@ -205,7 +189,276 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 </section>
 
+{{-- RUNNING TEXT (di bawah hero) --}}
+<div class="running-text-bar">
+    <div class="running-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        INFO
+    </div>
+    <div class="running-text-wrapper">
+        <div class="running-text-track" id="runningTrack">
+
+          @php
+    $items = [];
+    $items[] = '🎉 SELAMAT DATANG DI WEBSITE  ' . ($data?->nama_sekolah ?? 'SDN 1 MANGKUBUMI');
+    if ($contact?->address)       $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ' . $contact->address;
+    if ($contact?->phone)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.88 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg> ' . $contact->phone;
+    if ($contact?->email)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> ' . $contact->email;
+    if ($contact?->working_hours) $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' . $contact->working_hours;
+    $text = implode(' &nbsp;&nbsp;|&nbsp;&nbsp; ', $items);
+@endphp
+
+<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+        </div>
+    </div>
+</div>
+{{-- BATAS --}}
+
+{{-- SOSMED FLOATING BAR --}}
+<div class="sosmed-bar">
+    <div class="sosmed-bar-inner">
+        <span class="sosmed-bar-title">Social Media</span>
+
+        <div class="sosmed-divider-line"></div>
+
+        <div class="sosmed-buttons">
+            @if($contact?->instagram)
+            <a href="{{ $contact->instagram }}" target="_blank" class="sosmed-pill ig" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                <span>Instagram</span>
+            </a>
+            @endif
+
+            @if($contact?->facebook)
+            <a href="{{ $contact->facebook }}" target="_blank" class="sosmed-pill fb" title="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+                <span>Facebook</span>
+            </a>
+            @endif
+
+            @if($contact?->youtube)
+            <a href="{{ $contact->youtube }}" target="_blank" class="sosmed-pill yt" title="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>YouTube</span>
+            </a>
+            @endif
+
+            @if($contact?->tiktok)
+            <a href="{{ $contact->tiktok }}" target="_blank" class="sosmed-pill tt" title="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                <span>TikTok</span>
+            </a>
+            @endif
+
+            @if($contact?->whatsapp)
+            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->whatsapp) }}" target="_blank" class="sosmed-pill wa" title="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>WhatsApp</span>
+            </a>
+            @endif
+        </div>
+
+        {{-- DIVIDER + LOGIN --}}
+        <div class="sosmed-divider-line"></div>
+        <a href="{{ url('/admin/login') }}" class="sosmed-login-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+           Form Login
+        </a>
+
+    </div>
+</div>
+
+
+
 <style>
+/* Button Login */
+.sosmed-login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 20px;
+    background: #f59e0b;
+    border: none;
+    border-radius: 999px;
+    color: #111827 !important;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none !important;
+    letter-spacing: 0.4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    margin-left: auto;
+    box-shadow: 0 3px 12px rgba(245,158,11,0.4);
+}
+
+.sosmed-login-btn:hover {
+    background: #fbbf24;
+    color: #111827 !important;
+    box-shadow: 0 5px 18px rgba(245,158,11,0.55);
+    transform: translateY(-1px);
+}
+
+.sosmed-login-btn svg {
+    stroke: #111827;
+    transition: transform 0.2s;
+}
+
+.sosmed-login-btn:hover svg {
+    transform: translateX(2px);
+}
+/* BATAS */
+
+/* ===== SOSMED BAR ===== */
+.sosmed-bar {
+    background: #0d1117;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 10px 0;
+    width: 100%;
+}
+
+.sosmed-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sosmed-bar-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.sosmed-divider-line {
+    width: 1px;
+    height: 24px;
+    background: rgba(255,255,255,0.08);
+    flex-shrink: 0;
+}
+
+.sosmed-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sosmed-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.sosmed-pill:hover {
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.sosmed-pill.ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 4px 15px rgba(220,39,67,0.4); }
+.sosmed-pill.fb:hover { background: #1877F2; box-shadow: 0 4px 15px rgba(24,119,242,0.4); }
+.sosmed-pill.yt:hover { background: #FF0000; box-shadow: 0 4px 15px rgba(255,0,0,0.4); }
+.sosmed-pill.tt:hover { background: linear-gradient(135deg, #010101, #69C9D0); box-shadow: 0 4px 15px rgba(105,201,208,0.4); }
+.sosmed-pill.wa:hover { background: #25D366; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+
+/* warna icon saat normal */
+.sosmed-pill.ig svg { color: #E1306C; }
+.sosmed-pill.fb svg { color: #1877F2; }
+.sosmed-pill.yt svg { color: #FF0000; }
+.sosmed-pill.tt svg { color: #69C9D0; }
+.sosmed-pill.wa svg { color: #25D366; }
+
+.sosmed-pill:hover svg { color: #fff; }
+
+@media (max-width: 768px) {
+    .sosmed-bar-inner { gap: 10px; }
+    .sosmed-bar-title span { display: none; }
+    .sosmed-pill span { display: none; }
+    .sosmed-pill { padding: 6px 8px; }
+}
+
+/* BATAS */
+
+.running-text-bar {
+    background-color: #111827;
+    border-top: 2px solid #f59e0b;
+    color: #f3f4f6;
+    font-size: 14.5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    min-height: 40px;
+}
+
+.running-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f59e0b;
+    color: #111827;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    padding: 0 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    align-self: stretch;
+}
+
+.running-text-wrapper {
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.running-text-track {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: marquee-scroll 40s linear infinite;
+    will-change: transform;
+}
+
+.running-text-content {
+    white-space: nowrap;
+    padding: 0 16px;
+    color: #e5e7eb;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+
+/* batas */
 .hero-full {
     position: relative;
     width: 100%;
@@ -246,10 +499,11 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        135deg,
-        rgba(4, 10, 24, 0.80) 0%,
-        rgba(4, 10, 24, 0.50) 60%,
-        rgba(4, 10, 24, 0.70) 100%
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(8, 18, 31, 0.8) 80%,
+        rgba(8, 18, 31, 1) 100%
     );
     z-index: 1;
 }
@@ -1376,26 +1630,37 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         <div class="row g-4 pt-2 pb-5">
 
             <!-- COL 1: LOGO + DESC + SOSMED -->
-            <div class="col-lg-3 col-md-6">
-                <div class="sdn-footer-brand">
-                    <div class="sdn-footer-logo">
-                        <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
-                        <div>
-                            <span class="sdn-footer-logo-title">SDN 1 Mangkubumi</span>
-                            <span class="sdn-footer-logo-sub">Kecamatan Sadananya</span>
-                        </div>
-                    </div>
-                    <p class="sdn-footer-desc">
-                        Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.
-                    </p>
-                    <div class="sdn-footer-socials">
-                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+<div class="col-lg-3 col-md-6">
+    <div class="sdn-footer-brand">
+        <div class="sdn-footer-logo">
+            <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
+            <div>
+                <span class="sdn-footer-logo-title">{{ $data?->nama_sekolah ?? 'SDN 1 Mangkubumi' }}</span>
+                <span class="sdn-footer-logo-sub">{{ $data?->kecamatan ?? 'Kecamatan Sadananya' }}</span>
             </div>
+        </div>
+        <p class="sdn-footer-desc">
+            {{ $data?->deskripsi ?? 'Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.' }}
+        </p>
+        <div class="sdn-footer-socials">
+            @if($contact?->facebook)
+            <a href="{{ $contact->facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            @endif
+
+            @if($contact?->instagram)
+            <a href="{{ $contact->instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            @endif
+
+            @if($contact?->youtube)
+            <a href="{{ $contact->youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            @endif
+
+            @if($contact?->tiktok)
+            <a href="{{ $contact->tiktok }}" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            @endif
+        </div>
+    </div>
+</div>
 
             <!-- COL 2: LINK CEPAT -->
             <div class="col-lg-2 col-md-6">
@@ -1409,87 +1674,122 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Akademik</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Kesiswaan</a></li>
                         <li><a href="{{ route('program-sekolah') }}"><i class="fas fa-chevron-right"></i> Program Sekolah</a></li>
+                        
                     </ul>
                 </div>
             </div>
 
-            <!-- COL 3: KONTAK -->
-            <div class="col-lg-3 col-md-6">
-                <div class="sdn-footer-widget">
-                    <h4 class="sdn-footer-heading">Kontak Kami</h4>
-                    <ul class="sdn-footer-contact">
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <strong>Alamat</strong>
-                                <span>Jl. Mangkubumi No.1, Kec. Sadananya, Ciamis, Jawa Barat</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <strong>Telepon</strong>
-                                <span><a href="tel:+62000000000">(0265) 000-0000</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <strong>Email</strong>
-                                <span><a href="mailto:sdn1mangkubumi@gmail.com">sdn1mangkubumi@gmail.com</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <strong>Jam Operasional</strong>
-                                <span>Senin – Jumat: 07.00 – 15.00</span>
-                            </div>
-                        </li>
-                    </ul>
+           <!-- COL 3: KONTAK -->
+<div class="col-lg-3 col-md-6">
+    <div class="sdn-footer-widget">
+        <h4 class="sdn-footer-heading">Kontak Kami</h4>
+        <ul class="sdn-footer-contact">
+            @if($contact?->address)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <strong>Alamat</strong>
+                    <span>{{ $contact->address }}</span>
                 </div>
-            </div>
+            </li>
+            @endif
 
-            <!-- COL 4: MAPS EMBED -->
-            <div class="col-lg-4 col-md-6">
-                <div class="sdn-footer-widget">
-                    <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
-                    <div class="sdn-footer-map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4!2d108.35!3d-7.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSDN+1+Mangkubumi+Sadananya+Ciamis!5e0!3m2!1sid!2sid!4v1"
-                            width="100%"
-                            height="220"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        <a href="https://maps.google.com/?q=SDN+1+Mangkubumi+Sadananya+Ciamis" target="_blank" class="sdn-maps-btn">
-                            <i class="fas fa-directions"></i> Buka di Google Maps
+            @if($contact?->phone)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                    <strong>Telepon</strong>
+                    <span><a href="tel:{{ $contact->phone }}">{{ $contact->phone }}</a></span>
+                </div>
+            </li>
+            @endif
+
+            @if($contact?->whatsapp)
+            <li>
+                <div class="sdn-contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                    <strong>WhatsApp</strong>
+                    <span>
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->whatsapp) }}" target="_blank">
+                            {{ $contact->whatsapp }}
                         </a>
-                    </div>
+                    </span>
                 </div>
-            </div>
+            </li>
+            @endif
 
+            @if($contact?->email)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <strong>Email</strong>
+                    <span><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></span>
+                </div>
+            </li>
+            @endif
+
+            @if($contact?->working_hours)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <strong>Jam Operasional</strong>
+                    <span>{{ $contact->working_hours }}</span>
+                </div>
+            </li>
+            @endif
+        </ul>
+    </div>
+</div>
+
+<!-- COL 4: MAPS EMBED -->
+<div class="col-lg-4 col-md-6">
+    <div class="sdn-footer-widget">
+        <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
+        <div class="sdn-footer-map">
+            @if($contact?->google_maps_link)
+            <iframe
+                src="{{ $contact->google_maps_link }}"
+                width="100%"
+                height="220"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            {{-- <a href="{{ $contact->google_maps_link }}" target="_blank" class="sdn-maps-btn">
+                <i class="fas fa-directions"></i> Buka di Google Maps
+            </a> --}}
+            @else
+            <div style="background:rgba(255,255,255,0.05);height:220px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#6b7280;font-size:13px;">
+                <i class="fas fa-map-marked-alt" style="margin-right:8px"></i> Lokasi belum diatur
+            </div>
+            @endif
         </div>
     </div>
+</div>
 
-    <!-- COPYRIGHT -->
-    <div class="sdn-copyright">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <p><i class="far fa-copyright"></i> {{ date('Y') }} SDN 1 Mangkubumi — All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="sdn-copyright-links">
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                    </ul>
-                </div>
+</div>
+</div>
+
+<!-- COPYRIGHT -->
+<div class="sdn-copyright">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p>
+                    <i class="far fa-copyright"></i>
+                    {{ date('Y') }} {{ $data?->nama_sekolah ?? 'SDN 1 Mangkubumi' }} — All Rights Reserved.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <ul class="sdn-copyright-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 
 </footer>
 
@@ -1832,14 +2132,31 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     100% { transform: scale(1.8); opacity: 0; }
   }
 </style>
-    <div class="wa-float">
-  <a href="https://wa.me/628123456789" target="_blank" rel="noopener">
+    @if($contact?->whatsapp)
+<div class="wa-float">
+  @php
+    $wa = $contact->whatsapp;
+    // Kalau sudah berupa link wa.me, pakai langsung
+    if (str_contains($wa, 'wa.me') || str_contains($wa, 'http')) {
+        $waLink = $wa;
+    } else {
+        // Bersihkan karakter selain angka
+        $waNumber = preg_replace('/[^0-9]/', '', $wa);
+        // Ganti awalan 0 dengan 62
+        if (str_starts_with($waNumber, '0')) {
+            $waNumber = '62' . substr($waNumber, 1);
+        }
+        $waLink = 'https://wa.me/' . $waNumber;
+    }
+  @endphp
+  <a href="{{ $waLink }}" target="_blank" rel="noopener">
     <span class="wa-tooltip">Chat Admin via WhatsApp Ya</span>
     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
       <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16c0 2.347.64 4.64 1.853 6.64L2.667 29.333l6.88-1.813A13.28 13.28 0 0 0 16.004 29.333c7.36 0 13.33-5.973 13.33-13.333 0-7.36-5.97-13.333-13.33-13.333zm0 24c-2.16 0-4.267-.587-6.107-1.693l-.44-.267-4.08 1.08 1.093-3.973-.28-.453A10.63 10.63 0 0 1 5.333 16c0-5.88 4.787-10.667 10.667-10.667 5.88 0 10.666 4.787 10.666 10.667S21.88 26.667 16 26.667zm5.84-7.987c-.32-.16-1.893-.933-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-.987 1.24-.16.2-.32.213-.587.08-.293-.16-1.2-.44-2.28-1.4-.84-.747-1.413-1.667-1.573-1.947-.16-.293-.013-.453.12-.6.12-.12.293-.32.44-.48.146-.16.186-.267.28-.467.093-.2.053-.373-.027-.52-.08-.147-.72-1.733-.987-2.373-.267-.64-.52-.52-.72-.533-.186-.013-.4-.013-.613-.013-.213 0-.56.08-.853.373-.293.293-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.453 4.827.76.32 1.36.52 1.813.667.76.24 1.467.2 2.013.12.613-.093 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.267-.213-.587-.373z"/>
     </svg>
   </a>
 </div>
+@endif
 </body>
 
 </html>

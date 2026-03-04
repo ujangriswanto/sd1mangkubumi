@@ -107,7 +107,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <a href="/berita" class="nav-link">Berita</a>
                         </li>
 						<li class="nav-item">
-                            <a href="about.html" class="nav-link">PPDB</a>
+                            <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
@@ -529,26 +529,37 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         <div class="row g-4 pt-2 pb-5">
 
             <!-- COL 1: LOGO + DESC + SOSMED -->
-            <div class="col-lg-3 col-md-6">
-                <div class="sdn-footer-brand">
-                    <div class="sdn-footer-logo">
-                        <img src="assets/img/tutt.png" alt="Logo SDN 1 Mangkubumi">
-                        <div>
-                            <span class="sdn-footer-logo-title">SDN 1 Mangkubumi</span>
-                            <span class="sdn-footer-logo-sub">Kecamatan Sadananya</span>
-                        </div>
-                    </div>
-                    <p class="sdn-footer-desc">
-                        Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.
-                    </p>
-                    <div class="sdn-footer-socials">
-                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+<div class="col-lg-3 col-md-6">
+    <div class="sdn-footer-brand">
+        <div class="sdn-footer-logo">
+            <img src="assets/img/tutt.png" class="white-logo" alt="logo" style="height:50px;width:auto;display:block;">
+            <div>
+                <span class="sdn-footer-logo-title">{{ $data?->nama_sekolah ?? 'SDN 1 Mangkubumi' }}</span>
+                <span class="sdn-footer-logo-sub">{{ $data?->kecamatan ?? 'Kecamatan Sadananya' }}</span>
             </div>
+        </div>
+        <p class="sdn-footer-desc">
+            {{ $data?->deskripsi ?? 'Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.' }}
+        </p>
+        <div class="sdn-footer-socials">
+            @if($contact?->facebook)
+            <a href="{{ $contact->facebook }}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            @endif
+
+            @if($contact?->instagram)
+            <a href="{{ $contact->instagram }}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            @endif
+
+            @if($contact?->youtube)
+            <a href="{{ $contact->youtube }}" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            @endif
+
+            @if($contact?->tiktok)
+            <a href="{{ $contact->tiktok }}" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            @endif
+        </div>
+    </div>
+</div>
 
             <!-- COL 2: LINK CEPAT -->
             <div class="col-lg-2 col-md-6">
@@ -566,83 +577,115 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                 </div>
             </div>
 
-            <!-- COL 3: KONTAK -->
-            <div class="col-lg-3 col-md-6">
-                <div class="sdn-footer-widget">
-                    <h4 class="sdn-footer-heading">Kontak Kami</h4>
-                    <ul class="sdn-footer-contact">
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <strong>Alamat</strong>
-                                <span>Jl. Mangkubumi No.1, Kec. Sadananya, Ciamis, Jawa Barat</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <strong>Telepon</strong>
-                                <span><a href="tel:+62000000000">(0265) 000-0000</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <strong>Email</strong>
-                                <span><a href="mailto:sdn1mangkubumi@gmail.com">sdn1mangkubumi@gmail.com</a></span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <strong>Jam Operasional</strong>
-                                <span>Senin – Jumat: 07.00 – 15.00</span>
-                            </div>
-                        </li>
-                    </ul>
+           <!-- COL 3: KONTAK -->
+<div class="col-lg-3 col-md-6">
+    <div class="sdn-footer-widget">
+        <h4 class="sdn-footer-heading">Kontak Kami</h4>
+        <ul class="sdn-footer-contact">
+            @if($contact?->address)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <strong>Alamat</strong>
+                    <span>{{ $contact->address }}</span>
                 </div>
-            </div>
+            </li>
+            @endif
 
-            <!-- COL 4: MAPS EMBED -->
-            <div class="col-lg-4 col-md-6">
-                <div class="sdn-footer-widget">
-                    <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
-                    <div class="sdn-footer-map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4!2d108.35!3d-7.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSDN+1+Mangkubumi+Sadananya+Ciamis!5e0!3m2!1sid!2sid!4v1"
-                            width="100%"
-                            height="220"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        <a href="https://maps.google.com/?q=SDN+1+Mangkubumi+Sadananya+Ciamis" target="_blank" class="sdn-maps-btn">
-                            <i class="fas fa-directions"></i> Buka di Google Maps
+            @if($contact?->phone)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <div>
+                    <strong>Telepon</strong>
+                    <span><a href="tel:{{ $contact->phone }}">{{ $contact->phone }}</a></span>
+                </div>
+            </li>
+            @endif
+
+            @if($contact?->whatsapp)
+            <li>
+                <div class="sdn-contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                    <strong>WhatsApp</strong>
+                    <span>
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->whatsapp) }}" target="_blank">
+                            {{ $contact->whatsapp }}
                         </a>
-                    </div>
+                    </span>
                 </div>
-            </div>
+            </li>
+            @endif
 
+            @if($contact?->email)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <strong>Email</strong>
+                    <span><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></span>
+                </div>
+            </li>
+            @endif
+
+            @if($contact?->working_hours)
+            <li>
+                <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <strong>Jam Operasional</strong>
+                    <span>{{ $contact->working_hours }}</span>
+                </div>
+            </li>
+            @endif
+        </ul>
+    </div>
+</div>
+
+<!-- COL 4: MAPS EMBED -->
+<div class="col-lg-4 col-md-6">
+    <div class="sdn-footer-widget">
+        <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
+        <div class="sdn-footer-map">
+            @if($contact?->google_maps_link)
+            <iframe
+                src="{{ $contact->google_maps_link }}"
+                width="100%"
+                height="220"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            @else
+            <div style="background:rgba(255,255,255,0.05);height:220px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#6b7280;font-size:13px;">
+                <i class="fas fa-map-marked-alt" style="margin-right:8px"></i> Lokasi belum diatur
+            </div>
+            @endif
         </div>
     </div>
+</div>
 
-    <!-- COPYRIGHT -->
-    <div class="sdn-copyright">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                    <p><i class="far fa-copyright"></i> {{ date('Y') }} SDN 1 Mangkubumi — All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="sdn-copyright-links">
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                    </ul>
-                </div>
+</div>
+</div>
+
+<!-- COPYRIGHT -->
+<div class="sdn-copyright">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p>
+                    <i class="far fa-copyright"></i>
+                    {{ date('Y') }} {{ $data?->nama_sekolah ?? 'SDN 1 Mangkubumi' }} — All Rights Reserved.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <ul class="sdn-copyright-links">
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 
 </footer>
 

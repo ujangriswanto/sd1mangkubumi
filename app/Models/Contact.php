@@ -15,6 +15,7 @@ class Contact extends Model
         'instagram',
         'facebook',
         'youtube',
+        'tiktok',
         'working_hours',
     ];
 }
