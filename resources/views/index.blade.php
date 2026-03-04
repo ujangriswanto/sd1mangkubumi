@@ -1393,53 +1393,217 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 </style>
 	<!-- End About Section -->
 	
-	<!-- Start Overview Section -->
+	<!-- Start Overview Section prestasi -->
 	@php
-    $prestasis = \App\Models\Prestasi::latest()->take(6)->get(); // Mengambil 6 prestasi terbaru
-    @endphp
+    $prestasis = \App\Models\Prestasi::latest()->take(6)->get();
+@endphp
+
 <section class="prestasi-section">
-        <div class="container">
-    <div class="prestasi-header">
-        <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
-        <p class="prestasi-sub">
-            <span class="prestasi-dot"></span>
-            Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.
-            <span class="prestasi-dot"></span>
-        </p>
-    </div>
+    <div class="container">
+        <div class="prestasi-header">
+            <h2><span class="button-box">Prestasi SD Negeri 1 Mangkubumi</span></h2>
+            <p class="prestasi-sub">
+                <span class="prestasi-dot"></span>
+                Update prestasi luar biasa yang telah diraih oleh SDN 1 Mangkubumi di berbagai bidang.
+                <span class="prestasi-dot"></span>
+            </p>
+        </div>
 
-            <div class="prestasi-grid">
-                @forelse($prestasis as $item)
-                <div class="prestasi-card">
-                    <div class="prestasi-img-wrap">
-                        <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
-                        <span class="prestasi-badge">
-                             {{ $item->level }}
-                        </span>
-                    </div>
-
-                    <div class="prestasi-body">
-                        <h3>{{ $item->title }}</h3>
-                        <p class="prestasi-winner">
-                            {{ $item->winner_name }}
-                        </p>
-                        <p class="prestasi-date">
-                            {{ $item->date->format('d M Y') }}
-                        </p>
-                        <div class="prestasi-description">
-                            {{ \Illuminate\Support\Str::limit(strip_tags($item->description), 80) }}
-                        </div>
+        <div class="prestasi-grid">
+            @forelse($prestasis as $item)
+            <div class="prestasi-card" 
+                 onclick="openPrestasiModal(
+                     '{{ asset('storage/' . $item->photo) }}',
+                     '{{ addslashes($item->title) }}',
+                     '{{ addslashes($item->winner_name) }}',
+                     '{{ $item->date->format('d M Y') }}',
+                     '{{ addslashes($item->level) }}',
+                     '{{ addslashes(\Illuminate\Support\Str::limit(strip_tags($item->description), 300)) }}'
+                 )"
+                 style="cursor:pointer;">
+                <div class="prestasi-img-wrap">
+                    <img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->title }}">
+                    <span class="prestasi-badge">{{ $item->level }}</span>
+                </div>
+                <div class="prestasi-body">
+                    <h3>{{ $item->title }}</h3>
+                    <p class="prestasi-winner">{{ $item->winner_name }}</p>
+                    <p class="prestasi-date">{{ $item->date->format('d M Y') }}</p>
+                    <div class="prestasi-description">
+                        {{ \Illuminate\Support\Str::limit(strip_tags($item->description), 80) }}
                     </div>
                 </div>
-                @empty
-                <p style="color:#64748b; grid-column: span 3; text-align:center;">
-                    Belum ada prestasi tersedia.
-                </p>
-                @endforelse
             </div>
+            @empty
+            <p style="color:#64748b; grid-column: span 3; text-align:center;">
+                Belum ada prestasi tersedia.
+            </p>
+            @endforelse
         </div>
-    </section>
+    </div>
+</section>
+{{-- MODAL POPUP --}}
+<div class="prestasi-modal-overlay" id="prestasiModal" onclick="closePrestasiModal(event)">
+    <div class="prestasi-modal-box">
+        <button class="prestasi-modal-close" onclick="closePrestasiModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="prestasi-modal-img-wrap">
+            <img id="modalImg" src="" alt="">
+        </div>
+        <div class="prestasi-modal-info">
+            <span class="prestasi-modal-badge" id="modalLevel"></span>
+            <h3 id="modalTitle"></h3>
+            <p class="prestasi-modal-winner" id="modalWinner"></p>
+            <p class="prestasi-modal-date" id="modalDate"></p>
+            <p class="prestasi-modal-desc" id="modalDesc"></p>
+        </div>
+    </div>
+</div>
 
+<style>
+.prestasi-card { transition: transform 0.2s, box-shadow 0.2s; }
+.prestasi-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* MODAL */
+.prestasi-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.prestasi-modal-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.prestasi-modal-box {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.25s ease;
+}
+
+.prestasi-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.prestasi-modal-close:hover { background: rgba(0,0,0,0.85); }
+
+.prestasi-modal-img-wrap img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    display: block;
+}
+
+.prestasi-modal-info {
+    padding: 20px 24px 24px;
+}
+
+.prestasi-modal-badge {
+    display: inline-block;
+    background: #f59e0b;
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.prestasi-modal-info h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.prestasi-modal-winner {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.prestasi-modal-date {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.prestasi-modal-desc {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 576px) {
+    .prestasi-modal-box { border-radius: 12px; }
+    .prestasi-modal-info h3 { font-size: 16px; }
+}
+</style>
+
+<script>
+function openPrestasiModal(img, title, winner, date, level, desc) {
+    document.getElementById('modalImg').src    = img;
+    document.getElementById('modalTitle').textContent  = title;
+    document.getElementById('modalWinner').textContent = winner;
+    document.getElementById('modalDate').textContent   = date;
+    document.getElementById('modalLevel').textContent  = level;
+    document.getElementById('modalDesc').textContent   = desc;
+    document.getElementById('prestasiModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closePrestasiModal(event) {
+    if (event && event.target !== document.getElementById('prestasiModal')) return;
+    document.getElementById('prestasiModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePrestasiModal();
+});
+</script>
+
+
+{{-- INI BATAS NYA  --}}
 <style>
 .prestasi-sub {
     display: inline-flex;

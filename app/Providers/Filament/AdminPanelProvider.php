@@ -32,7 +32,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->default()
             ->login()
-            ->brandName('SDN 1 Mangkubumi')
+            ->brandLogo(asset('assets/img/tutt.png'))
+            ->brandLogoHeight('60px')
             ->maxContentWidth(Width::Full)
             //->viteTheme('resources/css/filament/admin-overrides.css')
             ->colors([
