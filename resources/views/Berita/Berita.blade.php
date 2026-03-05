@@ -185,7 +185,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
             </a>
             <div class="berita2-body">
                 <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
-                <div class="berita2-footer"> <span>By <strong>{{ $item->author }}</strong></span> <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
+                <div class="berita2-footer"> <span><strong>{{ $item->author }}</strong></span> <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
                 </div>
             </div>
         </div>

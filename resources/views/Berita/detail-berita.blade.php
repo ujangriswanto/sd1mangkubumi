@@ -639,7 +639,7 @@
             <aside class="db-sidebar">
 
                 {{-- Widget: Penulis --}}
-                <div class="db-widget">
+                {{-- <div class="db-widget">
                     <div class="db-widget-title">Penulis</div>
                     <div class="db-author">
                         <div class="db-author-avatar">
@@ -650,7 +650,7 @@
                             <div class="db-author-role">Operator SDN 1 Mangkubumi</div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- Widget: Berita Terkait --}}
                 @if($terkait->count() > 0)

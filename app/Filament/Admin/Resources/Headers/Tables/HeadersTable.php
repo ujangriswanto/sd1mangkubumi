@@ -14,6 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Actions\DeleteAction;
 
 class HeadersTable
 {
@@ -26,7 +27,7 @@ class HeadersTable
                     ->searchable(),
 
                 ImageColumn::make('header_foto')
-                    ->label('Thumbnail')
+                    ->label('Foto Header')
                     ->disk('public')
                     ->square(),
 
@@ -40,6 +41,7 @@ class HeadersTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

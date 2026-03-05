@@ -17,12 +17,20 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class HeaderResource extends Resource
 {
     protected static ?string $model = Header::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static UnitEnum|string|null $navigationGroup = 'Informasi';
+
+    protected static ?string $pluralModelLabel = 'Foto Header';
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-computer-desktop';
+
+    protected static ?string $modelLabel = 'Tambah Foto Header';
 
     public static function form(Schema $schema): Schema
     {

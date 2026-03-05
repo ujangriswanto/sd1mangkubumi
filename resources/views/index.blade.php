@@ -1137,36 +1137,93 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.6); }
 }
+/* BATAS BUTTON SALINK LINK  */
+.berita2-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.berita2-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #64748b;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.berita2-copy-btn:hover {
+    background: #e2e8f0;
+    color: #334155;
+}
+.berita2-copy-btn.copied {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #16a34a;
+}
 </style>
 
         <div class="berita2-grid">
-            @forelse($berita as $item)
-            <div class="berita2-card">
-                <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
-                    <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
-                    <span class="berita2-badge">📰 {{ $item->category }}</span>
-                </a>
-                <div class="berita2-body">
-                    <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
-                    <div class="berita2-footer">
-                        <a href="{{ route('berita.show', $item->slug) }}" class="berita2-link">Baca selengkapnya →</a>
-                    </div>
-                </div>
+    @forelse($berita as $item)
+    <div class="berita2-card">
+        <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
+            <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+            <span class="berita2-badge">📰 {{ $item->category }}</span>
+        </a>
+        <div class="berita2-body">
+            <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
+            <div class="berita2-footer">
+                <a href="{{ route('berita.show', $item->slug) }}" class="berita2-link">Baca selengkapnya →</a>
+
+                {{-- Tombol Salin Link --}}
+                <button
+                    class="berita2-copy-btn"
+                    onclick="salinLink(this, '{{ url('/berita/' . $item->slug) }}')"
+                    title="Salin link berita">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-4 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Salin Link</span>
+                </button>
             </div>
-            @empty
-            <p style="color:#64748b; grid-column: span 3; text-align:center;">Belum ada berita tersedia.</p>
-            @endforelse
         </div>
-
-        <div style="text-align:center; margin-top:48px;">
-            <a href="/berita" class="berita2-btn-all">
-                Tampilkan Semua Berita
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle; margin-left:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-        </div>
-
     </div>
+    @empty
+    <p style="color:#64748b; grid-column: span 3; text-align:center;">Belum ada berita tersedia.</p>
+    @endforelse
+</div>
+
+<div style="text-align:center; margin-top:48px;">
+    <a href="/berita" class="berita2-btn-all">
+        Tampilkan Semua Berita
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle; margin-left:6px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+</div>
 </section>
+<script>
+function salinLink(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+        const span = btn.querySelector('span');
+        const svg = btn.querySelector('svg');
+
+        btn.classList.add('copied');
+        span.textContent = 'Tersalin!';
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>';
+
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            span.textContent = 'Salin Link';
+            svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-4 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>';
+        }, 2000);
+    });
+}
+</script>
 <style>
     ..berita2-section{
     padding:90px 20px;
