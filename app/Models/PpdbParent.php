@@ -11,7 +11,6 @@ class PpdbParent extends Model
         'type',
         'name',
         'nik',
-        'birth_year',
         'education',
         'occupation',
         'monthly_income',

@@ -199,7 +199,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         <div class="sejarah-wrapper">
             <div class="sejarah-card">
                 <div class="sejarah-icon">📜</div>
-                <h3>Sejarah Sekolah</h3>
+                <h3>Kata Pengantar</h3>
                 <div class="sejarah-content">
                     {!! $data->history ?? '<p>Sejarah sekolah belum diisi.</p>' !!}
                 </div>

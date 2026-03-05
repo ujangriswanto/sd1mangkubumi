@@ -14,7 +14,8 @@ class ProfilSekolah extends Model
         'history',
         'vision',
         'mission',
-        'headmaster_nip',    // ← tambah
-        'headmaster_quote',  // ← tambah
+        'headmaster_nip',    
+        'headmaster_quote',
+        'struktur_organisasi',
     ];
 }

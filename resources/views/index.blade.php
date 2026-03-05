@@ -133,17 +133,17 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Data Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Prestasi Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
+                                {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
 						<li class="nav-item">
                         <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="contact.html" class="nav-link">Daftar Hadir</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     
                 </div>

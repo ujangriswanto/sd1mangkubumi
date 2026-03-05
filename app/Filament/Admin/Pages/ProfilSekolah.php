@@ -98,7 +98,7 @@ class ProfilSekolah extends Page implements HasForms
                 Section::make('Profil Sekolah')
                     ->schema([
                         RichEditor::make('history')
-                            ->label('Sejarah Sekolah')
+                            ->label('Kata Pengantar')
                             ->columnSpanFull(),
 
                         RichEditor::make('vision')
@@ -108,6 +108,16 @@ class ProfilSekolah extends Page implements HasForms
                         RichEditor::make('mission')
                             ->label('Misi')
                             ->columnSpanFull(),
+
+                        FileUpload::make('struktur_organisasi')
+                            ->label('Struktur Organisasi')
+                            ->image()
+                            ->directory('school/struktur')
+                            ->disk('public')
+                            ->imageEditor()
+                            ->maxSize(2048)
+                            ->preserveFilenames()
+                            ,
                     ])
                     ->columns(1),
             ])
