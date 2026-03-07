@@ -17,5 +17,6 @@ class ProfilSekolah extends Model
         'headmaster_nip',    
         'headmaster_quote',
         'struktur_organisasi',
+        'kurikulum',
     ];
 }

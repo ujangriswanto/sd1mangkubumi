@@ -144,7 +144,7 @@
    SECTION ASLI
 ══════════════════════════════ */
 .visimisi-section {
-    padding: 90px 20px;
+    padding: 30px 30px 100px;
     background: linear-gradient(135deg, #eef2ff, #ffffff);
     font-family: 'Poppins', sans-serif;
 }

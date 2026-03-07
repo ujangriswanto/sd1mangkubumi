@@ -120,6 +120,14 @@ class ProfilSekolah extends Page implements HasForms
                             ,
                     ])
                     ->columns(1),
+                    Section::make('Kurikulum')
+                    ->schema([
+                        RichEditor::make('kurikulum')
+                            ->label('Kurikulum')
+                            ->columnSpanFull(),
+
+                    ])
+                    ->columns(3),
             ])
             ->statePath('data');
     }
