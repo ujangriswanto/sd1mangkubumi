@@ -61,31 +61,44 @@
                 </script>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="/visi-misi" class="nav-link">Tentang</a></li>
-                        <li class="nav-item"><a href="/berita" class="nav-link">Berita</a></li>
-                        <li class="nav-item"><a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a></li>
+                        <li class="nav-item">
+                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/visi-misi" class="nav-link">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a>
+                        </li>
+						 <li class="nav-item">
+                        <a href="/berita" class="nav-link">Berita</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Kurikulum</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Data Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Prestasi Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
+                                {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Daftar Hadir</a></li>
+						<li class="nav-item">
+                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
+                        </li>
+                        
                     </ul>
+                    
                 </div>
             </nav>
         </div>

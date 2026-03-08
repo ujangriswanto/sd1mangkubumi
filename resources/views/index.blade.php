@@ -114,6 +114,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li class="nav-item">
                             <a href="/visi-misi" class="nav-link">Tentang</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a>
+                        </li>
 						 <li class="nav-item">
                         <a href="/berita" class="nav-link">Berita</a>
                         </li>
@@ -140,9 +143,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 						<li class="nav-item">
                         <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Kurikulum</a>
-                        </li>
+                        
                     </ul>
                     
                 </div>

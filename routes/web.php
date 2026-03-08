@@ -10,6 +10,7 @@ use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\HeaderController;
 use App\Models\Header; 
 use App\Models\Contact;
+use App\Http\Controllers\KurikulumController;
 
 
 /*
@@ -88,5 +89,5 @@ Route::prefix('ppdb')->group(function () {
 
 });
 
-
+Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
 
