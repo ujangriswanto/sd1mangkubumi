@@ -14,6 +14,9 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+
 
 
 class StudentResource extends Resource
@@ -29,6 +32,47 @@ class StudentResource extends Resource
     protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('view_students');
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create_students');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->can('edit_students');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->can('delete_students');
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        $user = auth()->user();
+
+        if ($user?->hasRole('guru')) {
+
+            $teacher = $user->teacherStaff;
+
+            if ($teacher) {
+                return $query->where(
+                    'school_class_id',
+                    $teacher->class_id
+                );
+            }
+        }
+
+        return $query;
+    }
 
     public static function form(Schema $schema): Schema
     {

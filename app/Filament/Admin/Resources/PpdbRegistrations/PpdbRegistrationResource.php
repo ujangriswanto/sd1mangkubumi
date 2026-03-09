@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+use Illuminate\Database\Eloquent\Model;
 
 class PpdbRegistrationResource extends Resource
 {
@@ -28,6 +29,27 @@ class PpdbRegistrationResource extends Resource
     protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'student_name';
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('view_ppdb');
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->can('accept_ppdb')
+            || auth()->user()?->can('reject_ppdb');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
 
     public static function form(Schema $schema): Schema
     {

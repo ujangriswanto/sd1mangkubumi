@@ -33,6 +33,26 @@ class TeacherStaffResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('view_teacher_staff');
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create_teacher_staff');
+    }
+
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->can('edit_teacher_staff');
+    }
+
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->can('delete_teacher_staff');
+    }
+
     public static function form(Schema $schema): Schema
     {
         return TeacherStaffForm::configure($schema);

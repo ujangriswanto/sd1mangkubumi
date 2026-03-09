@@ -46,6 +46,8 @@ class ProfilSekolah extends Page implements HasForms
         'history' => $profile->history,
         'vision' => $profile->vision,
         'mission' => $profile->mission,
+        'struktur_organisasi' => $profile->struktur_organisasi,
+        'kurikulum' => $profile->kurikulum,
     ]);
     }
 

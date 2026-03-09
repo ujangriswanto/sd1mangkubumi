@@ -87,91 +87,115 @@ class PpdbRegistrationsTable
                 DeleteAction::make(),
 
                 TableAction::make('terima')
-                ->label('Terima Siswa')
-                ->icon('heroicon-o-check-circle')
-                ->color('success')
-                ->visible(fn ($record) => $record->status === 'pending')
-                ->action(function ($record) {
+                    ->label('Terima Siswa')
+                    ->icon('heroicon-o-check-circle')
+                    ->color('success')
+                    ->visible(fn ($record) => $record->status === 'pending')
+                    ->action(function ($record) {
 
-                    DB::transaction(function () use ($record) {
+                        DB::transaction(function () use ($record) {
 
-                        // CEK LAGI STATUS DI DATABASE
+                            // CEK LAGI STATUS DI DATABASE
+                            $record->refresh();
+
+                            if ($record->status !== 'pending') {
+                                return;
+                            }
+
+                            // CEK APAKAH SUDAH ADA STUDENT DENGAN NISN YANG SAMA
+                            $existingStudent = Student::where('name', $record->student_name)
+                                ->whereDate('birth_date', $record->birth_date)
+                                ->first();
+
+                            if ($existingStudent) {
+                                $record->update([
+                                    'status' => 'accepted',
+                                ]);
+                                return;
+                            }
+
+                            $class = SchoolClass::where('grade_level', 1)->first();
+
+                            // Buat siswa baru
+                            $student = Student::create([
+                                'nis' => null,
+                                'name' => $record->student_name,
+                                'gender' => $record->gender,
+                                'birth_date' => $record->birth_date,
+                                'phone' => $record->phone,
+                                'address' => $record->address,
+                                'school_class_id' => $class?->id,
+                                'nisn' => $record->nisn,
+                                'nik' => $record->nik,
+                                'no_kk' => $record->no_kk,
+                                'no_akta_lahir' => $record->no_akta_lahir,
+                                'religion' => $record->religion,
+                                'citizenship' => $record->citizenship,
+                                'special_needs' => $record->special_needs,
+                                'residence_type' => $record->residence_type,
+                                'transportation' => $record->transportation,
+                                'child_order' => $record->child_order,
+                                'has_kip' => $record->has_kip,
+                                'will_receive_kip' => $record->will_receive_kip,
+                                'kip_rejection_reason' => $record->kip_rejection_reason,
+                                'kk_file' => $record->kk_file,
+                                'kip_file' => $record->kip_file,
+                                'is_active' => true,
+                            ]);
+
+                            foreach ($record->parents as $parent) {
+                                $student->parents()->create([
+                                    'type' => $parent->type,
+                                    'name' => $parent->name,
+                                    'nik' => $parent->nik,
+                                    'birth_year' => $parent->birth_year,
+                                    'education' => $parent->education,
+                                    'occupation' => $parent->occupation,
+                                    'monthly_income' => $parent->monthly_income,
+                                    'special_needs' => $parent->special_needs,
+                                ]);
+                            }
+
+                            if ($record->wali) {
+                                $student->wali()->create([
+                                    'name' => $record->wali->name,
+                                    'nik' => $record->wali->nik,
+                                    'birth_year' => $record->wali->birth_year,
+                                    'education' => $record->wali->education,
+                                    'occupation' => $record->wali->occupation,
+                                    'monthly_income' => $record->wali->monthly_income,
+                                ]);
+                            }
+
+                            $record->update([
+                                'status' => 'accepted',
+                            ]);
+                        });
+                    }),
+
+                TableAction::make('tolak')
+                    ->label('Tolak')
+                    ->icon('heroicon-o-x-circle')
+                    ->color('danger')
+                    ->visible(fn ($record) =>
+                        $record->status === 'pending'
+                        && auth()->user()?->can('reject_ppdb')
+                    )
+                    ->requiresConfirmation()
+                    ->modalHeading('Tolak pendaftaran?')
+                    ->modalDescription('Data pendaftar akan ditandai sebagai ditolak.')
+                    ->action(function ($record) {
+
                         $record->refresh();
 
                         if ($record->status !== 'pending') {
                             return;
                         }
 
-                        // CEK APAKAH SUDAH ADA STUDENT DENGAN NISN YANG SAMA
-                        $existingStudent = Student::where('name', $record->student_name)
-                            ->whereDate('birth_date', $record->birth_date)
-                            ->first();
-
-                        if ($existingStudent) {
-                            $record->update([
-                                'status' => 'accepted',
-                            ]);
-                            return;
-                        }
-
-                        $class = SchoolClass::where('grade_level', 1)->first();
-
-                        // Buat siswa baru
-                        $student = Student::create([
-                            'nis' => null,
-                            'name' => $record->student_name,
-                            'gender' => $record->gender,
-                            'birth_date' => $record->birth_date,
-                            'phone' => $record->phone,
-                            'address' => $record->address,
-                            'school_class_id' => $class?->id,
-                            'nisn' => $record->nisn,
-                            'nik' => $record->nik,
-                            'no_kk' => $record->no_kk,
-                            'no_akta_lahir' => $record->no_akta_lahir,
-                            'religion' => $record->religion,
-                            'citizenship' => $record->citizenship,
-                            'special_needs' => $record->special_needs,
-                            'residence_type' => $record->residence_type,
-                            'transportation' => $record->transportation,
-                            'child_order' => $record->child_order,
-                            'has_kip' => $record->has_kip,
-                            'will_receive_kip' => $record->will_receive_kip,
-                            'kip_rejection_reason' => $record->kip_rejection_reason,
-                            'kk_file' => $record->kk_file,
-                            'kip_file' => $record->kip_file,
-                            'is_active' => true,
-                        ]);
-
-                        foreach ($record->parents as $parent) {
-                            $student->parents()->create([
-                                'type' => $parent->type,
-                                'name' => $parent->name,
-                                'nik' => $parent->nik,
-                                'birth_year' => $parent->birth_year,
-                                'education' => $parent->education,
-                                'occupation' => $parent->occupation,
-                                'monthly_income' => $parent->monthly_income,
-                                'special_needs' => $parent->special_needs,
-                            ]);
-                        }
-
-                        if ($record->wali) {
-                            $student->wali()->create([
-                                'name' => $record->wali->name,
-                                'nik' => $record->wali->nik,
-                                'birth_year' => $record->wali->birth_year,
-                                'education' => $record->wali->education,
-                                'occupation' => $record->wali->occupation,
-                                'monthly_income' => $record->wali->monthly_income,
-                            ]);
-                        }
-
                         $record->update([
-                            'status' => 'accepted',
+                            'status' => 'rejected',
                         ]);
-                    });
-                }),
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

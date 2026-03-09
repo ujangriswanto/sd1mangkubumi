@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class SchoolClassResource extends Resource
 {
@@ -28,6 +29,26 @@ class SchoolClassResource extends Resource
     protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('view_classes');
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create_classes');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->can('edit_classes');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->can('delete_classes');
+    }
 
     public static function form(Schema $schema): Schema
     {

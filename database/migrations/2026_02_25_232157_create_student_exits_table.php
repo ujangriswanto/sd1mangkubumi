@@ -18,7 +18,7 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
 
-            $table->string('reason');
+            $table->string('reason')->nullable();
             $table->date('exit_date')->nullable();
             $table->text('description')->nullable();
 

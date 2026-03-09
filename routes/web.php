@@ -11,6 +11,8 @@ use App\Http\Controllers\HeaderController;
 use App\Models\Header; 
 use App\Models\Contact;
 use App\Http\Controllers\KurikulumController;
+use App\Models\JurnalHarian;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 /*
@@ -91,3 +93,12 @@ Route::prefix('ppdb')->group(function () {
 
 Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
 
+Route::get('/jurnal/{id}/pdf', function ($id) {
+
+    $jurnal = JurnalHarian::findOrFail($id);
+
+    $pdf = Pdf::loadView('pdf.jurnal', compact('jurnal'));
+
+    return $pdf->download('jurnal-'.$id.'.pdf');
+
+});
