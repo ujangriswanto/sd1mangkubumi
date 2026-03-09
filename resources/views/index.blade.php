@@ -156,6 +156,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 <!-- ===== HERO SECTION ===== -->
 <section class="hero-full">
 
+    <!-- Slider -->
     <div class="hero-slider">
         @forelse ($headers as $index => $header)
             <div class="hero-slide {{ $index === 0 ? 'active' : '' }}" 
@@ -166,15 +167,17 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         @endforelse
     </div>
 
+    <!-- Overlay -->
     <div class="hero-overlay"></div>
 
-
+    <!-- Slider dots -->
     <div class="hero-slider-dots">
         @foreach ($headers as $index => $header)
             <span class="hsdot {{ $index === 0 ? 'active' : '' }}"></span>
         @endforeach
     </div>
 
+    <!-- Wave -->
     <div class="hero-wave">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="#08121f" opacity=".5"/>
@@ -182,39 +185,40 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         </svg>
     </div>
 
+    <!-- Scroll indicator -->
     <div class="hero-scroll">
         <div class="scroll-mouse"></div>
         <span>Scroll</span>
     </div>
 
-</section>
+    <!-- Running Text -->
+    <div class="running-text-bar">
+        <div class="running-label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            INFO
+        </div>
+        <div class="running-text-wrapper">
+            <div class="running-text-track" id="runningTrack">
 
-{{-- RUNNING TEXT (di bawah hero) --}}
-<div class="running-text-bar">
-    <div class="running-label">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        INFO
-    </div>
-    <div class="running-text-wrapper">
-        <div class="running-text-track" id="runningTrack">
+                @php
+                    $items = [];
+                    $items[] = '🎉 SELAMAT DATANG DI WEBSITE  ' . ($data?->nama_sekolah ?? 'SDN 1 MANGKUBUMI');
+                    if ($contact?->address)       $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ' . $contact->address;
+                    if ($contact?->phone)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.88 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg> ' . $contact->phone;
+                    if ($contact?->email)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> ' . $contact->email;
+                    if ($contact?->working_hours) $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' . $contact->working_hours;
+                    $text = implode(' &nbsp;&nbsp;|&nbsp;&nbsp; ', $items);
+                @endphp
 
-          @php
-    $items = [];
-    $items[] = '🎉 SELAMAT DATANG DI WEBSITE  ' . ($data?->nama_sekolah ?? 'SDN 1 MANGKUBUMI');
-    if ($contact?->address)       $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ' . $contact->address;
-    if ($contact?->phone)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.88 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg> ' . $contact->phone;
-    if ($contact?->email)         $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> ' . $contact->email;
-    if ($contact?->working_hours) $items[] = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ' . $contact->working_hours;
-    $text = implode(' &nbsp;&nbsp;|&nbsp;&nbsp; ', $items);
-@endphp
+                <span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="running-text-content">{!! $text !!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
+            </div>
         </div>
     </div>
-</div>
+
+</section>
 {{-- BATAS --}}
 
 {{-- SOSMED FLOATING BAR --}}
@@ -400,6 +404,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 
 /* BATAS */
 
+/* ========== RUNNING TEXT BAR ========== */
 .running-text-bar {
     background-color: #111827;
     border-top: 2px solid #f59e0b;
@@ -412,6 +417,8 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     position: relative;
     z-index: 10;
     min-height: 40px;
+    margin-top: 590px;  /* Increased margin-top to push it further down */
+    padding: 0px 0;
 }
 
 .running-label {
@@ -456,7 +463,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     0%   { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
 }
-
+/* ================================ */
 
 /* batas */
 .hero-full {

@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<!-- ===== NAVBAR ===== -->
+<!-- ===== NAVBAR ASLI ===== -->
 <div class="navbar-section" id="mainNav">
     <div class="techvio-responsive-nav">
         <div class="container">
@@ -72,28 +72,18 @@
                 </script>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/visi-misi" class="nav-link">Tentang</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a>
-                        </li>
-						 <li class="nav-item">
-                        <a href="/berita" class="nav-link">Berita</a>
-                        </li>
-						<li class="nav-item">
-                            <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
-                        </li>
+                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="/visi-misi" class="nav-link">Tentang</a></li>
+                        <li class="nav-item"><a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a></li>
+                        <li class="nav-item"><a href="/berita" class="nav-link">Berita</a></li>
+                        <li class="nav-item"><a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a></li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -101,15 +91,10 @@
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
-                                {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
-						<li class="nav-item">
-                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
-                        </li>
-                        
+                        <li class="nav-item"><a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a></li>
                     </ul>
-                    
                 </div>
             </nav>
         </div>
@@ -118,82 +103,396 @@
 <!-- End Navbar -->
 
 <style>
-:root{--navy:#0f1f3d;--navy-mid:#162d56;--gold:#c9a84c;--gold-lt:#e8c97a;--cream:#faf6ef;--white:#ffffff;--muted:#6b7280;--border:rgba(201,168,76,0.22);}
-.kur-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:8rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden;}
-.kur-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(201,168,76,.13) 0%,transparent 65%);}
-.kur-hero-eyebrow{display:inline-block;background:rgba(201,168,76,.15);border:1px solid var(--border);color:var(--gold-lt);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:5px 18px;border-radius:2px;margin-bottom:1.4rem;}
-.kur-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.18;margin:0;}
-.kur-hero h1 span{color:var(--gold);}
-.kur-divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:2px;margin:1.4rem auto 0;}
-.kur-breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:.75rem 0;}
-.kur-breadcrumb .inner{max-width:1080px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--muted);}
-.kur-breadcrumb a{color:var(--gold);text-decoration:none;font-weight:500;}
-.kur-breadcrumb .current{color:var(--navy);font-weight:600;}
-.kur-wrap{max-width:1080px;margin:0 auto;padding:3.5rem 1.5rem 5rem;display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start;}
-.kur-card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 6px 30px rgba(15,31,61,.07);}
-.kur-card-header{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:1.6rem 2rem;display:flex;align-items:center;gap:1rem;}
-.kur-card-header-icon{width:44px;height:44px;border-radius:50%;background:rgba(201,168,76,.2);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.kur-card-header-icon svg{color:var(--gold);}
-.kur-card-header h2{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:700;color:var(--white);margin:0;}
-.kur-card-header p{font-size:.8rem;color:rgba(255,255,255,.55);margin:2px 0 0;}
-.kur-card-body{padding:2.2rem 2rem;}
-.kur-content{font-size:.97rem;line-height:1.9;color:#2d3748;}
-.kur-content p{margin-bottom:1.1rem;}
-.kur-content h2,.kur-content h3{font-family:'Playfair Display',Georgia,serif;color:var(--navy);margin:1.8rem 0 .8rem;font-weight:700;}
-.kur-content h2{font-size:1.3rem;}.kur-content h3{font-size:1.1rem;}
-.kur-content ul,.kur-content ol{padding-left:1.5rem;margin-bottom:1.1rem;}
-.kur-content li{margin-bottom:.45rem;}
-.kur-content strong{color:var(--navy);}
-.kur-content a{color:var(--gold);}
-.kur-content blockquote{border-left:3px solid var(--gold);padding:.8rem 1.2rem;margin:1.4rem 0;background:var(--cream);border-radius:0 3px 3px 0;font-style:italic;color:var(--navy);}
-.kur-content table{width:100%;border-collapse:collapse;margin-bottom:1.2rem;font-size:.9rem;}
-.kur-content th{background:var(--navy);color:var(--white);padding:.65rem 1rem;text-align:left;font-weight:600;}
-.kur-content td{padding:.6rem 1rem;border-bottom:1px solid rgba(0,0,0,.07);}
-.kur-content tr:nth-child(even) td{background:var(--cream);}
-.kur-empty{text-align:center;padding:3rem 1rem;color:var(--muted);}
-.kur-empty svg{margin-bottom:1rem;color:var(--border);}
-.kur-empty p{font-size:.9rem;}
-.kur-sidebar{display:flex;flex-direction:column;gap:1.5rem;}
-.kur-widget{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 4px 16px rgba(15,31,61,.06);}
-.kur-widget-head{background:var(--navy);padding:.9rem 1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lt);}
-.kur-widget-body{padding:1.2rem;}
-.school-info-logo{width:70px;height:70px;border-radius:50%;border:3px solid var(--gold);object-fit:cover;display:block;margin:0 auto 1rem;}
-.school-info-logo-ph{width:70px;height:70px;border-radius:50%;border:3px solid var(--gold);background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--gold);}
-.school-info-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--navy);text-align:center;margin-bottom:.5rem;}
-.hm-mini{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;}
-.hm-mini-photo{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;flex-shrink:0;}
-.hm-mini-ph{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);background:rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.hm-mini-name{font-weight:700;font-size:.9rem;color:var(--navy);}
-.hm-mini-role{font-size:.75rem;color:var(--muted);}
-.kur-nav-list{list-style:none;padding:0;margin:0;}
-.kur-nav-list li a{display:flex;align-items:center;gap:.6rem;padding:.65rem .5rem;font-size:.88rem;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.05);transition:color .2s;font-weight:500;}
-.kur-nav-list li:last-child a{border-bottom:none;}
-.kur-nav-list li a:hover{color:var(--gold);}
-.kur-nav-list li a svg{flex-shrink:0;color:var(--gold);}
-@media(max-width:820px){.kur-wrap{grid-template-columns:1fr;}.kur-sidebar{order:-1;}}
+/* ── NEXT.JS CARD VARIABLES ── */
+:root {
+    --nxt-bg: #f6f8fa;
+    --nxt-surface: #ffffff;
+    --nxt-border: #e1e4e8;
+    --nxt-border-hover: #b8bfc9;
+    --nxt-text: #1a1f2e;
+    --nxt-muted: #6e7891;
+    --nxt-accent: #0070f3;
+    --nxt-accent-bg: #eff6ff;
+    --nxt-radius: 12px;
+    --nxt-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.05);
+    --nxt-shadow-hover: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+body { background: var(--nxt-bg); }
+
+/* ── HERO (pakai asli, tambah dot grid) ── */
+.kur-hero {
+    background: linear-gradient(135deg, #0f1f3d 0%, #162d56 100%);
+    padding: 8rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.kur-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(201,168,76,.13) 0%, transparent 65%);
+}
+.kur-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+.kur-hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(201,168,76,.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: #e8c97a;
+    font-size: .72rem; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 100px;
+    margin-bottom: 1.4rem;
+    position: relative; z-index: 1;
+}
+.kur-hero-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #e8c97a;
+    animation: pdot 2s ease-in-out infinite;
+}
+@keyframes pdot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(.7);} }
+.kur-hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.18; margin: 0;
+    position: relative; z-index: 1;
+}
+.kur-hero h1 span { color: #c9a84c; }
+.kur-divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, #c9a84c, #e8c97a);
+    border-radius: 2px;
+    margin: 1.4rem auto 0;
+    position: relative; z-index: 1;
+}
+
+/* ── BREADCRUMB ── */
+.kur-breadcrumb {
+    background: var(--nxt-surface);
+    border-bottom: 1px solid var(--nxt-border);
+    padding: .75rem 0;
+}
+.kur-breadcrumb .inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; gap: .5rem;
+    font-size: .82rem; color: var(--nxt-muted);
+}
+.kur-breadcrumb a { color: var(--nxt-accent); text-decoration: none; font-weight: 500; }
+.kur-breadcrumb .current { color: var(--nxt-text); font-weight: 600; }
+
+/* ── LAYOUT ── */
+.kur-wrap {
+    max-width: 1080px; margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+    display: grid; grid-template-columns: 1fr 285px;
+    gap: 1.5rem; align-items: start;
+}
+
+/* ── MAIN CARD ── Next.js style ── */
+.kur-card {
+    background: var(--nxt-surface);
+    border: 1px solid var(--nxt-border);
+    border-radius: var(--nxt-radius);
+    overflow: hidden;
+    box-shadow: var(--nxt-shadow);
+    transition: box-shadow .3s, border-color .3s;
+}
+.kur-card:hover {
+    box-shadow: var(--nxt-shadow-hover);
+    border-color: var(--nxt-border-hover);
+}
+.kur-card-header {
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--nxt-border);
+    display: flex; align-items: center; gap: .9rem;
+    background: var(--nxt-surface);
+}
+.kur-card-header-icon {
+    width: 40px; height: 40px; border-radius: 9px;
+    background: var(--nxt-accent-bg);
+    border: 1px solid rgba(0,112,243,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--nxt-accent);
+}
+.kur-card-header h2 {
+    font-size: .95rem; font-weight: 700;
+    color: var(--nxt-text); margin: 0 0 2px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -.01em;
+}
+.kur-card-header p { font-size: .75rem; color: var(--nxt-muted); margin: 0; }
+.kur-card-body { padding: 2rem 1.75rem; }
+
+/* ── CONTENT TYPOGRAPHY ── */
+.kur-content { font-size: .95rem; line-height: 1.85; color: #374151; }
+.kur-content p { margin-bottom: 1rem; }
+.kur-content h2, .kur-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--nxt-text);
+    margin: 1.75rem 0 .75rem; font-weight: 700;
+}
+.kur-content h2 { font-size: 1.25rem; }
+.kur-content h3 { font-size: 1.05rem; }
+.kur-content ul, .kur-content ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+.kur-content li { margin-bottom: .4rem; }
+.kur-content strong { color: var(--nxt-text); }
+.kur-content a { color: var(--nxt-accent); }
+.kur-content blockquote {
+    border-left: 3px solid var(--nxt-accent);
+    padding: .75rem 1.25rem; margin: 1.4rem 0;
+    background: var(--nxt-accent-bg);
+    border-radius: 0 8px 8px 0;
+    font-style: italic; color: #374151;
+}
+.kur-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.2rem; font-size: .88rem; }
+.kur-content th {
+    background: var(--nxt-bg); color: var(--nxt-text);
+    padding: .6rem 1rem; text-align: left; font-weight: 600;
+    font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+    border-bottom: 2px solid var(--nxt-border);
+}
+.kur-content td { padding: .6rem 1rem; border-bottom: 1px solid var(--nxt-border); }
+.kur-content tr:hover td { background: var(--nxt-bg); }
+.kur-content tr:last-child td { border-bottom: none; }
+
+/* ── EMPTY STATE ── */
+.kur-empty { text-align: center; padding: 3.5rem 1rem; color: var(--nxt-muted); }
+.kur-empty-icon {
+    width: 60px; height: 60px; border-radius: 12px;
+    background: var(--nxt-bg); border: 1px solid var(--nxt-border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; color: #c0c8d4;
+}
+.kur-empty p { font-size: .88rem; }
+
+/* ── SIDEBAR ── */
+.kur-sidebar { display: flex; flex-direction: column; gap: 1.1rem; position: sticky; top: 80px; }
+
+/* ── WIDGET ── Next.js card style ── */
+.kur-widget {
+    background: var(--nxt-surface);
+    border: 1px solid var(--nxt-border);
+    border-radius: var(--nxt-radius);
+    overflow: hidden;
+    box-shadow: var(--nxt-shadow);
+    transition: box-shadow .3s, border-color .3s;
+}
+.kur-widget:hover {
+    box-shadow: var(--nxt-shadow-hover);
+    border-color: var(--nxt-border-hover);
+}
+.kur-widget-head {
+    background: var(--nxt-bg);
+    padding: .6rem 1.1rem;
+    font-size: .65rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--nxt-muted);
+    border-bottom: 1px solid var(--nxt-border);
+    font-family: 'Poppins', sans-serif;
+}
+.kur-widget-body { padding: 1.1rem; }
+
+/* School info */
+.school-info-logo {
+    width: 60px; height: 60px; border-radius: 50%;
+    border: 2px solid var(--nxt-border);
+    object-fit: cover; display: block; margin: 0 auto .75rem;
+}
+.school-info-logo-ph {
+    width: 60px; height: 60px; border-radius: 50%;
+    border: 2px solid var(--nxt-border);
+    background: var(--nxt-accent-bg);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto .75rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 900; color: var(--nxt-accent);
+}
+.school-info-name {
+    font-weight: 700; font-size: .83rem; color: var(--nxt-text);
+    text-align: center; line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Headmaster */
+.hm-mini { display: flex; align-items: center; gap: .8rem; }
+.hm-mini-photo {
+    width: 44px; height: 44px; border-radius: 10px;
+    border: 1px solid var(--nxt-border);
+    object-fit: cover; flex-shrink: 0;
+}
+.hm-mini-ph {
+    width: 44px; height: 44px; border-radius: 10px;
+    border: 1px solid var(--nxt-border);
+    background: var(--nxt-bg);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--nxt-muted);
+}
+.hm-mini-name { font-weight: 700; font-size: .83rem; color: var(--nxt-text); font-family: 'Poppins', sans-serif; line-height: 1.3; }
+.hm-mini-role { font-size: .7rem; color: var(--nxt-muted); margin-top: 2px; }
+
+/* Stats */
+.kur-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+.kur-stat {
+    background: var(--nxt-bg); border: 1px solid var(--nxt-border);
+    border-radius: 8px; padding: .75rem; text-align: center;
+    transition: border-color .2s, background .2s;
+}
+.kur-stat:hover { border-color: var(--nxt-accent); background: var(--nxt-accent-bg); }
+.kur-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 900;
+    color: var(--nxt-accent); line-height: 1; margin-bottom: 3px;
+}
+.kur-stat-label { font-size: .62rem; color: var(--nxt-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; }
+
+/* Nav list */
+.kur-nav-list { list-style: none; padding: 0; margin: 0; }
+.kur-nav-list li a {
+    display: flex; align-items: center; gap: .6rem;
+    padding: .55rem .6rem;
+    font-size: .82rem; color: var(--nxt-muted);
+    text-decoration: none;
+    border-radius: 7px;
+    transition: color .2s, background .2s;
+    font-weight: 500; margin-bottom: 2px;
+}
+.kur-nav-list li a:hover { color: var(--nxt-accent); background: var(--nxt-accent-bg); }
+.kur-nav-list li a.active { color: var(--nxt-accent); background: var(--nxt-accent-bg); font-weight: 600; }
+.kur-nav-list li a svg { flex-shrink: 0; color: var(--nxt-accent); opacity: .5; }
+.kur-nav-list li a:hover svg, .kur-nav-list li a.active svg { opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:820px) {
+    .kur-wrap { grid-template-columns: 1fr; }
+    .kur-sidebar { order: -1; position: static; }
+    .kur-stats { grid-template-columns: repeat(4, 1fr); }
+}
+@media(max-width:540px) {
+    .kur-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── FADE UP ── */
+.fade-up { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up:nth-child(2) { transition-delay: .08s; }
+.fade-up:nth-child(3) { transition-delay: .14s; }
+.fade-up:nth-child(4) { transition-delay: .2s; }
 </style>
 
-<div class="kur-hero">
-    <div class="kur-hero-eyebrow">Program Pembelajaran</div>
-    <h1>Kuri<span>kulum</span></h1>
-    <div class="kur-divider"></div>
+<!-- HERO -->
+<section class="hero-full" style="--bg:#0f1f3d;">
+  <div class="hero-full__overlay"></div>
+
+  <div class="hero-full__content">
+    <div class="hero-title">
+        KURI<span>KULUM</span> SDN 1 Mangkubumi
+    </div>
 </div>
 
+  <svg class="hero-full__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;bottom:0;left:0;width:100%;height:140px;z-index:0;">
+      <path d="M0,80 C240,120 480,120 720,90 C960,60 1200,40 1440,60 L1440,120 L0,120 Z" fill="#f6f8fa"></path>
+  </svg>
+</section>
+
+<style>
+.hero-full {
+    position: relative;
+    text-align: center;
+    padding: 9rem 1.5rem 4rem;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.hero-title {
+    position: relative;
+    display: inline-block;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #3250C1, #3250C1);
+    box-shadow: 0 6px 32px rgba(0,0,0,0.45), 0 0 16px rgba(40,100,180,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-title span { color: #ffd700; }
+
+.hero-title::before {
+    content: '';
+    position: absolute;
+    top: -20%; left: -60%;
+    width: 38%; height: 140%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    animation: kilap 3s ease-in-out infinite;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 52%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.14) 0%, rgba(255,0,0,0.03) 100%);
+    border-radius: 16px 16px 0 0;
+    pointer-events: none;
+}
+
+@keyframes kilap {
+    0% { left: -60%; opacity: 0; }
+    8% { opacity: 1; }
+    75%, 100% { left: 130%; opacity: 0; }
+}
+
+.hero-btn--ghost {
+    display: inline-block;
+    padding: 16px 36px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(160deg,#1e3aa8,#3a5ad8);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+    text-decoration: none;
+    transition: all .3s ease;
+}
+.hero-btn--ghost:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.55);
+}
+</style>
+
+<!-- BREADCRUMB -->
 <div class="kur-breadcrumb">
     <div class="inner">
         <a href="{{ url('/') }}">Beranda</a>
-        <span style="color:var(--muted)">›</span>
+        <span>›</span>
         <span class="current">Kurikulum</span>
     </div>
 </div>
 
+<!-- LAYOUT -->
 <div class="kur-wrap">
+
+    <!-- MAIN -->
     <main>
-        <div class="kur-card">
+        <div class="kur-card fade-up">
             <div class="kur-card-header">
                 <div class="kur-card-header-icon">
-                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                    <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                        <path d="M5 13.18v4L12 21l7-3.82v-4"/>
                     </svg>
                 </div>
                 <div>
@@ -206,9 +505,11 @@
                     <div class="kur-content">{!! $data->kurikulum !!}</div>
                 @else
                     <div class="kur-empty">
-                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                        </svg>
+                        <div class="kur-empty-icon">
+                            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
                         <p>Informasi kurikulum belum tersedia.</p>
                     </div>
                 @endif
@@ -216,67 +517,61 @@
         </div>
     </main>
 
+    <!-- SIDEBAR -->
     <aside class="kur-sidebar">
-        <div class="kur-widget">
-            <div class="kur-widget-head">Info Sekolah</div>
-            <div class="kur-widget-body">
-                @if($data && $data->logo)
-                    <img src="{{ asset('storage/' . $data->logo) }}" alt="Logo" class="school-info-logo">
-                @else
-                    <div class="school-info-logo-ph">{{ $data ? strtoupper(substr($data->school_name ?? 'S', 0, 1)) : 'S' }}</div>
-                @endif
-                <div class="school-info-name">{{ $data->school_name ?? 'Nama Sekolah' }}</div>
-            </div>
-        </div>
+
 
         @if($data && $data->headmaster_name)
-        <div class="kur-widget">
+        <div class="kur-widget fade-up">
             <div class="kur-widget-head">Kepala Sekolah</div>
-            <div class="hm-mini">
-                @if($data->headmaster_photo)
-                    <img src="{{ asset('storage/' . $data->headmaster_photo) }}" alt="Kepala Sekolah" class="hm-mini-photo">
-                @else
-                    <div class="hm-mini-ph">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-                        </svg>
+            <div class="kur-widget-body">
+                <div class="hm-mini">
+                    @if($data->headmaster_photo)
+                        <img src="{{ asset('storage/' . $data->headmaster_photo) }}" alt="Kepala Sekolah" class="hm-mini-photo">
+                    @else
+                        <div class="hm-mini-ph">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                            </svg>
+                        </div>
+                    @endif
+                    <div>
+                        <div class="hm-mini-name">{{ $data->headmaster_name }}</div>
+                        <div class="hm-mini-role">{{ $data->headmaster_nip ? 'NIP: '.$data->headmaster_nip : 'Kepala Sekolah' }}</div>
                     </div>
-                @endif
-                <div>
-                    <div class="hm-mini-name">{{ $data->headmaster_name }}</div>
-                    <div class="hm-mini-role">{{ $data->headmaster_nip ? 'NIP: '.$data->headmaster_nip : 'Kepala Sekolah' }}</div>
                 </div>
             </div>
         </div>
         @endif
 
-        <div class="kur-widget">
-            <div class="kur-widget-head">Menu</div>
-            <div class="kur-widget-body" style="padding:0">
+        <div class="kur-widget fade-up">
+            <div class="kur-widget-head">Navigasi</div>
+            <div class="kur-widget-body" style="padding:.5rem .75rem;">
                 <ul class="kur-nav-list">
                     <li><a href="{{ url('/') }}">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Beranda</a></li>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Beranda</a></li>
                     <li><a href="/visi-misi">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Tentang Sekolah</a></li>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Tentang Sekolah</a></li>
                     <li><a href="/berita">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/><path d="M4 11h12M4 16h12M4 21V7a2 2 0 012-2"/></svg>Berita</a></li>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/></svg>Berita</a></li>
                     <li><a href="{{ route('program-sekolah') }}">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Program Sekolah</a></li>
-                    <li><a href="{{ route('kurikulum') }}" style="color:var(--gold)">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4"/></svg>Kurikulum</a></li>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Program Sekolah</a></li>
+                    <li><a href="{{ route('kurikulum') }}" class="active">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>Kurikulum</a></li>
                     <li><a href="{{ route('ppdb.index') }}">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>PPDB</a></li>
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>PPDB</a></li>
                 </ul>
             </div>
         </div>
+
     </aside>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ASLI ===== -->
 <footer class="sdn-footer">
     <div class="sdn-footer-wave">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,0 C480,80 960,0 1440,60 L1440,0 Z" fill="#f8faff"/>
+            <path d="M0,0 C480,80 960,0 1440,60 L1440,0 Z" fill="#f6f8fa"/>
         </svg>
     </div>
     <div class="container">
@@ -394,14 +689,11 @@
 @if($contact?->whatsapp)
 <style>
 .wa-float{position:fixed;bottom:30px;right:30px;z-index:9999;}
-.wa-float a{display:flex;align-items:center;justify-content:center;width:62px;height:62px;background:#25D366;border-radius:50%;box-shadow:0 6px 24px rgba(37,211,102,0.5);text-decoration:none;animation:wa-float-anim 3s ease-in-out infinite;}
-.wa-float a:hover{transform:scale(1.12);}
-.wa-float svg{width:34px;height:34px;fill:#fff;}
-.wa-float a::before{content:'';position:absolute;width:62px;height:62px;border-radius:50%;background:rgba(37,211,102,0.35);animation:wa-pulse 2s ease-out infinite;}
-.wa-float .wa-tooltip{position:absolute;right:74px;background:#fff;color:#111;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,0.12);opacity:0;transform:translateX(10px);transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;}
+.wa-float a{display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:#25D366;border-radius:16px;box-shadow:0 6px 24px rgba(37,211,102,0.4);text-decoration:none;transition:all .3s;}
+.wa-float a:hover{transform:translateY(-3px) scale(1.05);}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+.wa-float .wa-tooltip{position:absolute;right:68px;background:#1a1f2e;color:#fff;padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;opacity:0;transform:translateX(8px);transition:opacity 0.25s,transform 0.25s;pointer-events:none;}
 .wa-float:hover .wa-tooltip{opacity:1;transform:translateX(0);}
-@keyframes wa-float-anim{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes wa-pulse{0%{transform:scale(1);opacity:0.7;}100%{transform:scale(1.8);opacity:0;}}
 </style>
 <div class="wa-float">
     @php
@@ -410,7 +702,7 @@
         else{$waNumber=preg_replace('/[^0-9]/','',$wa);if(str_starts_with($waNumber,'0')){$waNumber='62'.substr($waNumber,1);}$waLink='https://wa.me/'.$waNumber;}
     @endphp
     <a href="{{ $waLink }}" target="_blank" rel="noopener">
-        <span class="wa-tooltip">Chat Admin via WhatsApp Ya</span>
+        <span class="wa-tooltip">Chat via WhatsApp</span>
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16c0 2.347.64 4.64 1.853 6.64L2.667 29.333l6.88-1.813A13.28 13.28 0 0 0 16.004 29.333c7.36 0 13.33-5.973 13.33-13.333 0-7.36-5.97-13.333-13.33-13.333zm0 24c-2.16 0-4.267-.587-6.107-1.693l-.44-.267-4.08 1.08 1.093-3.973-.28-.453A10.63 10.63 0 0 1 5.333 16c0-5.88 4.787-10.667 10.667-10.667 5.88 0 10.666 4.787 10.666 10.667S21.88 26.667 16 26.667zm5.84-7.987c-.32-.16-1.893-.933-2.187-1.04-.293-.107-.507-.16-.72.16-.213.32-.827 1.04-.987 1.24-.16.2-.32.213-.587.08-.293-.16-1.2-.44-2.28-1.4-.84-.747-1.413-1.667-1.573-1.947-.16-.293-.013-.453.12-.6.12-.12.293-.32.44-.48.146-.16.186-.267.28-.467.093-.2.053-.373-.027-.52-.08-.147-.72-1.733-.987-2.373-.267-.64-.52-.52-.72-.533-.186-.013-.4-.013-.613-.013-.213 0-.56.08-.853.373-.293.293-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093 1.307 3.307.16.213 2.253 3.44 5.453 4.827.76.32 1.36.52 1.813.667.76.24 1.467.2 2.013.12.613-.093 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52-.08-.133-.267-.213-.587-.373z"/>
         </svg>
@@ -433,6 +725,12 @@
 <script src="assets/js/vanilla-tilt.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
