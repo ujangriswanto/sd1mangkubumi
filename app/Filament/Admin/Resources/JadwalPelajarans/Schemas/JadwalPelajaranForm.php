@@ -51,6 +51,7 @@ class JadwalPelajaranForm
                                 'B.dan S.Sunda' => 'B.dan S.Sunda',
                                 'B. Inggris' => 'B. Inggris',
                                 'Istirahat' => 'Istirahat',
+                                'Pembiasaan' => 'Pembiasaan',
                                 
                                 
                             ])
@@ -61,9 +62,8 @@ class JadwalPelajaranForm
 
                         Forms\Components\TextInput::make('jam_ke')
                             ->label('Jam Ke')
-                            ->required()
                             ->numeric() 
-                            ->minValue(1), 
+                            ->minValue(0), 
                     ]),
 
                 

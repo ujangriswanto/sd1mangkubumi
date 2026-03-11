@@ -13,6 +13,7 @@ use App\Models\Contact;
 use App\Http\Controllers\KurikulumController;
 use App\Models\JurnalHarian;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\JadwalPelajaranController;
 
 
 /*
@@ -102,3 +103,12 @@ Route::get('/jurnal/{id}/pdf', function ($id) {
     return $pdf->download('jurnal-'.$id.'.pdf');
 
 });
+
+
+// Jadwal Pelajaran
+Route::get('/jadwal-pelajaran/kelas/{kelas}', [JadwalPelajaranController::class, 'byKelas']); // ditangkap duluan ✅
+Route::get('/jadwal-pelajaran/hari/{hari}',   [JadwalPelajaranController::class, 'byHari']);   // ditangkap duluan ✅
+Route::apiResource('jadwal-pelajaran', JadwalPelajaranController::class); // sisanya CRUD
+// Tambah di web.php
+Route::get('/jadwal-pelajaran', [JadwalPelajaranController::class, 'jadwal'])
+    ->name('jadwal-pelajaran');

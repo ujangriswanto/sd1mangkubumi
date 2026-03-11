@@ -126,7 +126,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
+</li>
                                 <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
 								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
