@@ -5,12 +5,17 @@ namespace App\Filament\Admin\Resources\Students\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\Action;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Student;
 
 class StudentsTable
 {
@@ -73,6 +78,39 @@ class StudentsTable
                 EditAction::make(),
             ])
             ->toolbarActions([
+                ExportAction::make('export_excel')
+                    ->label('Export Excel')
+                    ->exports([
+                        ExcelExport::make()
+                            ->fromTable()
+                    ]),
+
+                Action::make('export_pdf')
+                    ->label('Export PDF')
+                    ->icon('heroicon-o-document')
+                    ->action(function ($livewire) {
+
+                        $query = $livewire->getFilteredTableQuery();
+
+                        $students = $query->with('schoolClass')->get();
+
+                        $total = $students->count();
+
+                        $perClass = $students
+                            ->groupBy('schoolClass.name')
+                            ->map->count();
+
+                        $pdf = Pdf::loadView(
+                            'pdf.students',
+                            compact('students', 'total', 'perClass')
+                        );
+
+                        return response()->streamDownload(
+                            fn () => print($pdf->output()),
+                            'data-siswa.pdf'
+                        );
+                    }),
+
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

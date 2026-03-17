@@ -12,6 +12,7 @@
         "filament/filament": "~4.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
+        "pxlrbt/filament-excel": "^3.6",
         "spatie/laravel-permission": "^6.24",
         "swisnl/filament-backgrounds": "^2.0"
     },

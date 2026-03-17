@@ -31,4 +31,9 @@ class SchoolClass extends Model
     {
         return $this->hasMany(JurnalHarian::class);
     }
+
+    public function kelas()
+    {
+        return $this->belongsTo(SchoolClass::class, 'kelas_id');
+    }
 }
