@@ -80,4 +80,9 @@ class Student extends Model
     {
         return $this->hasOne(StudentExit::class);
     }
+
+    public function konselings()
+    {
+        return $this->hasMany(Konseling::class);
+    }
 }
