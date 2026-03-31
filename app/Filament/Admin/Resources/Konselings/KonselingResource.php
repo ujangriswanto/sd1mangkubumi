@@ -19,7 +19,7 @@ class KonselingResource extends Resource
 {
     protected static ?string $model = Konseling::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLifebuoy;
 
     protected static ?string $recordTitleAttribute = 'konseling';
 

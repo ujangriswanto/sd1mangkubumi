@@ -22,7 +22,7 @@ class JurnalHarianResource extends Resource
 {
     protected static ?string $model = JurnalHarian::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-book-open';
 
     protected static UnitEnum|string|null $navigationGroup = 'Akademik';
 

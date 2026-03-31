@@ -20,7 +20,7 @@ class AdministrasiKepsekResource extends Resource
 {
     protected static ?string $model = AdministrasiKepsek::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedStar;
 
     protected static ?string $recordTitleAttribute = 'kepsek';
 

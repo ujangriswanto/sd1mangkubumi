@@ -216,9 +216,6 @@
 <div class="page-wrapper">
 
     <div class="page-header">
-        <div class="header-badge">
-            <span>📚</span> Tahun Pelajaran {{ $jadwal->first()->tahun_pelajaran ?? '2024/2025' }}
-        </div>
         <h1 class="page-title">Jadwal <em>Pelajaran</em></h1>
         <p class="page-subtitle">SDN 1 Mangkubumi — Semangat belajar setiap hari! 🌟</p>
     </div>
@@ -295,7 +292,7 @@
                     <thead>
                         <tr>
                             <th class="col-waktu">Waktu</th>
-                            <th class="col-jam">Jam Ke</th>
+                            <!-- <th class="col-jam">Jam Ke</th> -->
                             @foreach($hariOrder as $h)
                                 <th class="col-{{ strtolower($h) }}">{{ $h }}</th>
                             @endforeach
@@ -305,7 +302,7 @@
                         @foreach($waktuList as $waktu => $jamKe)
                             <tr>
                                 <td class="col-waktu">{{ $waktu }}</td>
-                                <td class="col-jam">{{ $jamKe }}</td>
+                                <!-- <td class="col-jam">{{ $jamKe }}</td> -->
                                 @foreach($hariOrder as $h)
                                     @php
                                         // Query pakai waktu — pasti match 100%

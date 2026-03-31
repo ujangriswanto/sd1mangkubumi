@@ -23,7 +23,7 @@ class JadwalPelajaranResource extends Resource
     
      protected static UnitEnum|string|null $navigationGroup = 'Akademik';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-calendar-days';
 
     protected static ?string $recordTitleAttribute = 'yes';
 

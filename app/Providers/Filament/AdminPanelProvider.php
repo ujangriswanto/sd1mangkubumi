@@ -18,10 +18,12 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Swis\Filament\Backgrounds\Images\Providers\LocalProvider;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 use Filament\Support\Enums\Width;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
+use App\Filament\Admin\Widgets\TimeWidget;
+use App\Filament\Admin\Resources\Students\Widgets\StudentChartWidget;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -33,20 +35,19 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->login()
             ->brandLogo(asset('assets/img/tutt.png'))
-            ->brandLogoHeight('60px')
+            ->brandLogoHeight('48px')
             ->maxContentWidth(Width::Full)
-            //->viteTheme('resources/css/filament/admin-overrides.css')
             ->colors([
-                'primary' => Color::Amber,
-            ])
+    'primary' => Color::hex('#66A4E8'),
+])
             ->plugins([
                 FilamentBackgroundsPlugin::make()
                     ->imageProvider(
                         MyImages::make()
                             ->directory('assets/img/bg')
                     ),
+                FilamentApexChartsPlugin::make(),
             ])
-
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
@@ -54,8 +55,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\Filament\Admin\Widgets')
             ->widgets([
+                TimeWidget::class,
                 AccountWidget::class,
-                FilamentInfoWidget::class,
+                StudentChartWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
