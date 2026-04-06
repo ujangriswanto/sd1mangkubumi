@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Siswa - SDN 1 Mangkubumi</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,8 +21,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
-    <title>Jadwal Pelajaran</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -31,6 +31,7 @@
             min-height: 100vh;
         }
 
+        /* Latar Belakang Lingkaran */
         body::before {
             content: '';
             position: fixed;
@@ -41,216 +42,159 @@
             pointer-events: none; z-index: 0;
         }
 
-        /* ===== FIX: navbar gap ===== */
         .page-wrapper {
             position: relative; z-index: 1;
-            padding: 110px 24px 80px; /* 110px = tinggi navbar ~80px + 30px breathing room */
+            padding: 120px 24px 80px; 
             max-width: 1300px;
             margin: 0 auto;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 36px;
-        }
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            border: 2px solid #E8ECF8;
-            border-radius: 999px;
-            padding: 6px 20px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #54A0FF;
-            margin-bottom: 14px;
-            box-shadow: 0 2px 12px rgba(84,160,255,.15);
-        }
-        .page-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: clamp(30px, 5vw, 52px);
-            color: #2D3436;
-            margin-bottom: 8px;
-        }
-        .page-title em {
-            font-style: normal;
-            background: linear-gradient(135deg, #54A0FF, #A29BFE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .page-subtitle { font-size: 15px; color: #636E72; font-weight: 600; }
-
-        .filter-wrap {
+        /* ===== DASHBOARD SPECIFIC STYLES ===== */
+        .dash-header-top {
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
             flex-wrap: wrap;
-            margin-bottom: 28px;
+            gap: 1rem;
+            margin-bottom: 30px;
         }
-        .filter-label {
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #636E72;
-        }
-        .kelas-btn {
-            padding: 8px 20px;
-            border-radius: 999px;
-            border: 2px solid #E8ECF8;
-            background: white;
-            font-family: 'Nunito', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            color: #636E72;
-            cursor: pointer;
-            transition: all .2s;
-        }
-        .kelas-btn:hover { border-color: #54A0FF; color: #54A0FF; }
-        .kelas-btn.active {
-            background: linear-gradient(135deg, #54A0FF, #2980B9);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 6px 20px rgba(84,160,255,.35);
-        }
-
-        .table-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0,0,0,.08);
-            margin-bottom: 32px;
-        }
-        .table-card-header {
+        
+        .dash-title-group h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(28px, 4vw, 42px);
+            color: #2D3436;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 18px 24px;
-            background: linear-gradient(135deg, #54A0FF, #2980B9);
+            gap: 15px;
         }
-        .kelas-icon {
-            width: 44px; height: 44px;
-            background: rgba(255,255,255,.25);
-            border-radius: 12px;
+
+        .dash-title-group h1 span.icon {
+            background: linear-gradient(135deg, #54A0FF, #A29BFE);
+            width: 50px; height: 50px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 15px; color: white; font-size: 25px;
+        }
+
+        .dash-badge-date {
+            font-size: 13px; font-weight: 800;
+            color: #54A0FF; background: white;
+            padding: 10px 20px; border-radius: 50px;
+            border: 2px solid #E8ECF8;
+            box-shadow: 0 4px 12px rgba(84,160,255,0.1);
+        }
+
+        /* Metric Cards */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            border: 2px solid #E8ECF8;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(84,160,255,0.15);
+            border-color: #54A0FF;
+        }
+
+        .metric-card.highlight {
+            background: linear-gradient(135deg, #54A0FF 0%, #00d2ff 100%);
+            border: none; color: white;
+        }
+
+        .metric-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 22px;
-        }
-        .kelas-title { font-family: 'Fredoka One', cursive; font-size: 22px; color: white; }
-        .kelas-subtitle { font-size: 12px; color: rgba(255,255,255,.8); font-weight: 600; }
-        .kelas-count {
-            margin-left: auto;
-            background: rgba(255,255,255,.2);
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 999px;
+            font-size: 24px; margin-bottom: 20px;
         }
 
-        .jadwal-table-wrap { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; min-width: 700px; }
-        thead tr { background: #F8FAFF; }
-        th {
-            padding: 13px 16px;
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: .8px;
-            color: #636E72;
-            border-bottom: 2px solid #EEF2FF;
-            text-align: center;
-            white-space: nowrap;
-        }
-        th.col-waktu { text-align: left; min-width: 130px; }
-        th.col-jam   { min-width: 70px; }
-        th.col-senin  { color: #EE5A24; }
-        th.col-selasa { color: #E67E22; }
-        th.col-rabu   { color: #00B894; }
-        th.col-kamis  { color: #2980B9; }
-        th.col-jumat  { color: #6C5CE7; }
-        th.col-sabtu  { color: #E84393; }
+        .metric-card:not(.highlight) .metric-icon { background: #F0F4FF; }
+        .metric-card.highlight .metric-icon { background: rgba(255,255,255,0.2); }
 
-        tbody tr { border-bottom: 1px solid #F5F6FA; transition: background .15s; }
-        tbody tr:hover { background: #F8FAFF; }
-        tbody tr:last-child { border-bottom: none; }
-
-        td {
-            padding: 11px 14px;
-            font-size: 13px;
-            text-align: center;
-            vertical-align: middle;
-        }
-        td.col-waktu {
-            text-align: left;
-            font-weight: 700;
-            color: #636E72;
-            font-size: 12px;
-            white-space: nowrap;
-        }
-        td.col-jam {
-            font-family: 'Fredoka One', cursive;
-            font-size: 18px;
-            color: #B2BEC3;
+        .metric-value { 
+            font-family: 'Fredoka One', cursive; 
+            font-size: 40px; line-height: 1; margin-bottom: 8px; 
         }
 
-        .mapel {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-        .mapel-upacara     { background: #FFF3CD; color: #856404; }
-        .mapel-bind        { background: #DBEAFE; color: #1E40AF; }
-        .mapel-paibp       { background: #D1FAE5; color: #065F46; }
-        .mapel-pjok        { background: #FCE7F3; color: #9D174D; }
-        .mapel-matematika  { background: #EDE9FE; color: #5B21B6; }
-        .mapel-pancasila   { background: #FEE2E2; color: #991B1B; }
-        .mapel-seni        { background: #FFF7ED; color: #9A3412; }
-        .mapel-pjbl        { background: #ECFDF5; color: #065F46; }
-        .mapel-ipas        { background: #E0F2FE; color: #0C4A6E; }
-        .mapel-sunda       { background: #F5F3FF; color: #4C1D95; }
-        .mapel-bing        { background: #ECFEFF; color: #164E63; }
-        .mapel-istirahat   { background: #FFF7ED; color: #E17055; }
-        .mapel-pembiasaan  { background: #F0FFF8; color: #00B894; }
-        .mapel-default     { background: #F8FAFC; color: #475569; }
-        .mapel-empty       { color: #CBD5E1; font-size: 16px; }
+        .metric-label { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+        .metric-sub { font-size: 12px; margin-top: 15px; font-weight: 600; color: #636E72; }
+        .highlight .metric-sub { color: rgba(255,255,255,0.8); }
 
-        .empty-all { text-align: center; padding: 80px 20px; }
-        .empty-all .emoji { font-size: 56px; margin-bottom: 12px; display: block; }
-        .empty-all h3 { font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 6px; }
-        .empty-all p { color: #636E72; font-size: 14px; }
-
-        @media (max-width: 600px) {
-            .page-wrapper { padding: 100px 12px 60px; }
+        /* Tables */
+        .data-section {
+            background: white;
+            border-radius: 24px;
+            border: 2px solid #E8ECF8;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        /* ===== FORCE NAVBAR HITAM — khusus halaman ini ===== */
-        .navbar-section .nav-link,
-        .navbar-section .navbar-nav .nav-link,
-        .navbar-section .navbar-nav > li > .nav-link {
-            color: #1a1a1a !important;
+        .section-header {
+            padding: 20px 24px;
+            background: #F8FAFF;
+            border-bottom: 2px solid #E8ECF8;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .navbar-section .nav-link:hover,
-        .navbar-section .navbar-nav .nav-link:hover {
-            color: #54A0FF !important;
+
+        .section-header h2 { 
+            font-family: 'Fredoka One', cursive; 
+            font-size: 20px; margin: 0; color: #2D3436;
         }
-        .navbar-section .brand-title {
-            color: #1a1a1a !important;
+
+        .summary-table { width: 100%; border-collapse: collapse; }
+        .summary-table th {
+            font-size: 12px; font-weight: 800; text-transform: uppercase;
+            padding: 15px 24px; color: #636E72; text-align: left;
+            border-bottom: 2px solid #E8ECF8;
         }
-        .navbar-section .brand-sub {
-            color: rgba(0,0,0,0.6) !important;
+
+        .summary-table td { padding: 18px 24px; font-size: 14px; font-weight: 600; border-bottom: 1px solid #F0F4FF; }
+
+        .status-pill {
+            display: inline-block; padding: 6px 14px; border-radius: 50px;
+            font-size: 11px; font-weight: 800; text-transform: uppercase;
         }
-        /* Hamburger icon (mobile) juga ikut hitam */
-        .navbar-section .navbar-toggler-icon {
-            filter: invert(1) brightness(0);
+        .status-aktif { background: #D1FAE5; color: #065F46; }
+        .status-nonaktif { background: #FEE2E2; color: #991B1B; }
+
+        /* Progress Bar */
+        .progress-bar-bg {
+            height: 10px; background: #EEF2FF; border-radius: 10px; overflow: hidden;
+            width: 100%; margin-top: 5px;
+        }
+        .progress-bar-fill {
+            height: 100%; background: linear-gradient(90deg, #54A0FF, #A29BFE);
+            border-radius: 10px;
+        }
+
+        /* Force Navbar Black */
+        .navbar-section .nav-link, .navbar-section .brand-title { color: #1a1a1a !important; }
+        .navbar-section .brand-sub { color: rgba(0,0,0,0.6) !important; }
+        .navbar-section .navbar-toggler-icon { filter: invert(1) brightness(0); }
+
+        @media (max-width: 640px) {
+            .page-wrapper { padding: 100px 15px 60px; }
+            .dash-header-top { flex-direction: column; align-items: flex-start; }
+            .summary-table th:nth-child(4), .summary-table td:nth-child(4) { display: none; }
         }
     </style>
 </head>
 <body>
-<!-- ===== NAVBAR ===== -->
+
+
+
+    <!-- ===== NAVBAR ===== -->
 <div class="navbar-section" id="mainNav">
     <div class="techvio-responsive-nav">
         <div class="container">
@@ -290,7 +234,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
                             <a href="/visi-misi" class="nav-link">Tentang</a>
@@ -298,32 +242,38 @@
                         <li class="nav-item">
                             <a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/berita" class="nav-link">Berita</a>
+						 <li class="nav-item">
+                        <a href="/berita" class="nav-link">Berita</a>
                         </li>
-                        <li class="nav-item">
+						<li class="nav-item">
                             <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
+</li>
                                 <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('DataSiswa.index') }}" class="nav-link">Total Data Siswa</a>
+</li>
+                                {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
+						<li class="nav-item">
+                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
                         </li>
+                        
                     </ul>
+                    
                 </div>
             </nav>
         </div>
@@ -339,144 +289,127 @@
     </div>
 </div>
 
-<div class="page-wrapper">
+    <div class="page-wrapper">
+        
+        <header class="dash-header-top">
+            <div class="dash-title-group">
+                <h1><span class="icon">🎓</span> Data Siswa</h1>
+                <p style="color: #636E72; font-weight: 600; margin-left: 65px; margin-top: -5px;">Rekapitulasi data siswa SD Negeri 1 Mangkubumi</p>
+            </div>
+            <div class="dash-badge-date">
+                <i class="bi bi-calendar3 me-2"></i> {{ now()->translatedFormat('d F Y') }}
+            </div>
+        </header>
 
-    <div class="page-header">
-        <h1 class="page-title">Jadwal <em>Pelajaran</em></h1>
-        <p class="page-subtitle">SDN 1 Mangkubumi — Semangat belajar setiap hari! 🌟</p>
-    </div>
-
-    @php
-        $kelasList = $jadwal->pluck('kelas')->unique()->sort()->values();
-        $hariOrder = ['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-
-        $mapelIcon = [
-            'Upacara'         => '🚩',
-            'B. Indonesia'    => '📝',
-            'PAIBP'           => '🕌',
-            'PJOK'            => '⚽',
-            'Matematika'      => '🔢',
-            'Pend.Pancasila'  => '🦅',
-            'Seni dan Budaya' => '🎨',
-            'PjBL'            => '🔧',
-            'IPAS'            => '🔬',
-            'B.dan S.Sunda'   => '🌿',
-            'B. Inggris'      => '🌍',
-            'Istirahat'       => '🍱',
-            'Pembiasaan'      => '✨',
-        ];
-
-        $mapelClass = [
-            'Upacara'         => 'mapel-upacara',
-            'B. Indonesia'    => 'mapel-bind',
-            'PAIBP'           => 'mapel-paibp',
-            'PJOK'            => 'mapel-pjok',
-            'Matematika'      => 'mapel-matematika',
-            'Pend.Pancasila'  => 'mapel-pancasila',
-            'Seni dan Budaya' => 'mapel-seni',
-            'PjBL'            => 'mapel-pjbl',
-            'IPAS'            => 'mapel-ipas',
-            'B.dan S.Sunda'   => 'mapel-sunda',
-            'B. Inggris'      => 'mapel-bing',
-            'Istirahat'       => 'mapel-istirahat',
-            'Pembiasaan'      => 'mapel-pembiasaan',
-        ];
-    @endphp
-
-    <div class="filter-wrap">
-        <span class="filter-label">Kelas:</span>
-        <button class="kelas-btn active" onclick="showKelas('semua', this)">Semua Kelas</button>
-        @foreach($kelasList as $k)
-            <button class="kelas-btn" onclick="showKelas('kelas-{{ Str::slug($k) }}', this)">{{ $k }}</button>
-        @endforeach
-    </div>
-
-    @forelse($kelasList as $kelas)
-        @php
-            $dataKelas = $jadwal->where('kelas', $kelas);
-
-            $waktuList = $dataKelas
-                ->sortBy('waktu')
-                ->mapWithKeys(fn($i) => [$i->waktu => $i->jam_ke])
-                ->toArray();
-        @endphp
-
-        <div class="table-card" id="kelas-{{ Str::slug($kelas) }}">
-
-            <div class="table-card-header">
-                <div class="kelas-icon">🏫</div>
-                <div>
-                    <div class="kelas-title">{{ $kelas }}</div>
-                    <div class="kelas-subtitle">{{ $dataKelas->count() }} sesi pelajaran</div>
-                </div>
-                <div class="kelas-count">{{ $jadwal->first()->tahun_pelajaran ?? '2024/2025' }}</div>
+        <section class="metric-grid">
+            <div class="metric-card highlight">
+                <div class="metric-icon">👥</div>
+                <div class="metric-label">Total Siswa</div>
+                <div class="metric-value">{{ $totalSiswa }}</div>
+                <div class="metric-sub">Siswa terdaftar di sistem</div>
             </div>
 
-            <div class="jadwal-table-wrap">
-                <table>
+            <div class="metric-card">
+                <div class="metric-icon">✅</div>
+                <div class="metric-label" style="color: #00B894;">Status Aktif</div>
+                <div class="metric-value">{{ $totalAktif }}</div>
+                <div class="metric-sub">
+                    {{ $totalSiswa > 0 ? number_format(($totalAktif / $totalSiswa) * 100, 1) : 0 }}% dari total siswa aktif belajar
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">❌</div>
+                <div class="metric-label" style="color: #D63031;">Non-Aktif</div>
+                <div class="metric-value">{{ $totalNonAktif }}</div>
+                <div class="metric-sub">
+                    {{ $totalSiswa > 0 ? number_format(($totalNonAktif / $totalSiswa) * 100, 1) : 0 }}% siswa tidak aktif/keluar
+                </div>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <div class="section-header">
+                <h2>📋 Ringkasan Status</h2>
+                <span style="font-size: 12px; font-weight: 700; color: #54A0FF;">Update: {{ now()->translatedFormat('d M Y') }}</span>
+            </div>
+            <div class="table-responsive">
+                <table class="summary-table">
                     <thead>
                         <tr>
-                            <th class="col-waktu">Waktu</th>
-                            @foreach($hariOrder as $h)
-                                <th class="col-{{ strtolower($h) }}">{{ $h }}</th>
-                            @endforeach
+                            <th>Status</th>
+                            <th>Jumlah Siswa</th>
+                            <th>Persentase</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($waktuList as $waktu => $jamKe)
-                            <tr>
-                                <td class="col-waktu">{{ $waktu }}</td>
-                                @foreach($hariOrder as $h)
-                                    @php
-                                        $item = $dataKelas->where('hari', $h)->where('waktu', $waktu)->first();
-                                    @endphp
-                                    <td>
-                                        @if($item)
-                                            <span class="mapel {{ $mapelClass[$item->pelajaran] ?? 'mapel-default' }}">
-                                                {{ $mapelIcon[$item->pelajaran] ?? '📚' }} {{ $item->pelajaran }}
-                                            </span>
-                                        @else
-                                            <span class="mapel-empty">–</span>
-                                        @endif
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach
+                        <tr>
+                            <td><span class="status-pill status-aktif">Aktif</span></td>
+                            <td><strong>{{ $totalAktif }}</strong> Siswa</td>
+                            <td>{{ $totalSiswa > 0 ? number_format(($totalAktif / $totalSiswa) * 100, 1) : 0 }}%</td>
+                            <td>Siswa masih aktif mengikuti kegiatan belajar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="status-pill status-nonaktif">Non-Aktif</span></td>
+                            <td><strong>{{ $totalNonAktif }}</strong> Siswa</td>
+                            <td>{{ $totalSiswa > 0 ? number_format(($totalNonAktif / $totalSiswa) * 100, 1) : 0 }}%</td>
+                            <td>Siswa sudah lulus, mutasi, atau keluar</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
-    @empty
-        <div class="empty-all">
-            <span class="emoji">📭</span>
-            <h3>Belum ada jadwal</h3>
-            <p>Data jadwal pelajaran belum tersedia.</p>
-        </div>
-    @endforelse
+        <section class="data-section">
+            <div class="section-header" style="background: linear-gradient(135deg, #F8FAFF, #FFFFFF);">
+                <h2>🏫 Rekap Per Kelas</h2>
+                <span class="badge bg-primary rounded-pill px-3">{{ $perKelas->count() }} Kelas Terdata</span>
+            </div>
+            <div class="table-responsive">
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Kelas</th>
+                            <th>Total</th>
+                            <th>Aktif</th>
+                            <th>Non-Aktif</th>
+                            <th width="200">Proporsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($perKelas as $kelas)
+                        @php $pct = $totalSiswa > 0 ? ($kelas->total / $totalSiswa) * 100 : 0; @endphp
+                        <tr>
+                            <td style="font-family: 'Fredoka One'; font-size: 16px;">Kelas {{ $kelas->name }}</td>
+                            <td><strong>{{ $kelas->total }}</strong></td>
+                            <td style="color: #00B894;">{{ $kelas->aktif }}</td>
+                            <td style="color: #D63031;">{{ $kelas->nonaktif }}</td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: {{ $pct }}%"></div>
+                                    </div>
+                                    <span style="font-size: 11px; font-weight: 800;">{{ round($pct) }}%</span>
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="5" class="text-center py-5">
+                                <img src="assets/img/empty.png" alt="no-data" style="width: 80px; opacity: 0.3;">
+                                <p class="mt-3 text-muted">Belum ada data tersedia</p>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-</div>
+    </div>
 
-<script>
-    function showKelas(target, btn) {
-        document.querySelectorAll('.kelas-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.table-card').forEach(card => {
-            card.style.display = (target === 'semua' || card.id === target) ? '' : 'none';
-        });
-    }
-
-    document.querySelectorAll('.table-card').forEach((card, i) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = `opacity .5s ${i * 0.12}s ease, transform .5s ${i * 0.12}s ease`;
-        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 80);
-    });
-</script>
-
-
-
-<!-- ══════════════════════════════
+    <!-- ══════════════════════════════
      FOOTER
 ══════════════════════════════ -->
 <footer class="sdn-footer">

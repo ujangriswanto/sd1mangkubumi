@@ -127,8 +127,8 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-    <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
-</li>
+                            <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
+                                </li>
                                 <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
 								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
@@ -137,8 +137,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('DataSiswa.index') }}" class="nav-link">Total Data Siswa/Kelas</a>
+</li>
                                 {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
@@ -1840,7 +1841,356 @@ document.addEventListener('keydown', function(e) {
 }
 </style>
 	<!-- End Overview Section -->
-	
+     <!-- SECTION LINK EKSTERNAL -->
+	<!-- SECTION LINK EKSTERNAL -->
+<section class="external-links-section">
+    <h2 class="el-title">&#128279; Link Eksternal</h2>
+    <div class="el-grid">
+
+        <!-- Card 1: Pemkab Ciamis -->
+        <a href="https://ciamiskab.go.id" target="_blank" class="lcard c1">
+            <div class="lcard-gloss"></div>
+            <span class="badge-top">Official</span>
+            <div class="lcard-inner">
+                <div class="logo-wrap"><img src="assets/img/ciamis.png" alt="Logo Ciamis"></div>
+                <div class="lcard-text">
+                    <div class="lcard-label">Manis Manjing Dinamis</div>
+                    <div class="lcard-name">Pemerintah Kabupaten Ciamis</div>
+                    <div class="lcard-sub">ciamiskab.go.id</div>
+                </div>
+                <div class="lcard-btn">Kunjungi &#8599;</div>
+            </div>
+        </a>
+
+        <!-- Card 2: Dinas Pendidikan -->
+        <a href="https://disdik.ciamiskab.go.id" target="_blank" class="lcard c2">
+            <div class="lcard-gloss"></div>
+            <div class="lcard-inner">
+                <div class="logo-wrap"><img src="assets/img/tuti.png" alt="Logo Ciamis"></div>
+                <div class="lcard-text">
+                    <div class="lcard-label">Tut Wuri Handayani</div>
+                    <div class="lcard-name">Dinas Pendidikan Kabupaten Ciamis</div>
+                    <div class="lcard-sub">disdik.ciamiskab.go.id</div>
+                </div>
+                <div class="lcard-btn">Kunjungi &#8599;</div>
+            </div>
+        </a>
+
+        <!-- Card 3: Dirjen PAUD -->
+        <a href="https://paudpedia.kemdikbud.go.id" target="_blank" class="lcard c3">
+            <div class="lcard-gloss"></div>
+            <div class="lcard-inner">
+                <div class="logo-wrap"><img src="assets/img/tuti.png" alt="Logo Ciamis"></div>
+                <div class="lcard-text">
+                    <div class="lcard-label">Direktorat Jenderal</div>
+                    <div class="lcard-name">PAUD, Dikdas &amp; Dikmen</div>
+                    <div class="lcard-sub">kemdikbud.go.id</div>
+                </div>
+                <div class="lcard-btn">Kunjungi &#8599;</div>
+            </div>
+        </a>
+
+        <!-- Card 4: Ruang Guru -->
+        <a href="#" target="_blank" class="lcard c4">
+            <div class="lcard-gloss"></div>
+            <div class="lcard-inner">
+                <div class="logo-wrap"><img src="assets/img/paudlog.png" alt="Logo Ciamis"></div>
+                <div class="lcard-text">
+                    <div class="lcard-label">Platform Pembelajaran</div>
+                    <div class="lcard-name">Ruang Guru PAUD</div>
+                    <div class="lcard-sub">Kemdikbud RI</div>
+                </div>
+                <div class="lcard-btn">Kunjungi &#8599;</div>
+            </div>
+        </a>
+
+        <!-- Card 5: Sahabat Keluarga (full width) -->
+        <a href="https://sahabatkeluarga.kemdikbud.go.id" target="_blank" class="lcard c5 full-width">
+            <div class="lcard-gloss"></div>
+            <div class="lcard-inner lcard-inner-horizontal">
+                <div class="logo-wrap"><img src="assets/img/saha.png" alt="Logo Ciamis"></div>
+                <div class="lcard-text lcard-text-left">
+                    <div class="lcard-label">Kementerian Pendidikan dan Kebudayaan</div>
+                    <div class="lcard-name">Sahabat Keluarga</div>
+                    <div class="lcard-sub">Portal Pelibatan Keluarga dalam Pendidikan</div>
+                </div>
+                <div class="lcard-btn">Kunjungi &#8599;</div>
+            </div>
+        </a>
+
+    </div>
+</section>
+<!-- CSS LINK EKSTERNAL -->
+<style>
+    :root {
+        --radius-card: 16px;
+    }
+    .external-links-section {
+        padding: 1.5rem 1rem;
+        max-width: 680px;
+        margin: auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .el-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b08d00;
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+    /* === GRID 2 KOLOM === */
+    .el-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    /* Card ke-5 full width */
+    .full-width {
+        grid-column: 1 / -1;
+    }
+
+    /* === BASE CARD === */
+    .lcard {
+        display: block;
+        text-decoration: none;
+        border-radius: var(--radius-card);
+        overflow: hidden;
+        border: 0.5px solid rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+    }
+
+    .lcard:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Gloss overlay */
+    .lcard-gloss {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 45%;
+        border-radius: var(--radius-card) var(--radius-card) 0 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* Accent bar atas */
+    .lcard::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+        background: rgba(255,255,255,0.45);
+        z-index: 2;
+        border-radius: var(--radius-card) var(--radius-card) 0 0;
+    }
+
+    /* === LAYOUT DALAM KARTU (vertikal - default) === */
+    .lcard-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 22px 14px 18px;
+        position: relative;
+        z-index: 1;
+        gap: 10px;
+    }
+
+    /* Layout horizontal khusus kartu full width */
+    .lcard-inner-horizontal {
+        flex-direction: row;
+        text-align: left;
+        padding: 18px 22px;
+        gap: 16px;
+        align-items: center;
+    }
+
+    /* === LOGO === */
+    .logo-wrap {
+        width: 56px; height: 56px;
+        flex-shrink: 0;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.28);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+    }
+    .logo-wrap img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    /* Logo lebih besar untuk kartu full width */
+    .logo-wrap-wide {
+        width: 80px;
+        height: 60px;
+        border-radius: 12px;
+        padding: 6px 8px;
+    }
+    .logo-wrap-wide img {
+        width: 68px;
+        height: 46px;
+        object-fit: contain;
+    }
+
+    /* === TEXT === */
+    .lcard-text { flex: 1; min-width: 0; }
+
+    .lcard-text-left {
+        text-align: left;
+    }
+
+    .lcard-label {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 2px;
+    }
+    .lcard-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.3;
+    }
+    .lcard-sub {
+        font-size: 11px;
+        color: rgba(255,255,255,0.65);
+        margin-top: 2px;
+    }
+
+    /* === TOMBOL === */
+    .lcard-btn {
+        background: rgba(255,255,255,0.22);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 5px 14px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* === BADGE === */
+    .badge-top {
+        position: absolute;
+        top: 10px; right: 10px;
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        background: rgba(255,255,255,0.25);
+        color: white;
+        padding: 2px 7px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        z-index: 3;
+    }
+
+    /* === WARNA KARTU === */
+    .c1 { background: linear-gradient(145deg, #667eea 0%, #764ba2 100%); }
+    .c2 { background: linear-gradient(145deg, #f093fb 0%, #f5576c 100%); }
+    .c3 { background: linear-gradient(145deg, #4facfe 0%, #00c9ff 100%); }
+
+    .c4 { background: linear-gradient(145deg, #43e97b 0%, #38f9d7 100%); }
+    .c4 .lcard-label { color: rgba(0,70,45,0.75); }
+    .c4 .lcard-name  { color: #08382a; }
+    .c4 .lcard-sub   { color: rgba(0,60,40,0.65); }
+    .c4 .lcard-btn   { background: rgba(0,0,0,0.12); color: #08382a; }
+    .c4::before      { background: rgba(0,0,0,0.12); }
+
+    .c5 { background: linear-gradient(135deg, #f9a846 0%, #ff6b6b 100%); }
+
+    /* === RESPONSIVE HP === */
+    @media (max-width: 420px) {
+        .el-grid { grid-template-columns: 1fr; }
+        .full-width { grid-column: auto; }
+        .lcard-inner-horizontal { flex-direction: column; text-align: center; }
+        .lcard-text-left { text-align: center; }
+        .logo-wrap-wide { width: 64px; height: 52px; }
+        .logo-wrap-wide img { width: 50px; height: 38px; }
+    }
+</style>
+
+
+
+
+
+
+<div style="
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e2f 0%, #0d0d12 100%);
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 212, 255, 0.1);
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+    overflow: hidden;
+">
+    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(0, 212, 255, 0.2); filter: blur(30px); border-radius: 50%;"></div>
+
+    <div style="
+        background: rgba(0, 212, 255, 0.1);
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-right: 18px;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+    ">
+        <span style="font-size: 24px; filter: drop-shadow(0 0 5px #00d4ff);">🚀</span>
+    </div>
+
+    <div>
+        <div style="
+            font-size: 11px; 
+            color: #00d4ff; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            font-weight: 800; 
+            margin-bottom: 6px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        ">
+            Total Pengunjung Website
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <a href="https://www.hitwebcounter.com/" target="_blank" style="text-decoration: none;">
+                <img src="https://hitwebcounter.com/counter/counter.php?page=21487304&style=0030&nbdigits=5&type=page&initCount=0" 
+                     title="Visitor Counter" 
+                     Alt="Visitor Counter" 
+                     border="0" 
+                     style="
+                        display: block; 
+                        filter: hue-rotate(180deg) brightness(1.2) drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
+                        border-radius: 6px;
+                        transition: transform 0.3s ease;
+                     ">
+            </a>
+            <span style="color: #fff; font-size: 12px; font-weight: 500; opacity: 0.7;">Visitors</span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 	
 	
 		
