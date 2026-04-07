@@ -7,6 +7,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
 
 class TataTertibSekolahForm
 {
@@ -17,12 +18,15 @@ class TataTertibSekolahForm
                 Section::make('Informasi Peraturan Sekolah')
                     ->description('Input nama dan detail isi peraturan di sini.')
                     ->schema([
-                        TextInput::make('nama_peraturan')
-                            ->label('Nama Peraturan')
-                            ->required()
-                            ->placeholder('Contoh: Tata Tertib sekolah/siswa')
-                            ->maxLength(255)
-                            ->columnSpanFull(),
+                        Select::make('nama_peraturan')
+                        ->label('Nama Peraturan')
+                        ->required()
+                         ->placeholder('Pilih Nama Peraturan')
+                        ->options([
+                        'Tata Tertib Sekolah' => 'Tata Tertib Sekolah',
+                        'Tata Tertib Siswa'   => 'Tata Tertib Siswa',
+                       ])
+                        ->columnSpanFull(),
 
                         RichEditor::make('isi_peraturan')
                             ->label('Detail Isi Peraturan')

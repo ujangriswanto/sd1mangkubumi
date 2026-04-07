@@ -15,6 +15,7 @@ use App\Models\JurnalHarian;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\JadwalPelajaranController;
 use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\TataTertibSekolahController;
 
 
 
@@ -115,3 +116,6 @@ Route::get('/jadwal-pelajaran', [JadwalPelajaranController::class, 'jadwal'])
     ->name('jadwal-pelajaran');
 
 Route::get('/data-siswa', [DataSiswaController::class, 'index'])->name('DataSiswa.index');
+
+Route::get('/tata-tertib-sekolah', [TataTertibSekolahController::class, 'index'])
+     ->name('tata-tertib-sekolah');
