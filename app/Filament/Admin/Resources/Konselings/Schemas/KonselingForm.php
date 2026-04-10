@@ -6,6 +6,7 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Checkbox;
 
 class KonselingForm
 {
@@ -21,20 +22,19 @@ class KonselingForm
                 DatePicker::make('tanggal')
                     ->required(),
 
-                Select::make('jenis')
-                    ->options([
-                        'pribadi' => 'Pribadi',
-                        'akademik' => 'Akademik',
-                        'sosial' => 'Sosial',
-                    ])
+                Textarea::make('uraian_masalah')
+                    ->label('Uraian Masalah')
                     ->required(),
 
-                Textarea::make('masalah')
-                    ->required()
-                    ->rows(3),
+                Checkbox::make('bimbingan_individu')
+                    ->label('Bimbingan Individu'),
 
-                Textarea::make('tindakan')
-                    ->rows(3),
+                Checkbox::make('bimbingan_kelompok')
+                    ->label('Bimbingan Kelompok'),
+
+                Textarea::make('penyelesaian'),
+
+                Textarea::make('tindak_lanjut'),
 
                 Select::make('status')
                     ->options([

@@ -10,8 +10,11 @@ class Konseling extends Model
         'student_id',
         'tanggal',
         'jenis',
-        'masalah',
-        'tindakan',
+        'uraian_masalah',
+        'bimbingan_individu',
+        'bimbingan_kelompok',
+        'penyelesaian',
+        'tindak_lanjut',
         'status',
     ];
 
