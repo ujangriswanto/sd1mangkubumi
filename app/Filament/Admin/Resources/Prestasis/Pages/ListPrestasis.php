@@ -14,7 +14,8 @@ class ListPrestasis extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Prestasi'),
+                ->label('Tambah Prestasi')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }

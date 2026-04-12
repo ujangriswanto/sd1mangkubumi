@@ -18,6 +18,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
+use Illuminate\Database\Eloquent\Model;
 
 class HeaderResource extends Resource
 {
@@ -31,6 +32,26 @@ class HeaderResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected static ?string $modelLabel = 'Tambah Foto Header';
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
 
     public static function form(Schema $schema): Schema
     {

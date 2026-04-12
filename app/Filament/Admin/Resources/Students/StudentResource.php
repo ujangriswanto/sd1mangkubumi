@@ -63,10 +63,16 @@ class StudentResource extends Resource
 
             $teacher = $user->teacherStaff;
 
-            if ($teacher) {
+            // dd([
+            //     'user' => $user->name,
+            //     'teacher' => $teacher,
+            //     'class_id' => $teacher?->school_class_id,
+            // ]);
+
+            if ($teacher && $teacher->schoolClass) {
                 return $query->where(
                     'school_class_id',
-                    $teacher->class_id
+                    $teacher->schoolClass->id
                 );
             }
         }

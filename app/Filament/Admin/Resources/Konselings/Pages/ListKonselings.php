@@ -13,7 +13,9 @@ class ListKonselings extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->label('Tambah Konseling')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }

@@ -30,6 +30,11 @@ class ProfilSekolah extends Page implements HasForms
 
     protected string $view = 'filament.admin.pages.profil-sekolah';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
     public ?array $data = [];
 
     public function mount(): void

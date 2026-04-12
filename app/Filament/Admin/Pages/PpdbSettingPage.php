@@ -25,6 +25,11 @@ class PpdbSettingPage extends Page
 
     protected string $view = 'filament.admin.pages.ppdb-setting-page';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
     public ?array $data = [];
 
     public function mount(): void

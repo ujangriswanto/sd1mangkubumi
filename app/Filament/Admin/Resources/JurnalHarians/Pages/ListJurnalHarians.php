@@ -14,7 +14,8 @@ class ListJurnalHarians extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Jurnal Harian'),
+                ->label('Tambah Jurnal Harian')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }

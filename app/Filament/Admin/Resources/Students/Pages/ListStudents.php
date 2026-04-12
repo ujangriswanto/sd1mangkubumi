@@ -19,7 +19,8 @@ class ListStudents extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Siswa'),
+                ->label('Tambah Siswa')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 

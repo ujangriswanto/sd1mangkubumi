@@ -14,7 +14,8 @@ class ListAdministrasiKepseks extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Administrasi Kepsek'),
+                ->label('Tambah Administrasi Kepsek')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }

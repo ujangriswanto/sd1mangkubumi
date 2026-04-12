@@ -14,6 +14,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use UnitEnum;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
 
 class TataTertibSekolahResource extends Resource
 {
@@ -26,6 +28,26 @@ class TataTertibSekolahResource extends Resource
     protected static UnitEnum|string|null $navigationGroup = 'Akademik';
 
     protected static ?string $recordTitleAttribute = 'nama_peraturan';
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->hasRole('admin');
+    }
 
     public static function form(Schema $schema): Schema
     {

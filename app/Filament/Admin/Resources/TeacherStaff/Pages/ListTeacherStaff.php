@@ -15,7 +15,8 @@ class ListTeacherStaff extends ListRecords
         return [
             CreateAction::make()
                 ->label('Tambah Guru/Staff')
-                ->slideOver(),
+                ->slideOver()
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }

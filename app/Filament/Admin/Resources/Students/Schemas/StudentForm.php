@@ -167,9 +167,9 @@ class StudentForm
 
                                 TextInput::make('name')->label('Nama'),
                                 TextInput::make('nik')->label('NIK'),
-                                TextInput::make('birth_year')->numeric(),
-                                TextInput::make('education'),
-                                TextInput::make('occupation'),
+                                TextInput::make('birth_year')->numeric()->label('Tahun Lahir'),
+                                TextInput::make('education')->label('Pendidikan'),
+                                TextInput::make('occupation')->label('Pekerjaan'),
                                 TextInput::make('monthly_income')->label('Penghasilan'),
                                 TextInput::make('special_needs')->label('Berkebutuhan Khusus'),
                             ])
@@ -188,9 +188,9 @@ class StudentForm
                     ->schema([
                         TextInput::make('name')->label('Nama Wali'),
                         TextInput::make('nik')->label('NIK Wali'),
-                        TextInput::make('birth_year')->numeric(),
-                        TextInput::make('education'),
-                        TextInput::make('occupation'),
+                        TextInput::make('birth_year')->numeric()->label('Tahun Lahir Wali'),
+                        TextInput::make('education')->label('Pendidikan'),
+                        TextInput::make('occupation')->label('Pekerjaan'),
                         TextInput::make('monthly_income')->label('Penghasilan'),
                     ])
                     ->columns(3),
@@ -204,12 +204,12 @@ class StudentForm
                 Section::make('Data Periodik')
                     ->relationship('periodic')
                     ->schema([
-                        TextInput::make('height')->numeric(),
-                        TextInput::make('weight')->numeric(),
-                        TextInput::make('head_circumference')->numeric(),
-                        TextInput::make('distance_to_school')->numeric(),
-                        TextInput::make('travel_time')->numeric(),
-                        TextInput::make('siblings_count')->numeric(),
+                        TextInput::make('height')->numeric()->label('Tinggi (cm)'),
+                        TextInput::make('weight')->numeric()->label('Berat (kg)'),
+                        TextInput::make('head_circumference')->numeric()->label('Lingkar Kepala (cm)'),
+                        TextInput::make('distance_to_school')->numeric()->label('Jarak ke Sekolah (m)'),
+                        TextInput::make('travel_time')->numeric()->label('Waktu Tempuh (menit)'),
+                        TextInput::make('siblings_count')->numeric()->label('Jumlah Saudara'),
                     ])
                     ->columns(3),
 
@@ -224,14 +224,14 @@ class StudentForm
                         Repeater::make('achievements')
                             ->relationship()
                             ->schema([
-                                Select::make('type')->options([
+                                Select::make('type')->label('Jenis Prestasi')->options([
                                     'sains' => 'Sains',
                                     'seni' => 'Seni',
                                     'olahraga' => 'Olahraga',
                                     'lainnya' => 'Lainnya',
                                 ]),
 
-                                Select::make('level')->options([
+                                Select::make('level')->label('Tingkat')->options([
                                     'sekolah' => 'Sekolah',
                                     'kecamatan' => 'Kecamatan',
                                     'kabupaten' => 'Kabupaten',
@@ -240,9 +240,9 @@ class StudentForm
                                     'internasional' => 'Internasional',
                                 ]),
 
-                                TextInput::make('name'),
-                                TextInput::make('year')->numeric(),
-                                TextInput::make('organizer'),
+                                TextInput::make('name')->label('Nama Prestasi'),
+                                TextInput::make('year')->numeric()->label('Tahun'),
+                                TextInput::make('organizer')->label('Penyelenggara'),
                             ])
                             ->columns(2),
                     ]),
@@ -258,16 +258,16 @@ class StudentForm
                         Repeater::make('scholarships')
                             ->relationship()
                             ->schema([
-                                Select::make('type')->options([
+                                Select::make('type')->label('Jenis Beasiswa')->options([
                                     'anak_berprestasi' => 'Anak Berprestasi',
                                     'anak_miskin' => 'Anak Miskin',
                                     'pendidikan' => 'Pendidikan',
                                     'unggulan' => 'Unggulan',
                                 ]),
 
-                                Textarea::make('description')->columnSpanFull(),
-                                TextInput::make('start_year')->numeric(),
-                                TextInput::make('end_year')->numeric(),
+                                Textarea::make('description')->label('Deskripsi')->columnSpanFull(),
+                                TextInput::make('start_year')->label('Tahun Mulai')->numeric(),
+                                TextInput::make('end_year')->label('Tahun Selesai')->numeric(),
                             ])
                             ->columns(2),
                     ]),
@@ -283,15 +283,15 @@ class StudentForm
                         Repeater::make('welfares')
                             ->relationship()
                             ->schema([
-                                Select::make('type')->options([
+                                Select::make('type')->label('Jenis Kesejahteraan')->options([
                                     'PKH' => 'PKH',
                                     'PIP' => 'PIP',
                                     'KPS' => 'Kartu Perlindungan Sosial',
                                     'KKS' => 'Kartu Keluarga Sejahtera',
                                     'Kartu_Kesehatan' => 'Kartu Kesehatan',
-                                ]),
-                                TextInput::make('card_number'),
-                                TextInput::make('card_name'),
+                                ])->nullable(),
+                                TextInput::make('card_number')->label('Nomor Kartu')->nullable(),
+                                TextInput::make('card_name')->label('Nama Pemilik Kartu')->nullable(),
                             ])
                             ->columns(2),
                     ]),
@@ -305,7 +305,7 @@ class StudentForm
                 Section::make('Keluar')
                     ->relationship('exit')
                     ->schema([
-                        Select::make('reason')->options([
+                        Select::make('reason')->label('Alasan Keluar')->options([
                             'mutasi' => 'Mutasi',
                             'dikeluarkan' => 'Dikeluarkan',
                             'mengundurkan_diri' => 'Mengundurkan Diri',
@@ -313,8 +313,8 @@ class StudentForm
                             'wafat' => 'Wafat',
                             'hilang' => 'Hilang',
                         ]),
-                        DatePicker::make('exit_date'),
-                        Textarea::make('description')->columnSpanFull(),
+                        DatePicker::make('exit_date')->label('Tanggal Keluar'),
+                        Textarea::make('description')->label('Deskripsi')->columnSpanFull(),
                     ])
                     ->columns(2),
 

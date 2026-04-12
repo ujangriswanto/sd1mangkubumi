@@ -14,7 +14,8 @@ class ListAdministrasiGurus extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Tambah Administrasi Guru'),
+                ->label('Tambah Administrasi Guru')
+                ->icon('heroicon-o-plus-circle'),
         ];
     }
 }
