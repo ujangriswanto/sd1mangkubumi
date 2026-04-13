@@ -119,3 +119,6 @@ Route::get('/data-siswa', [DataSiswaController::class, 'index'])->name('DataSisw
 
 Route::get('/tata-tertib-sekolah', [TataTertibSekolahController::class, 'index'])
      ->name('tata-tertib-sekolah');
+
+Route::get('/tata-tertib-siswa', [TataTertibSekolahController::class, 'siswa'])
+     ->name('tata-tertib-siswa');

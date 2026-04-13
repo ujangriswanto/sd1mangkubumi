@@ -135,7 +135,11 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                                     Tata Tertib Sekolah
                                     </a>
                                 </li>
-                                <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('tata-tertib-siswa') }}" class="nav-link {{ request()->routeIs('tata-tertib-siswa') ? 'active' : '' }}">
+                        Tata Tertib Siswa
+                                </a>
+                                </li>
 								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
                             </ul>
                         </li>
