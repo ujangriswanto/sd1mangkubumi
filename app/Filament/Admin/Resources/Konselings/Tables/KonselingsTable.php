@@ -13,6 +13,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Columns\IconColumn;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\SchoolClass;
+use Filament\Notifications\Notification;
 
 class KonselingsTable
 {
@@ -75,14 +76,44 @@ class KonselingsTable
                 Action::make('selesai')
                     ->label('Selesai')
                     ->color('success')
-                    ->action(fn ($record) => $record->update([
-                        'status' => 'selesai'
-                    ])),
-                EditAction::make(),
+                    ->visible(fn ($record) =>
+                        auth()->user()->role === 'kepala_sekolah'
+                        && $record->status !== 'selesai' // 👈 ini kunci
+                    )
+                    ->requiresConfirmation() // 🔥 popup konfirmasi
+                    ->modalHeading('Selesaikan Konseling')
+                    ->modalDescription('Apakah Anda yakin ingin menandai konseling ini sebagai selesai?')
+                    ->modalSubmitActionLabel('Ya, Selesaikan')
+                    ->action(function ($record) {
+                        $record->update([
+                            'status' => 'selesai',
+                        ]);
+
+                        Notification::make()
+                            ->title('Konseling berhasil diselesaikan')
+                            ->success()
+                            ->send();
+                    }),
+                EditAction::make()
+                    ->visible(function ($record) {
+                        $user = auth()->user();
+
+                        if ($user->role === 'admin') {
+                            return true;
+                        }
+
+                        if ($user->role === 'guru') {
+                            return $record->student?->school_class_id === $user->school_class_id;
+                        }
+
+                        return false;
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->visible(fn () => in_array(auth()->user()->role, ['admin', 'guru'])
+                        ),
                 ]),
             ])
             ->headerActions([

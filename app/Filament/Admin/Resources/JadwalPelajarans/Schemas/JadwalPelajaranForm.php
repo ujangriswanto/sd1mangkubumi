@@ -4,10 +4,12 @@ namespace App\Filament\Admin\Resources\JadwalPelajarans\Schemas;
 
 use Filament\Forms;
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\TextInput;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Select;
+
 
 class JadwalPelajaranForm
 {
@@ -18,58 +20,36 @@ class JadwalPelajaranForm
             ->components([
                 Section::make('Konten Jadwal Pelajaran')
                     ->schema([
-                        Forms\Components\Select::make('kelas')
+                        Select::make('school_class_id')
                             ->label('Kelas')
-                            ->options([
-                                'Kelas 1' => 'Kelas 1',
-                                'Kelas 2' => 'Kelas 2',
-                                'Kelas 3' => 'Kelas 3',
-                                'Kelas 4' => 'Kelas 4',
-                                'Kelas 5' => 'Kelas 5',
-                                'Kelas 6' => 'Kelas 6',
-                            ])
-                            ->required()
-                            ->placeholder('Pilih Kelas'),
+                            ->relationship('schoolClass', 'name')
+                            ->default(fn () => auth()->user()?->teacherStaff?->schoolClass?->id)
+                            ->disabled(fn () => auth()->user()?->hasRole('guru')) // 🔥 guru gak bisa ubah
+                            ->dehydrated()
+                            ->required(),
 
-                        Forms\Components\TextInput::make('waktu')
+                        TextInput::make('waktu')
                             ->label('Waktu')
                             ->required()
                             ->maxLength(50), 
 
-                        Forms\Components\Select::make('pelajaran')
+                        Select::make('subject_id')
                             ->label('Pelajaran')
-                            ->options([
-                                'Upacara' => 'Upacara',
-                                'B. Indonesia' => 'B. Indonesia',
-                                'PAIBP' => 'PAIBP',
-                                'PJOK' => 'PJOK',
-                                'Matematika' => 'Matematika',
-                                'Pend.Pancasila' => 'Pend.Pancasila',
-                                'Seni dan Budaya' => 'Seni dan Budaya',
-                                'PjBL' => 'PjBL',
-                                'IPAS' => 'IPAS',
-                                'B.dan S.Sunda' => 'B.dan S.Sunda',
-                                'B. Inggris' => 'B. Inggris',
-                                'Istirahat' => 'Istirahat',
-                                'Pembiasaan' => 'Pembiasaan',
-                                
-                                
-                            ])
+                            ->relationship('subject', 'name')
                             ->required()
-                            ->placeholder('Pilih Pelajaran')
-                            ->searchable(),
+                            ->preload()
+                            ->searchable()
+                            ->nullable(),
 
-
-                        Forms\Components\TextInput::make('jam_ke')
+                        TextInput::make('jam_ke')
                             ->label('Jam Ke')
                             ->numeric() 
                             ->minValue(0), 
                     ]),
 
-                
                 Section::make('Waktu dan Tahun Pelajaran')
                     ->schema([
-                        Forms\Components\Select::make('hari')
+                        Select::make('hari')
                             ->label('Hari')
                             ->options([
                                 'Senin' => 'Senin',
@@ -82,7 +62,7 @@ class JadwalPelajaranForm
                             ->required()
                             ->placeholder('Pilih Hari'), 
 
-                        Forms\Components\TextInput::make('tahun_pelajaran')
+                        TextInput::make('tahun_pelajaran')
                             ->label('Tahun Pelajaran')
                             ->required()
                             ->maxLength(9), 

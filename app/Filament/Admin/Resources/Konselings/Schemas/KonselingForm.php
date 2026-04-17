@@ -16,6 +16,7 @@ class KonselingForm
             ->components([
                 Select::make('student_id')
                     ->relationship('student', 'name')
+                    ->preload()
                     ->searchable()
                     ->required(),
 

@@ -28,6 +28,10 @@ class TeacherStaff extends Model
     }
     public function schoolClass()
     {
-        return $this->hasOne(SchoolClass::class, 'teacher_staff_id');
+        return $this->hasOne(
+            SchoolClass::class,
+            'teacher_staff_id', // foreign key di school_classes
+            'id'                // local key di teacher_staff
+        );
     }
 }

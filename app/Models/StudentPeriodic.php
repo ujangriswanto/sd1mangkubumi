@@ -11,9 +11,9 @@ class StudentPeriodic extends Model
         'height',
         'weight',
         'head_circumference',
-        'distance_from_school',
+        'distance_to_school',
         'travel_time',
-        'sibling_count',
+        'siblings_count',
     ];
 
     public function student()

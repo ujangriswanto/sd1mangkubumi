@@ -14,9 +14,9 @@ class JadwalPelajaran extends Model
 
     // Menentukan kolom mana saja yang dapat diisi (Mass Assignable)
     protected $fillable = [
-        'kelas',
+        'subject_id',
+        'school_class_id',
         'waktu',
-        'pelajaran',
         'jam_ke',
         'hari',
         'tahun_pelajaran',
@@ -27,4 +27,13 @@ class JadwalPelajaran extends Model
 
     // Menentukan format tanggal, jika ada kolom tanggal
     // protected $dates = ['created_at', 'updated_at'];
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
+    public function schoolClass()
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
 }

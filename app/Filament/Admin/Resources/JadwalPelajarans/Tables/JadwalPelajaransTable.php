@@ -30,10 +30,8 @@ class JadwalPelajaransTable
                     })
                     ->sortable(),
 
-                TextColumn::make('kelas')
+                TextColumn::make('schoolClass.name')
                     ->label('Kelas')
-                    ->badge()
-                    ->color('primary')
                     ->sortable()
                     ->searchable(),
 
@@ -48,24 +46,8 @@ class JadwalPelajaransTable
                     ->icon('heroicon-o-clock')
                     ->searchable(),
 
-                TextColumn::make('pelajaran')
-                    ->label('Pelajaran')
-                    ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'Upacara'         => 'warning',
-                        'B. Indonesia'    => 'primary',
-                        'PAIBP'           => 'success',
-                        'PJOK'            => 'danger',
-                        'Matematika'      => 'info',
-                        'Pend.Pancasila'  => 'warning',
-                        'Seni dan Budaya' => 'success',
-                        'PjBL'            => 'primary',
-                        'IPAS'            => 'info',
-                        'B.dan S.Sunda'   => 'danger',
-                        'B. Inggris'      => 'success',
-                        'Istirahat'       => 'gray',
-                        default           => 'gray',
-                    })
+                TextColumn::make('subject.name')
+                    ->label('Mata Pelajaran')
                     ->searchable()
                     ->sortable(),
 

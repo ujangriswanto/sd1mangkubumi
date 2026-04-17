@@ -15,7 +15,9 @@ class ListJadwalPelajarans extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->label('Tambah Jadwal Pelajaran')
+                ->icon('heroicon-o-plus'),
         ];
     }
 
@@ -26,39 +28,75 @@ class ListJadwalPelajarans extends ListRecords
                 ->badge(JadwalPelajaran::count()),
 
             'Kelas 1' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 1')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 1')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 1')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 1')
+                    )
                 ),
 
             'Kelas 2' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 2')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 2')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 2')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 2')
+                    )
                 ),
 
             'Kelas 3' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 3')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 3')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 3')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 3')
+                    )
                 ),
 
             'Kelas 4' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 4')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 4')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 4')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 4')
+                    )
                 ),
 
             'Kelas 5' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 5')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 5')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 5')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 5')
+                    )
                 ),
 
             'Kelas 6' => Tab::make()
-                ->badge(JadwalPelajaran::where('kelas', 'Kelas 6')->count())
+                ->badge(
+                    JadwalPelajaran::whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 6')
+                    )->count()
+                )
                 ->modifyQueryUsing(fn ($query) =>
-                    $query->where('kelas', 'Kelas 6')
+                    $query->whereHas('schoolClass', fn ($q) =>
+                        $q->where('name', 'Kelas 6')
+                    )
                 ),
         ];
     }
