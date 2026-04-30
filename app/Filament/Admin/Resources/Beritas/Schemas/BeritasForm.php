@@ -42,15 +42,22 @@ class BeritasForm
                             ->helperText('Slug untuk URL berita. Contoh: kegiatan-pramuka-2026'),
 
                         FileUpload::make('thumbnail')
-                            ->label('Thumbnail')
-                            ->image()
-                            ->directory('news')
-                            ->disk('public')
-                            ->imageEditor()
-                            ->imageResizeMode('cover')
-                            ->imageCropAspectRatio('16:9')
-                            ->maxSize(2048)
-                            ->helperText('Upload gambar thumbnail (disarankan 16:9). Maks 2MB.'),
+    ->label('Thumbnail / Video')
+    ->directory('news')
+    ->disk('public')
+    ->acceptedFileTypes([
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/gif',
+        'video/mp4',
+        'video/avi',
+        'video/mov',
+        'video/mkv',
+    ])
+    ->maxSize(102400)
+    ->rules(['file', 'max:102400']) // tambah ini
+    ->helperText('Upload gambar (JPG, PNG, WebP) atau video (MP4, AVI, MOV). Maks 100MB.'),
 
                         RichEditor::make('content')
                             ->label('Ayo Isi Berita nya!')

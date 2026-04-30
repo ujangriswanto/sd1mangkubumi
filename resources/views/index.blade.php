@@ -140,7 +140,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         Tata Tertib Siswa
                                 </a>
                                 </li>
-								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+								
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -1192,12 +1192,35 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
     @forelse($berita as $item)
     <div class="berita2-card">
         <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
-            <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
-            <span class="berita2-badge">📰 {{ $item->category }}</span>
-        </a>
+    @php
+        $ext = strtolower(pathinfo($item->thumbnail, PATHINFO_EXTENSION));
+        $isVideo = in_array($ext, ['mp4', 'avi', 'mov', 'mkv']);
+    @endphp
+
+    @if($isVideo)
+        <video 
+    src="{{ asset('storage/' . $item->thumbnail) }}"
+    muted
+    autoplay
+    loop
+    playsinline
+    preload="auto"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+    oncanplay="this.play()">
+</video>
+    @else
+        <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+    @endif
+
+    <span class="berita2-badge">📰 {{ $item->category }}</span>
+</a>
         <div class="berita2-body">
-            <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
-            <div class="berita2-footer">
+    <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
+    <p style="font-size:12px;color:#94a3b8;margin-bottom:14px;display:flex;align-items:center;gap:5px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#6366f1" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        {{ $item->created_at->format('d M Y') }}
+    </p>
+    <div class="berita2-footer">
                 <a href="{{ route('berita.show', $item->slug) }}" class="berita2-link">Baca selengkapnya →</a>
 
                 {{-- Tombol Salin Link --}}
@@ -1804,30 +1827,61 @@ document.addEventListener('keydown', function(e) {
     flex-direction: column;
     flex: 1;
     text-align: left;
+    gap: 4px;
 }
 
 .prestasi-body h3 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #071a33;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0 0 8px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .prestasi-winner {
-    font-size: 0.9rem;
-    color: #64748b;
+    font-size: 0.82rem;
+    color: #374151;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.prestasi-winner::before {
+    content: "👤";
+    font-size: 0.75rem;
 }
 
 .prestasi-date {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #94a3b8;
-    margin: 5px 0 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.prestasi-date::before {
+    content: "📅";
+    font-size: 0.72rem;
 }
 
 .prestasi-description {
-    font-size: 0.9rem;
-    color: #475569;
-    margin-top: auto;
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* ===============================
@@ -1874,6 +1928,7 @@ document.addEventListener('keydown', function(e) {
         <!-- Card 2: Dinas Pendidikan -->
         <a href="https://disdik.ciamiskab.go.id" target="_blank" class="lcard c2">
             <div class="lcard-gloss"></div>
+            <span class="badge-top">Official</span>
             <div class="lcard-inner">
                 <div class="logo-wrap"><img src="assets/img/tuti.png" alt="Logo Ciamis"></div>
                 <div class="lcard-text">
@@ -1886,22 +1941,24 @@ document.addEventListener('keydown', function(e) {
         </a>
 
         <!-- Card 3: Dirjen PAUD -->
-        <a href="https://paudpedia.kemdikbud.go.id" target="_blank" class="lcard c3">
+        <a href="https://www.kemendikdasmen.go.id/" target="_blank" class="lcard c3">
             <div class="lcard-gloss"></div>
+            <span class="badge-top">Official</span>
             <div class="lcard-inner">
                 <div class="logo-wrap"><img src="assets/img/tuti.png" alt="Logo Ciamis"></div>
                 <div class="lcard-text">
                     <div class="lcard-label">Direktorat Jenderal</div>
                     <div class="lcard-name">PAUD, Dikdas &amp; Dikmen</div>
-                    <div class="lcard-sub">kemdikbud.go.id</div>
+                    <div class="lcard-sub">kemendikdasmen.go.id</div>
                 </div>
                 <div class="lcard-btn">Kunjungi &#8599;</div>
             </div>
         </a>
 
         <!-- Card 4: Ruang Guru -->
-        <a href="#" target="_blank" class="lcard c4">
+        <a href="https://paudpedia.kemendikdasmen.go.id/" target="_blank" class="lcard c4">
             <div class="lcard-gloss"></div>
+            <span class="badge-top">Official</span>
             <div class="lcard-inner">
                 <div class="logo-wrap"><img src="assets/img/paudlog.png" alt="Logo Ciamis"></div>
                 <div class="lcard-text">
@@ -1916,6 +1973,7 @@ document.addEventListener('keydown', function(e) {
         <!-- Card 5: Sahabat Keluarga (full width) -->
         <a href="https://sahabatkeluarga.kemdikbud.go.id" target="_blank" class="lcard c5 full-width">
             <div class="lcard-gloss"></div>
+            <span class="badge-top">Official</span>
             <div class="lcard-inner lcard-inner-horizontal">
                 <div class="logo-wrap"><img src="assets/img/saha.png" alt="Logo Ciamis"></div>
                 <div class="lcard-text lcard-text-left">
@@ -2133,6 +2191,404 @@ document.addEventListener('keydown', function(e) {
 </style>
 
 
+<!-- INI BATASNYA SUMBER PENDUKUNG PEMBELAJARAN -->
+<section class="sumber-section">
+    <div class="container">
+        <div class="sumber-header">
+            <h2><span class="button-box">Sumber Pendukung Pembelajaran</span></h2>
+            <p class="sumber-sub">
+                <span class="sumber-dot"></span>
+                Kumpulan sumber belajar digital terpercaya untuk siswa dan guru SDN 1 Mangkubumi.
+                <span class="sumber-dot"></span>
+            </p>
+        </div>
+
+        <div class="sumber-grid">
+
+            <div class="sumber-card" onclick="openSumber('sumber1')">
+                <div class="sumber-card-icon" style="background:#eef2ff;color:#6366f1;">📗</div>
+                <div class="sumber-card-info">
+                    <h4>Sistem Informasi Perbukuan Indonesia</h4>
+                    <span>buku.kemendikdasmen.go.id</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="sumber-card" onclick="openSumber('sumber2')">
+                <div class="sumber-card-icon" style="background:#e0f2fe;color:#0ea5e9;">📙</div>
+                <div class="sumber-card-info">
+                    <h4>Baca Buku Digital (BUDI)</h4>
+                    <span>budi.kemendikdasmen.go.id</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="sumber-card" onclick="openSumber('sumber3')">
+                <div class="sumber-card-icon" style="background:#d1fae5;color:#10b981;">📘</div>
+                <div class="sumber-card-info">
+                    <h4>Perpustakaan Kemendikbudristek</h4>
+                    <span>perpustakaan.<br>kemendikbudristek.com</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+                
+            <div class="sumber-card" onclick="openSumber('sumber4')">
+                <div class="sumber-card-icon" style="background:#fef3c7;color:#f59e0b;">📺</div>
+                <div class="sumber-card-info">
+                    <h4>Rumah Belajar</h4>
+                    <span>belajar.<br>kemendikbudristek.com</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="sumber-card" onclick="openSumber('sumber5')">
+                <div class="sumber-card-icon" style="background:#fce7f3;color:#ec4899;">🎓</div>
+                <div class="sumber-card-info">
+                    <h4>Platform Merdeka Mengajar</h4>
+                    <span>guru.kemendikdasmen.go.id</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="sumber-card" onclick="openSumber('sumber6')">
+                <div class="sumber-card-icon" style="background:#f3e8ff;color:#a855f7;">🧪</div>
+                <div class="sumber-card-info">
+                    <h4>Pusat Prestasi Nasional</h4>
+                    <span>pusatprestasinasional.<br>kemdikbud.go.id</span>
+                </div>
+                <svg class="sumber-card-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </div>
+
+        </div>
+    </div>
+</section>
+{{-- POPUP MODAL --}}
+<div class="sumber-overlay" id="sumberOverlay" onclick="closeSumber(event)">
+    <div class="sumber-modal">
+        <button class="sumber-modal-close" onclick="closeSumberBtn()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="sumber-modal-icon" id="sumberModalIcon"></div>
+        <h3 id="sumberModalTitle"></h3>
+        <p class="sumber-modal-desc" id="sumberModalDesc"></p>
+        <div class="sumber-modal-link-box">
+            <span class="sumber-modal-link-label">🔗 Link Akses</span>
+            <a href="#" id="sumberModalLink" target="_blank" class="sumber-modal-link"></a>
+        </div>
+        <a href="#" id="sumberModalBtn" target="_blank" class="sumber-modal-btn">
+            Kunjungi Sekarang
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</div>
+<style>
+.sumber-section {
+    background: #f6f8fa;
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sumber-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sumber-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0f4ff;
+    border: 1px solid #c7d7fc;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b5bdb;
+    margin-top: 16px;
+}
+
+.sumber-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #3b5bdb;
+    display: inline-block;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+.sumber-dot:last-child { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:.4; transform:scale(.6); }
+}
+
+/* GRID CARD */
+.sumber-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.sumber-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.22,.61,.36,1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.sumber-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    border-color: #6366f1;
+}
+
+.sumber-card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.sumber-card-info {
+    flex: 1;
+}
+.sumber-card-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 3px;
+    line-height: 1.4;
+}
+.sumber-card-info span {
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+.sumber-card-arr {
+    color: #cbd5e1;
+    flex-shrink: 0;
+    transition: color .2s, transform .2s;
+}
+.sumber-card:hover .sumber-card-arr {
+    color: #6366f1;
+    transform: translateX(3px);
+}
+.sumber-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(6px);
+}
+
+.sumber-overlay.active {
+    display: flex;
+    animation: fadeIn .2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* MODAL */
+.sumber-modal {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 36px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    animation: slideUp .25s ease;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+}
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.sumber-modal-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: background .2s;
+}
+
+.sumber-modal-close:hover { background: #e2e8f0; }
+
+.sumber-modal-icon {
+    width: 72px; height: 72px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    margin: 0 auto 20px;
+}
+
+.sumber-modal h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+.sumber-modal-desc {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.sumber-modal-link-box {
+    background: #f8faff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.sumber-modal-link-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 4px;
+}
+
+.sumber-modal-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.sumber-modal-link:hover { text-decoration: underline; }
+
+.sumber-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(99,102,241,.35);
+    transition: all .3s;
+}
+
+.sumber-modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(99,102,241,.45);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .sumber-modal { padding: 28px 20px; }
+    .sumber-modal h3 { font-size: 17px; }
+    .sumber-grid { grid-template-columns: 1fr; }
+}
+</style>
+<script>
+const sumberData = {
+    sumber1: {
+        icon: '📗',
+        iconBg: '#eef2ff',
+        title: 'Sistem Informasi Perbukuan Indonesia',
+        desc: 'Akses koleksi buku pelajaran digital secara gratis. Buku untuk semua — akses di mana pun, kapan pun. Baca buku yuk!',
+        link: 'https://buku.kemendikdasmen.go.id'
+    },
+    sumber2: {
+        icon: '📙',
+        iconBg: '#e0f2fe',
+        title: 'Baca Buku Digital (BUDI)',
+        desc: 'Jelajahi lebih dari 700 Buku Bacaan, Buku Komik, Buku Audio, dan Buku Video secara gratis.',
+        link: 'https://budi.kemendikdasmen.go.id'
+    },
+    sumber3: {
+        icon: '📘',
+        iconBg: '#d1fae5',
+        title: 'Perpustakaan Kemendikbudristek',
+        desc: 'Akses ribuan koleksi buku dan jurnal digital. Platform perpustakaan digital resmi Kemendikbudristek.',
+        link: 'https://perpustakaan.kemendikbudristek.com'
+    },
+    sumber4: {
+        icon: '📺',
+        iconBg: '#fef3c7',
+        title: 'Rumah Belajar',
+        desc: 'Portal pembelajaran online gratis. Belajar kapan saja dan di mana saja dengan konten interaktif.',
+        link: 'https://belajar.kemendikbudristek.com'
+    },
+    sumber5: {
+        icon: '🎓',
+        iconBg: '#fce7f3',
+        title: 'Platform Merdeka Mengajar',
+        desc: 'Referensi mengajar untuk guru SD. Temukan perangkat ajar, asesmen, dan pelatihan mandiri.',
+        link: 'https://guru.kemendikdasmen.go.id'
+    },
+    sumber6: {
+        icon: '🧪',
+        iconBg: '#f3e8ff',
+        title: 'Pusat Prestasi Nasional',
+        desc: 'Informasi kompetisi dan olimpiade nasional untuk siswa berprestasi di berbagai bidang.',
+        link: 'https://pusatprestasinasional.kemdikbud.go.id'
+    },
+};
+
+function openSumber(id) {
+    const d = sumberData[id];
+    document.getElementById('sumberModalIcon').textContent = d.icon;
+    document.getElementById('sumberModalIcon').style.background = d.iconBg;
+    document.getElementById('sumberModalTitle').textContent = d.title;
+    document.getElementById('sumberModalDesc').textContent = d.desc;
+    document.getElementById('sumberModalLink').textContent = d.link;
+    document.getElementById('sumberModalLink').href = d.link;
+    document.getElementById('sumberModalBtn').href = d.link;
+    document.getElementById('sumberOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSumber(e) {
+    if (e.target === document.getElementById('sumberOverlay')) {
+        closeSumberBtn();
+    }
+}
+
+function closeSumberBtn() {
+    document.getElementById('sumberOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSumberBtn();
+});
+</script>
+<!-- INI BATASNYA SUMBER PENDUKUNG PEMBELAJARAN -->
+
+
+
 
 
 
@@ -2140,58 +2596,50 @@ document.addEventListener('keydown', function(e) {
 <div style="
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(135deg, #1e1e2f 0%, #0d0d12 100%);
+    background: #ffffff;
     padding: 15px 25px;
-    border-radius: 20px;
-    border: 1.5px solid rgba(0, 212, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 212, 255, 0.1);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-    position: relative;
-    overflow: hidden;
 ">
-    <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(0, 212, 255, 0.2); filter: blur(30px); border-radius: 50%;"></div>
-
     <div style="
-        background: rgba(0, 212, 255, 0.1);
         width: 45px;
         height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px;
+        border-radius: 10px;
+        background: #f5f5f5;
+        border: 1px solid rgba(0,0,0,0.1);
         margin-right: 18px;
-        border: 1px solid rgba(0, 212, 255, 0.2);
+        flex-shrink: 0;
     ">
-        <span style="font-size: 24px; filter: drop-shadow(0 0 5px #00d4ff);">🚀</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zM12 14c-5.33 0-8 2.239-8 4v1h16v-1c0-1.761-2.67-4-8-4z" fill="#111111"/>
+        </svg>
     </div>
 
     <div>
         <div style="
-            font-size: 11px; 
-            color: #00d4ff; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-weight: 800; 
+            font-size: 11px;
+            color: #111111;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
             margin-bottom: 6px;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         ">
             Total Pengunjung Website
         </div>
-        
+
         <div style="display: flex; align-items: center; gap: 8px;">
             <a href="https://www.hitwebcounter.com/" target="_blank" style="text-decoration: none;">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=21487304&style=0030&nbdigits=5&type=page&initCount=0" 
-                     title="Visitor Counter" 
-                     Alt="Visitor Counter" 
-                     border="0" 
-                     style="
-                        display: block; 
-                        filter: hue-rotate(180deg) brightness(1.2) drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
-                        border-radius: 6px;
-                        transition: transform 0.3s ease;
-                     ">
+                <img src="https://hitwebcounter.com/counter/counter.php?page=21487304&style=0006&nbdigits=5&type=page&initCount=0"
+                     title="Visitor Counter"
+                     alt="Visitor Counter"
+                     border="0"
+                     style="display: block; border-radius: 4px; height: 24px; width: auto;">
             </a>
-            <span style="color: #fff; font-size: 12px; font-weight: 500; opacity: 0.7;">Visitors</span>
+            <span style="color: #111111; font-size: 12px; font-weight: 500;">Visitors</span>
         </div>
     </div>
 </div>

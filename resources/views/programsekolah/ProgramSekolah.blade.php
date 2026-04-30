@@ -170,325 +170,49 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ─────────────────────────────────────────
-           FOOTER — DIPERBAIKI
+           FOOTER
         ───────────────────────────────────────── */
-
-        .sdn-footer {
-            background: linear-gradient(160deg, #0d2b55 0%, #0a1f3d 60%, #061529 100%);
-            color: rgba(255,255,255,0.75);
-            font-family: 'Poppins', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Dekorasi background */
-        .sdn-footer::before {
-            content: '';
-            position: absolute;
-            top: -120px; right: -120px;
-            width: 380px; height: 380px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
-            pointer-events: none;
-        }
-        .sdn-footer::after {
-            content: '';
-            position: absolute;
-            bottom: 60px; left: -80px;
-            width: 280px; height: 280px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(245,166,35,0.08), transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Wave separator */
-        .sdn-footer-wave {
-            line-height: 0;
-            margin-bottom: -2px;
-        }
+        .sdn-footer { background: linear-gradient(160deg, #0d2b55 0%, #0a1f3d 60%, #061529 100%); color: rgba(255,255,255,0.75); font-family: 'Poppins', sans-serif; position: relative; overflow: hidden; }
+        .sdn-footer::before { content: ''; position: absolute; top: -120px; right: -120px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%); pointer-events: none; }
+        .sdn-footer::after { content: ''; position: absolute; bottom: 60px; left: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,0.08), transparent 70%); pointer-events: none; }
+        .sdn-footer-wave { line-height: 0; margin-bottom: -2px; }
         .sdn-footer-wave svg { display: block; width: 100%; }
-
-        /* Inner wrapper */
-        .sdn-footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 24px 40px;
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr;
-            gap: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ── Brand col ── */
-        .sdn-footer-brand {}
-
-        .sdn-footer-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-        .sdn-footer-logo-wrap img {
-            height: 52px;
-            width: auto;
-            flex-shrink: 0;
-        }
-        .sdn-footer-logo-title {
-            display: block;
-            font-size: 15px;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.3;
-        }
-        .sdn-footer-logo-sub {
-            display: block;
-            font-size: 10px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.45);
-            letter-spacing: 1.1px;
-            text-transform: uppercase;
-            margin-top: 3px;
-        }
-
-        .sdn-footer-desc {
-            font-size: 13px;
-            line-height: 1.85;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 22px;
-        }
-
-        .sdn-footer-socials {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .sdn-footer-socials a {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.7);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .sdn-footer-socials a:hover {
-            background: #f5a623;
-            border-color: #f5a623;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(245,166,35,0.35);
-        }
-
-        /* ── Heading shared ── */
-        .sdn-footer-heading {
-            font-size: 13px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-            padding-bottom: 12px;
-            position: relative;
-        }
-        .sdn-footer-heading::after {
-            content: '';
-            position: absolute;
-            left: 0; bottom: 0;
-            width: 30px; height: 3px;
-            background: #f5a623;
-            border-radius: 2px;
-        }
-
-        /* ── Menu col ── */
-        .sdn-footer-links {
-            list-style: none;
-            padding: 0; margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .sdn-footer-links li a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.55);
-            font-size: 13px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.25s;
-            padding: 3px 0;
-        }
-        .sdn-footer-links li a .link-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: rgba(245,166,35,0.5);
-            flex-shrink: 0;
-            transition: background 0.25s, transform 0.25s;
-        }
-        .sdn-footer-links li a:hover {
-            color: #f5a623;
-            padding-left: 4px;
-        }
-        .sdn-footer-links li a:hover .link-dot {
-            background: #f5a623;
-            transform: scale(1.3);
-        }
-
-        /* ── Kontak col ── */
-        .sdn-footer-contact {
-            list-style: none;
-            padding: 0; margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .sdn-footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .sdn-contact-icon {
-            width: 34px; height: 34px;
-            min-width: 34px;
-            background: rgba(245,166,35,0.12);
-            border: 1px solid rgba(245,166,35,0.25);
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            color: #f5a623;
-            font-size: 13px;
-            margin-top: 1px;
-        }
-        .sdn-contact-text strong {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.85);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-        .sdn-contact-text span,
-        .sdn-contact-text a {
-            font-size: 12.5px;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            line-height: 1.5;
-            transition: color 0.25s;
-        }
+        .sdn-footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 24px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr; gap: 40px; position: relative; z-index: 1; }
+        .sdn-footer-logo-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+        .sdn-footer-logo-wrap img { height: 52px; width: auto; flex-shrink: 0; }
+        .sdn-footer-logo-title { display: block; font-size: 15px; font-weight: 800; color: #fff; line-height: 1.3; }
+        .sdn-footer-logo-sub { display: block; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 1.1px; text-transform: uppercase; margin-top: 3px; }
+        .sdn-footer-desc { font-size: 13px; line-height: 1.85; color: rgba(255,255,255,0.5); margin-bottom: 22px; }
+        .sdn-footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
+        .sdn-footer-socials a { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; transition: all 0.3s; }
+        .sdn-footer-socials a:hover { background: #f5a623; border-color: #f5a623; color: #fff; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(245,166,35,0.35); }
+        .sdn-footer-heading { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 22px; padding-bottom: 12px; position: relative; }
+        .sdn-footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 3px; background: #f5a623; border-radius: 2px; }
+        .sdn-footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .sdn-footer-links li a { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.25s; padding: 3px 0; }
+        .sdn-footer-links li a .link-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,166,35,0.5); flex-shrink: 0; transition: background 0.25s, transform 0.25s; }
+        .sdn-footer-links li a:hover { color: #f5a623; padding-left: 4px; }
+        .sdn-footer-links li a:hover .link-dot { background: #f5a623; transform: scale(1.3); }
+        .sdn-footer-contact { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+        .sdn-footer-contact li { display: flex; align-items: flex-start; gap: 12px; }
+        .sdn-contact-icon { width: 34px; height: 34px; min-width: 34px; background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #f5a623; font-size: 13px; margin-top: 1px; }
+        .sdn-contact-text strong { display: block; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        .sdn-contact-text span, .sdn-contact-text a { font-size: 12.5px; color: rgba(255,255,255,0.5); text-decoration: none; line-height: 1.5; transition: color 0.25s; }
         .sdn-contact-text a:hover { color: #f5a623; }
+        .sdn-footer-map-wrap { border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .sdn-footer-map-wrap iframe { display: block; width: 100%; height: 210px; border: 0; filter: grayscale(20%) brightness(0.95); }
+        .sdn-footer-divider { max-width: 1200px; margin: 0 auto; border: none; border-top: 1px solid rgba(255,255,255,0.07); position: relative; z-index: 1; }
+        .sdn-copyright { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: relative; z-index: 1; }
+        .sdn-copyright-left { font-size: 12.5px; color: rgba(255,255,255,0.35); }
+        .sdn-copyright-left span { color: rgba(255,255,255,0.55); font-weight: 600; }
+        .sdn-copyright-right { display: flex; align-items: center; gap: 6px; list-style: none; padding: 0; margin: 0; }
+        .sdn-copyright-right li a { font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.25s; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08); }
+        .sdn-copyright-right li a:hover { color: #f5a623; border-color: rgba(245,166,35,0.3); }
 
-        /* ── Peta col ── */
-        .sdn-footer-map-wrap {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-        }
-        .sdn-footer-map-wrap iframe {
-            display: block;
-            width: 100%;
-            height: 210px;
-            border: 0;
-            filter: grayscale(20%) brightness(0.95);
-        }
-        .sdn-footer-map-placeholder {
-            height: 210px;
-            background: rgba(255,255,255,0.04);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.3);
-            font-size: 13px;
-        }
-        .sdn-footer-map-placeholder i {
-            font-size: 28px;
-            color: rgba(245,166,35,0.4);
-        }
+        @media (max-width: 1024px) { .sdn-footer-inner { grid-template-columns: 1fr 1fr; gap: 36px 40px; } }
+        @media (max-width: 640px) { .sdn-footer-inner { grid-template-columns: 1fr; padding: 40px 20px 32px; gap: 32px; } .sdn-copyright { flex-direction: column; text-align: center; gap: 12px; padding: 16px 20px; } .sdn-copyright-right { flex-wrap: wrap; justify-content: center; } }
 
-        /* ── Divider ── */
-        .sdn-footer-divider {
-            max-width: 1200px;
-            margin: 0 auto;
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ── Copyright bar ── */
-        .sdn-copyright {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            position: relative;
-            z-index: 1;
-        }
-        .sdn-copyright-left {
-            font-size: 12.5px;
-            color: rgba(255,255,255,0.35);
-        }
-        .sdn-copyright-left span {
-            color: rgba(255,255,255,0.55);
-            font-weight: 600;
-        }
-        .sdn-copyright-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            list-style: none;
-            padding: 0; margin: 0;
-        }
-        .sdn-copyright-right li a {
-            font-size: 12px;
-            color: rgba(255,255,255,0.35);
-            text-decoration: none;
-            transition: color 0.25s;
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-        .sdn-copyright-right li a:hover {
-            color: #f5a623;
-            border-color: rgba(245,166,35,0.3);
-        }
-
-        /* ─── RESPONSIVE ─── */
-        @media (max-width: 1024px) {
-            .sdn-footer-inner {
-                grid-template-columns: 1fr 1fr;
-                gap: 36px 40px;
-            }
-        }
-        @media (max-width: 640px) {
-            .sdn-footer-inner {
-                grid-template-columns: 1fr;
-                padding: 40px 20px 32px;
-                gap: 32px;
-            }
-            .sdn-copyright {
-                flex-direction: column;
-                text-align: center;
-                gap: 12px;
-                padding: 16px 20px;
-            }
-            .sdn-copyright-right {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* ─────────────────────────────────────────
-           NAV RESPONSIVE
-        ───────────────────────────────────────── */
+        /* NAV RESPONSIVE */
         @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
         @media (max-width: 640px) { .hero { padding: 120px 16px 70px; } .hero h1 { font-size: 2.1rem; } .grid-layout { grid-template-columns: 1fr; } .container { padding: 60px 16px; } }
     </style>
@@ -498,42 +222,65 @@
 <!-- NAVBAR -->
 <nav id="mainNav">
     <div class="nav-wrapper">
-        <a href="index.html" class="nav-brand">
-            <img src="assets/img/tutt.png" alt="Logo SDN 1 Mangkubumi">
+        <!-- Brand / Logo -->
+        <a href="{{ url('/') }}" class="nav-brand">
+            <img src="{{ asset('assets/img/tutt.png') }}" alt="Logo SDN 1 Mangkubumi">
             <div class="nav-brand-text">
                 <span class="nav-brand-title">SDN 1 Mangkubumi</span>
                 <span class="nav-brand-sub">Kecamatan Sadananya</span>
             </div>
         </a>
+
+        <!-- Desktop Menu -->
         <ul class="nav-links">
-            <li><a href="/">Beranda</a></li>
+            <li><a href="{{ url('/') }}">Beranda</a></li>
             <li><a href="/visi-misi">Tentang</a></li>
-            <li><a href="/kurikulum">Kurikulum</a></li>
+            <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
             <li><a href="/berita">Berita</a></li>
-            <li><a href="/ppdb">PPDB</a></li>
+            <li><a href="{{ route('ppdb.index') }}">PPDB</a></li>
             <li class="has-dropdown">
-                <a href="#">Akademik <span class="chevron">▾</span></a>
+                <a href="#">Akademik <i class="fas fa-chevron-down chevron"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Jadwal Pelajaran</a></li>
-                    <li><a href="#">Kalender Akademik</a></li>
-                    <li><a href="#">Ekstrakurikuler</a></li>
-                    <li><a href="#">Perpustakaan</a></li>
+                    <li><a href="{{ route('jadwal-pelajaran') }}">Jadwal Pelajaran</a></li>
+                    <li><a href="{{ route('tata-tertib-sekolah') }}" class="{{ request()->routeIs('tata-tertib-sekolah') ? 'active' : '' }}">Tata Tertib Sekolah</a></li>
+                    <li><a href="{{ route('tata-tertib-siswa') }}" class="{{ request()->routeIs('tata-tertib-siswa') ? 'active' : '' }}">Tata Tertib Siswa</a></li>
                 </ul>
             </li>
             <li class="has-dropdown">
-                <a href="#">Kesiswaan <span class="chevron">▾</span></a>
+                <a href="#">Kesiswaan <i class="fas fa-chevron-down chevron"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Total Data Siswa</a></li>
-                    <li><a href="#">Total Data Siswa / Kelas</a></li>
+                    <li><a href="{{ route('DataSiswa.index') }}">Total Data Siswa/Kelas</a></li>
                 </ul>
             </li>
-            <li><a href="/program-sekolah" class="active">Program Sekolah</a></li>
+            <li><a href="{{ route('program-sekolah') }}" class="active">Program Sekolah</a></li>
         </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+
+        <!-- Hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="{{ url('/') }}">Beranda</a>
+    <a href="/visi-misi">Tentang</a>
+    <a href="{{ route('kurikulum') }}">Kurikulum</a>
+    <a href="/berita">Berita</a>
+    <a href="{{ route('ppdb.index') }}">PPDB</a>
+    <div class="mobile-section-label">Akademik</div>
+    <div class="mobile-sub">
+        <a href="{{ route('jadwal-pelajaran') }}">Jadwal Pelajaran</a>
+        <a href="{{ route('tata-tertib-sekolah') }}">Tata Tertib Sekolah</a>
+        <a href="{{ route('tata-tertib-siswa') }}">Tata Tertib Siswa</a>
+    </div>
+    <div class="mobile-section-label">Kesiswaan</div>
+    <div class="mobile-sub">
+        <a href="{{ route('DataSiswa.index') }}">Total Data Siswa/Kelas</a>
+    </div>
+    <a href="{{ route('program-sekolah') }}" style="color: var(--primary);">Program Sekolah</a>
+</div>
 
 <div class="preloader">
     <div class="loader">
@@ -542,34 +289,12 @@
     </div>
 </div>
 
-<!-- Mobile Menu -->
-<div class="mobile-nav" id="mobileNav">
-    <a href="/">Beranda</a>
-    <a href="/visi-misi">Tentang</a>
-    <a href="/kurikulum">Kurikulum</a>
-    <a href="/berita">Berita</a>
-    <a href="/ppdb">PPDB</a>
-    <div class="mobile-section-label">Akademik</div>
-    <div class="mobile-sub">
-        <a href="#">Jadwal Pelajaran</a>
-        <a href="#">Kalender Akademik</a>
-        <a href="#">Ekstrakurikuler</a>
-        <a href="#">Perpustakaan</a>
-    </div>
-    <div class="mobile-section-label">Kesiswaan</div>
-    <div class="mobile-sub">
-        <a href="#">Total Data Siswa</a>
-        <a href="#">Total Data Siswa / Kelas</a>
-    </div>
-    <a href="/program-sekolah" style="color: var(--primary);">Program Sekolah</a>
-</div>
-
 <!-- HERO -->
 <section class="hero">
     <div class="hero-content">
         <div class="hero-badge">Pemerintahan Kabupaten Ciamis</div>
         <h1>Program Sekolah<br>SD Negeri 1 Mangkubumi</h1>
-        <h9>Membentuk generasi cerdas, berkarakter, dan berakhlak mulia melalui berbagai program pembiasaan, ekstrakurikuler, dan terapan yang memadukan nilai religius dan keterampilan masa depan.</h9>
+        <p>Membentuk generasi cerdas, berkarakter, dan berakhlak mulia melalui berbagai program pembiasaan, ekstrakurikuler, dan terapan yang memadukan nilai religius dan keterampilan masa depan.</p>
     </div>
 </section>
 
@@ -743,137 +468,79 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     FOOTER — DIPERBAIKI
-══════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="sdn-footer">
-
-    <!-- Wave atas -->
     <div class="sdn-footer-wave">
         <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M0,0 C360,70 1080,0 1440,50 L1440,0 Z" fill="#f8fafc"/>
         </svg>
     </div>
-
-    <!-- Grid utama -->
     <div class="sdn-footer-inner">
-
-        <!-- Kolom 1: Brand -->
         <div class="sdn-footer-brand">
             <div class="sdn-footer-logo-wrap">
-                <img src="assets/img/tutt.png" alt="Logo SDN 1 Mangkubumi">
+                <img src="{{ asset('assets/img/tutt.png') }}" alt="Logo SDN 1 Mangkubumi">
                 <div>
                     <span class="sdn-footer-logo-title">SDN 1 Mangkubumi</span>
                     <span class="sdn-footer-logo-sub">Kecamatan Sadananya</span>
                 </div>
             </div>
-            <p class="sdn-footer-desc">
-                Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.
-            </p>
+            <p class="sdn-footer-desc">Sekolah Dasar Negeri 1 Mangkubumi berkomitmen mencetak generasi unggul, berkarakter, dan berprestasi di bawah naungan pendidikan berkualitas.</p>
             <div class="sdn-footer-socials">
-                <a href="#" title="Facebook">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                </a>
-                <a href="#" title="Instagram">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="#" title="YouTube">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0d2b55"/></svg>
-                </a>
-                <a href="#" title="WhatsApp">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-                </a>
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
-
-        <!-- Kolom 2: Menu -->
         <div>
             <h4 class="sdn-footer-heading">Menu Utama</h4>
             <ul class="sdn-footer-links">
-                <li><a href="/"><span class="link-dot"></span>Beranda</a></li>
+                <li><a href="{{ url('/') }}"><span class="link-dot"></span>Beranda</a></li>
                 <li><a href="/visi-misi"><span class="link-dot"></span>Visi &amp; Misi</a></li>
-                <li><a href="/kurikulum"><span class="link-dot"></span>Kurikulum</a></li>
+                <li><a href="{{ route('kurikulum') }}"><span class="link-dot"></span>Kurikulum</a></li>
                 <li><a href="/berita"><span class="link-dot"></span>Berita</a></li>
-                <li><a href="/ppdb"><span class="link-dot"></span>PPDB</a></li>
+                <li><a href="{{ route('ppdb.index') }}"><span class="link-dot"></span>PPDB</a></li>
                 <li><a href="#"><span class="link-dot"></span>Akademik</a></li>
                 <li><a href="#"><span class="link-dot"></span>Kesiswaan</a></li>
-                <li><a href="/program-sekolah"><span class="link-dot"></span>Program Sekolah</a></li>
+                <li><a href="{{ route('program-sekolah') }}"><span class="link-dot"></span>Program Sekolah</a></li>
             </ul>
         </div>
-
-        <!-- Kolom 3: Kontak -->
         <div>
             <h4 class="sdn-footer-heading">Kontak Kami</h4>
             <ul class="sdn-footer-contact">
                 <li>
-                    <div class="sdn-contact-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    </div>
-                    <div class="sdn-contact-text">
-                        <strong>Alamat</strong>
-                        <span>Jl. Raya Mangkubumi, Kec. Sadananya, Ciamis, Jawa Barat</span>
-                    </div>
+                    <div class="sdn-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="sdn-contact-text"><strong>Alamat</strong><span>Jl. Raya Mangkubumi, Kec. Sadananya, Ciamis, Jawa Barat</span></div>
                 </li>
                 <li>
-                    <div class="sdn-contact-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.67 3.47 2 2 0 0 1 3.64 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <div class="sdn-contact-text">
-                        <strong>Telepon / WhatsApp</strong>
-                        <a href="tel:+6281234567890">+62 812-3456-7890</a>
-                    </div>
+                    <div class="sdn-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="sdn-contact-text"><strong>Telepon / WhatsApp</strong><a href="tel:+6281234567890">+62 812-3456-7890</a></div>
                 </li>
                 <li>
-                    <div class="sdn-contact-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <div class="sdn-contact-text">
-                        <strong>Email</strong>
-                        <a href="mailto:sdn1mangkubumi@gmail.com">sdn1mangkubumi@gmail.com</a>
-                    </div>
+                    <div class="sdn-contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="sdn-contact-text"><strong>Email</strong><a href="mailto:sdn1mangkubumi@gmail.com">sdn1mangkubumi@gmail.com</a></div>
                 </li>
                 <li>
-                    <div class="sdn-contact-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <div class="sdn-contact-text">
-                        <strong>Jam Operasional</strong>
-                        <span>Senin – Jumat: 07.00 – 14.00 WIB</span>
-                    </div>
+                    <div class="sdn-contact-icon"><i class="fas fa-clock"></i></div>
+                    <div class="sdn-contact-text"><strong>Jam Operasional</strong><span>Senin – Jumat: 07.00 – 14.00 WIB</span></div>
                 </li>
             </ul>
         </div>
-
-        <!-- Kolom 4: Peta -->
         <div>
             <h4 class="sdn-footer-heading">Lokasi Sekolah</h4>
             <div class="sdn-footer-map-wrap">
-                <!-- Ganti src iframe ini dengan link Google Maps embed sekolah yang sesungguhnya -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.0!2d108.35!3d-7.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjMnMTIuMCJTIDEwOMKwMjEnMDAuMCJF!5e0!3m2!1sid!2sid!4v1"
-                    width="100%" height="210"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.0!2d108.35!3d-7.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjMnMTIuMCJTIDEwOMKwMjEnMDAuMCJF!5e0!3m2!1sid!2sid!4v1" width="100%" height="210" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-
     </div>
-
-    <!-- Divider -->
     <hr class="sdn-footer-divider">
-
-    <!-- Copyright bar -->
     <div class="sdn-copyright">
-        <p class="sdn-copyright-left">
-            &copy; 2025 <span>SDN 1 Mangkubumi</span> — All Rights Reserved.
-        </p>
+        <p class="sdn-copyright-left">&copy; {{ date('Y') }} <span>SDN 1 Mangkubumi</span> — All Rights Reserved.</p>
         <ul class="sdn-copyright-right">
             <li><a href="#">Kebijakan Privasi</a></li>
             <li><a href="#">Syarat &amp; Ketentuan</a></li>
         </ul>
     </div>
-
 </footer>
 
 <!-- SCRIPTS -->
@@ -904,20 +571,20 @@
         }
     });
 </script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.meanmenu.js"></script>
-<script src="assets/js/jquery.appear.min.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/swiper.min.js"></script>
-<script src="assets/js/vanilla-tilt.min.js"></script>
-<script src="assets/js/ajax.mail.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.meanmenu.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/swiper.min.js') }}"></script>
+<script src="{{ asset('assets/js/vanilla-tilt.min.js') }}"></script>
+<script src="{{ asset('assets/js/ajax.mail.js') }}"></script>
+<script src="{{ asset('assets/js/wow.min.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

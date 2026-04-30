@@ -34,8 +34,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->default()
             ->login()
-            ->brandLogo(asset('assets/img/tutt.png'))
-            ->brandLogoHeight('48px')
+            ->brandLogo(asset('assets/img/bartulis.png'))
+            ->brandLogoHeight('85px')
             ->maxContentWidth(Width::Full)
             ->colors([
     'primary' => Color::hex('#66A4E8'),

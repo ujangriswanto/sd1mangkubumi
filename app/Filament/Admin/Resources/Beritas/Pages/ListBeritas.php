@@ -17,6 +17,7 @@ class ListBeritas extends ListRecords
                 ->label('Tambah Berita')
                 ->icon('heroicon-o-plus-circle'),
                 
+                
         ];
     }
 }

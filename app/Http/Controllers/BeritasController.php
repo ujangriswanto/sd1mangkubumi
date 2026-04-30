@@ -9,13 +9,20 @@ use Illuminate\Http\Request;
 
 class BeritasController extends Controller
 {
-    public function index()
-    {
-        $berita  = Beritas::latest()->paginate(6);
-        $contact = Contact::first();
-        $data    = ProfilSekolah::first();
-        return view('Berita.Berita', compact('berita', 'contact', 'data'));
+    public function index(Request $request)
+{
+    $query = Beritas::latest();
+
+    if ($request->filled('category')) {
+        $query->where('category', $request->category);
     }
+
+    $berita  = $query->paginate(6);
+    $contact = Contact::first();
+    $data    = ProfilSekolah::first();
+
+    return view('Berita.Berita', compact('berita', 'contact', 'data'));
+}
 
     public function show($slug)
     {

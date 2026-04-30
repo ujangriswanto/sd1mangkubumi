@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/tutt.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
@@ -145,32 +145,57 @@
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="/visi-misi" class="nav-link">Tentang</a></li>
-                        <li class="nav-item"><a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a></li>
-                        <li class="nav-item"><a href="/berita" class="nav-link">Berita</a></li>
-                        <li class="nav-item"><a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a></li>
-                        
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/visi-misi" class="nav-link">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kurikulum') }}" class="nav-link">Kurikulum</a>
+                        </li>
+						 <li class="nav-item">
+                        <a href="/berita" class="nav-link">Berita</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ route('ppdb.index') }}" class="nav-link">PPDB</a>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a></li>
-                                <li class="nav-item"><a href="{{ route('tata-tertib-sekolah') }}" class="nav-link">Tata Tertib Sekolah</a></li>
-                                <li class="nav-item"><a href="{{ route('tata-tertib-siswa') }}" class="nav-link">Tata Tertib Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+                                <li class="nav-item">
+                            <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="{{ route('tata-tertib-sekolah') }}" 
+                                  class="nav-link {{ request()->routeIs('tata-tertib-sekolah') ? 'active' : '' }}">
+                                    Tata Tertib Sekolah
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+    <a href="{{ route('tata-tertib-siswa') }}" class="nav-link {{ request()->routeIs('tata-tertib-siswa') ? 'active' : '' }}">
+                        Tata Tertib Siswa
+                                </a>
+                                </li>
+								
                             </ul>
                         </li>
-
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{{ route('DataSiswa.index') }}" class="nav-link">Total Data Siswa/Kelas</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('DataSiswa.index') }}" class="nav-link">Total Data Siswa/Kelas</a>
+</li>
+                                {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
-
-                        <li class="nav-item"><a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a></li>
+						<li class="nav-item">
+                        <a href="{{ route('program-sekolah') }}" class="nav-link">Program Sekolah</a>
+                        </li>
+                        
                     </ul>
+                    
                 </div>
             </nav>
         </div>

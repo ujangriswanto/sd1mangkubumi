@@ -115,17 +115,29 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akademik <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Jadwal Pelajaran</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Kalender Akademik</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Ekstrakurikuler</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Perpustakaan</a></li>
+                                <li class="nav-item">
+                            <a href="{{ route('jadwal-pelajaran') }}" class="nav-link">Jadwal Pelajaran</a>
+                                </li>
+                                <li class="nav-item">
+                                <a href="{{ route('tata-tertib-sekolah') }}" 
+                                  class="nav-link {{ request()->routeIs('tata-tertib-sekolah') ? 'active' : '' }}">
+                                    Tata Tertib Sekolah
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+    <a href="{{ route('tata-tertib-siswa') }}" class="nav-link {{ request()->routeIs('tata-tertib-siswa') ? 'active' : '' }}">
+                        Tata Tertib Siswa
+                                </a>
+                                </li>
+								
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Kesiswaan <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Total Data Siswa /Kelas</a></li>
+                                <li class="nav-item">
+    <a href="{{ route('DataSiswa.index') }}" class="nav-link">Total Data Siswa/Kelas</a>
+</li>
                                 {{-- <li class="nav-item"><a href="#" class="nav-link">Galeri Kegiatan</a></li> --}}
                             </ul>
                         </li>
@@ -180,9 +192,26 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
         @forelse($berita as $item)
         <div class="berita2-card">
             <a href="/berita/{{ $item->slug }}" class="berita2-img-wrap">
-                <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
-                <span class="berita2-badge">📰 {{ $item->category }}</span>
-            </a>
+    @php
+        $ext = strtolower(pathinfo($item->thumbnail, PATHINFO_EXTENSION));
+        $isVideo = in_array($ext, ['mp4', 'avi', 'mov', 'mkv']);
+    @endphp
+
+    @if($isVideo)
+        <video 
+            src="{{ asset('storage/' . $item->thumbnail) }}"
+            muted
+            autoplay
+            loop
+            playsinline
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+        </video>
+    @else
+        <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}">
+    @endif
+
+    <span class="berita2-badge">📰 {{ $item->category }}</span>
+</a>
             <div class="berita2-body">
                 <h3><a href="/berita/{{ $item->slug }}">{{ $item->title }}</a></h3>
                 <div class="berita2-footer"> <span><strong>{{ $item->author }}</strong></span> <a href="/berita/{{ $item->slug }}" class="berita2-link">Baca selengkapnya →</a>
